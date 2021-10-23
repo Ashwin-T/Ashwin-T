@@ -40,12 +40,21 @@ p{
     font-size: 2.75vh
 }
 
+hr{
+    border-top: 3px solid #548fa4;
+    border-radius: 5px;
+    width: 35vw;
+}
+
 .flexbox{
     display: flex;
     flex-wrap: wrap;
 }
 .column{
     flex-direction: column;
+}
+.row{
+    flex-direction: row;
 }
 .center{
     text-align: center;
@@ -97,7 +106,7 @@ p{
 .scroll-arrow{
     text-align: center;
     font-size: 65px;
-    margin-top: 25vh;
+    margin-top: 22vh;
 }
 .scroll-arrow a{
     color: white;
@@ -146,7 +155,11 @@ p{
     width: auto
 }
 .skillsContanier{
-   height: 100vh
+   height: auto;
+   background: url('./assets/images/backgroundSkills.svg');
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
 }
 .skillsTitle{
     text-align: center;
@@ -160,7 +173,32 @@ p{
     height: 60vh;
     width: 50vw;
 }
-
+.skillsBox span{
+    padding: 1vh
+}
+.skillsContent{
+    font-size: 2vh;
+    padding: 10px;
+    color: #548fa4;
+}
+.skillsSubHeader{
+    color: grey;
+    border-bottom: 3px solid grey;
+    margin: 1vh 0;
+}
+.boxTittle{
+    color: white;
+    font-size: 3vh;
+    padding: 7px;
+    border-bottom: 3px dashed #548fa4;
+    padding: 2vh 0 0 0; 
+}
+footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
 
 
 @media only screen and (max-width: 800px){
@@ -195,6 +233,9 @@ p{
     .skillsBox{
         height: 65vh;
         width: 75vw;
+    }
+    hr{
+        width: 50vw
     }
 }
     

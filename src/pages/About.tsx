@@ -9,10 +9,9 @@ export const About: React.FC = () =>{
     return (
         <div id = 'about'>
             <div className="aboutContainer" >
-
+                
                 <div className="aboutContent">
                     <motion.div className='flexbox column space-between'>
-
                         <div className ='flexbox column center'>   
                             <h1 className = 'aboutTitle'>
                                 ABOUT ME
