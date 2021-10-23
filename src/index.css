@@ -14,10 +14,9 @@ body{
 a{
     text-decoration: none;
     color: black;
-    margin-right: 3vw
 }
 a:hover{
-    color: #5aa54d
+    color: #f755ab
 }
 
 nav{
@@ -32,14 +31,18 @@ nav{
     background-color: white;
     border-radius: 20px;
 }
+
 p{
-    color: #5aa54d;
+    color: #548fa4;
     font-weight: bold;
-    font-size: 2vh
+    margin: 2vh 10vw;
+    text-align: center;
+    font-size: 2.75vh
 }
 
 .flexbox{
     display: flex;
+    flex-wrap: wrap;
 }
 .column{
     flex-direction: column;
@@ -49,6 +52,10 @@ p{
     justify-content: center;
     align-items: center;
 }
+.space-between{
+    align-items: center;
+    justify-content: space-around;
+}
 
 .logo{
     width: 6vh;
@@ -57,8 +64,137 @@ p{
 .navItemz{
     padding: 0vw 1.5vw
 }
+.navbarItem a{
+    margin-right: 3vw
+}
 
 .homeContainer{
     width: 100vw;
-    height: 100vh;
+    height: 85vh;
+    overflow: hidden;
+    margin-top: 5vh
 }
+.aboutContainer{
+    width: 100vw;
+    height: auto;
+    background-color: white
+}
+.mainLogo{
+    width: 45vw;
+    height: 45vw;
+}
+.homeTitle{
+    font-size: 12vh
+}
+
+.homeTitle2{
+    font-size: 4vh
+}
+.flamingo{
+    width: 45vh;
+    height: 45vh;
+}
+.scroll-arrow{
+    text-align: center;
+    font-size: 65px;
+    margin-top: 25vh;
+}
+.scroll-arrow a{
+    color: white;
+}
+.scroll-arrow a:hover{
+    color: #f755ab;
+}
+.aboutContent{
+    margin-top: 7vh;
+}
+
+.aboutTitle{
+    text-align: center;
+    font-size: 5vh;
+    color: #1a1d22;
+    border-bottom: 3px dotted #548fa4;
+}
+
+.scroll-arrow2{
+    text-align: center;
+    font-size: 65px;
+}
+.scroll-arrow2 a{
+    color: #1a1d22;
+}
+.scroll-arrow2 a:hover{
+    color: #f755ab;
+}
+.learnMoreButton{
+    padding: 5px;
+    font-size: 1.75vh;
+    font-weight: bold;
+    width: 20vh;
+    height: 5vh;
+    border-radius: 7px;
+    background-color: #548fa4;
+    color: white;
+}
+.aboutBtnTxt{
+    color: white
+}
+.aboutBtnTxt:hover{
+    color: white
+}
+.aboutImg{
+    width: auto
+}
+.skillsContanier{
+   height: 100vh
+}
+.skillsTitle{
+    text-align: center;
+    font-size: 5vh;
+    color: white;
+    border-bottom: 3px dotted white;
+}
+.skillsBox{
+    background-color: #1a1d22;
+    border-radius: 15px;
+    height: 60vh;
+    width: 50vw;
+}
+
+
+
+@media only screen and (max-width: 800px){
+    .mainLogo{
+        width: 40vh;
+        height: 40vh;
+    }
+    .flamingo{
+        margin-top: 7vh;
+        width: 35vh;
+        height: 35vh;
+    }
+    .homeTitle{
+        text-align: center;
+        font-size: 6vh
+    }
+    .homeTitle2{
+        text-align: center;
+        font-size: 2.25vh
+    }
+    .scroll-arrow{
+        text-align: center;
+        font-size: 65px;
+        margin-top: 15vh;
+    }
+    p{
+        font-size: 1.75vh;
+    }
+    .aboutImg{
+        width: 45vh;
+    }
+    .skillsBox{
+        height: 65vh;
+        width: 75vw;
+    }
+}
+    
