@@ -5,7 +5,6 @@ import {AiOutlineDatabase, AiOutlineDown} from 'react-icons/ai'
 
 export const Skills: React.FC =()=>{
     return (
-
         <div id = 'skills' className="skillsContanier">
             <div className="flexbox column center ">
 
@@ -22,7 +21,7 @@ export const Skills: React.FC =()=>{
                         <div className="flexbox column center">
                             <div className = 'boxTittle'>Frontend <RiComputerLine /></div>
                             <div className = 'skillsSubHeader'>Languages</div>
-                            <span>JavaScript, Typescript, HTML5 & CSS3, </span>
+                            <span>JavaScript, TypeScript, HTML5 & CSS3, </span>
                             <div className = 'skillsSubHeader'>Frameworks / Libraries / Tools</div>
                             <span> React.js, Gatsby, Redux, Bootstrap, Material-UI, A lot of React.js/JS libraries</span>
                         </div> 
@@ -34,7 +33,7 @@ export const Skills: React.FC =()=>{
                             <div className = 'skillsSubHeader'>Languages</div>
                             <span>JavaScript, Java, Python, C, C++,</span>
                             <div className = 'skillsSubHeader'>Frameworks / Libraries / Tools</div>
-                            <span>Express,MongoDB, Firebase</span>
+                            <span>Express, MongoDB, Firebase</span>
                         </div>
 
                     </div>

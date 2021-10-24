@@ -33,7 +33,7 @@ export const About: React.FC = () =>{
 
                             <motion.div className = 'scroll-arrow2'
                                 animate = {{
-                                    y: [-30, -10],
+                                    y: [-40, 0],
                                     transition: {
                                         duration: 1,
                                         yoyo: Infinity
