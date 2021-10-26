@@ -1,29 +1,20 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import {motion} from 'framer-motion'
-import logo from '../assets/images/logo.png'
 import flamingo from '../assets/images/flamingo.png'
 import {AiOutlineDown} from 'react-icons/ai'
 
-export const Home: React.FC = ()=>{
+export const Home: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=>{
 
-    const [loading, setLoading] = useState(true)
-
-
-    useEffect(()=>{
-        setTimeout(()=>{
-            setLoading(false);
-        }, 3900)
-    }, [])
 
     const sentenceMove = {
         inital:{
-            x:'-150vw'
+            x:'-100vw'
         },
         animate:{
             x: 0,
             transition:{
-                delay: 3,
-                duration: 2.5,
+                delay: 1,
+                duration: 2,
             }
         }
     }
@@ -42,93 +33,96 @@ export const Home: React.FC = ()=>{
     }
 
 
-
-    const logoVarients = {
+    const arrowVarients = {
         inital:{
-            x:'-100vw',
+            x: '200vh',
         },
         animate:{
             x: 0,
-            transition:{
-                type: 'spring',
-                stiffness: 75,
-                duration: 2,
-            }
-        }
-    }
-
-    const imageContainerVarients = {
-        inital:{
-            opacity: 1,
-        },
-        animate:{
-            x: 0,
-            opacity: 0,
-            transition:{
+            transition: { 
                 delay: 1,
                 duration: 2,
             }
         }
     }
 
-    
-
-    return (
+    const Animation: React.FC = ()=>{
+        return(
         <>
 
-            {loading && (<motion.div className = 'flexbox column center'
-               variants = {imageContainerVarients}
-               initial = 'inital'
-               animate = 'animate'
-            >
-                <motion.img src = {logo} alt = 'mainLogo' className = 'mainLogo'  
-                    variants = {logoVarients}
-                    initial = 'inital'
-                    animate = 'animate'
-                />
-            </motion.div>)}            
-            
-            <motion.div className='homeContainer'
-                variants = {sentence}
+         <motion.div className='homeContainer'
+             variants = {sentence}
+             initial = 'inital'
+             animate = 'animate'
+         >
+
+             <motion.div className='flexbox row space-between'
+                 variants = {sentenceMove}
+                 initial = 'inital'
+                 animate = 'animate'>
+
+                 <div>
+                     <h1 className = 'flexbox column homeTitle'>
+                         Hey, I'm Ashwin
+                         <div className = 'flexbox column homeTitle2'>
+                             Student | Athelete | Developer
+                         </div>
+                     </h1>
+                    
+                 </div>
+
+                 <img src = {flamingo} alt = 'flamingo' className = 'flamingo'/>
+
+             </motion.div>
+
+             <motion.div className = 'scroll-arrow'
+                variants = {arrowVarients}
                 initial = 'inital'
-                animate = 'animate'
-            >
+                animate = 'animate'>  
+                 <motion.a href = '#about'>
+                     <AiOutlineDown />
+                 </motion.a>
+             </motion.div>
 
-                <motion.div className='flexbox row space-between'
-                    variants = {sentenceMove}
-                    initial = 'inital'
-                    animate = 'animate'>
+         </motion.div>
+        </>
+        )
+    }
 
-                    <div>
-                        <h1 className = 'flexbox column homeTitle'>
-                            Hey, I'm Ashwin
-                            <h1 className = 'flexbox column homeTitle2'>
-                                Student | Athelete | Developer
-                            </h1>
-                        </h1>
-                       
-                    </div>
 
-                    <img src = {flamingo} alt = 'flamingo' className = 'flamingo'/>
+    const Regular: React.FC = ()=>{
+        return(
+        <>        
+         
+         <div className='homeContainer'>
 
-                </motion.div>
+             <div className='flexbox row space-between'>
+                 <div>
+                     <h1 className = 'flexbox column homeTitle'>
+                         Hey, I'm Ashwin
+                         <div className = 'flexbox column homeTitle2'>
+                             Student | Athelete | Developer
+                         </div>
+                     </h1>
+                 </div>
 
-                {!loading && <motion.div className = 'scroll-arrow'
-                    animate = {{
-                        y: [-50, 0],
-                        transition: {
-                            duration: 1,
-                            yoyo: Infinity
-                        }
-                    }}
-                >
-                    <a href = '#about'>
-                        <AiOutlineDown />
-                    </a>
-                </motion.div>}
-                
-                
-            </motion.div>
+                 <img src = {flamingo} alt = 'flamingo' className = 'flamingo'/>
+
+             </div>
+
+             <div className = 'scroll-arrow'>
+                 <a href = '#about'>
+                     <AiOutlineDown />
+                 </a>
+             </div>
+         </div>
+        </>
+        )
+    }
+    
+    return (
+        <>
+            {anim.current ? <Animation /> : <Regular />}
         </>
     )
 }

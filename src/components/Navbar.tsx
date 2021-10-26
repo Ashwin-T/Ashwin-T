@@ -3,7 +3,7 @@ import {motion} from 'framer-motion'
 import logo from '../assets/images/logo.png'
 import React from 'react'
   
-export const Navbar: React.FC = ()=>{
+export const Navbar: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=>{
 
     const NavbarData: any = [
         {
@@ -38,29 +38,57 @@ export const Navbar: React.FC = ()=>{
         animate:{
             y: 0,
             transition:{
-                delay: 2,
-                duration: 2,
+                duration: 1.5,
             }
         }
     }
 
+    const Animation: React.FC = () =>{
+        return(
+            <motion.nav 
+            variants = {navbarVarients}
+            initial = "inital"
+            animate = "animate"
+            >
+                <a href = '/' className="navItemz">
+                    <img className = 'logo' alt = 'logo' src = {logo} />
+                </a>
+
+                <div className="navbarItem">
+                    {NavbarData.map((item: any)=>{
+                        return(
+                            <a key = {item.title} href = {item.tag}>{item.icon}</a>
+                        )
+                    })}
+                </div> 
+        </motion.nav>
+        )
+    }
+
+    const Regular: React.FC = () =>{
+        return(
+            <nav>
+                <a onClick = {()=>{anim.current = true}}href = '/' className="navItemz">
+                    <img className = 'logo' alt = 'logo' src = {logo} />
+                </a>
+
+                <div className="navbarItem">
+                    {NavbarData.map((item: any)=>{
+                        return(
+                            <a key = {item.title} href = {item.tag}>{item.icon}</a>
+                        )
+                    })}
+                </div> 
+            </nav>
+        )
+    }
+
+
+
     return (
-    <motion.nav 
-        variants = {navbarVarients}
-        initial = "inital"
-        animate = "animate"
-    >
-        <a href = '/' className="navItemz">
-            <img className = 'logo' alt = 'logo' src = {logo} />
-        </a>
-        <div className="navbarItem">
-            {NavbarData.map((item: any)=>{
-                return(
-                    <a key = {item.title} href = {item.tag}>{item.icon}</a>
-                )
-            })}
-        </div> 
-    </motion.nav>
+        <>
+         {anim.current ? <Animation /> : <Regular />}
+        </>
     )
 }
   

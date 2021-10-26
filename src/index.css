@@ -79,9 +79,8 @@ hr{
 
 .homeContainer{
     width: 100vw;
-    height: 85vh;
+        height: 100vh;
     overflow: hidden;
-    margin-top: 5vh
 }
 .aboutContainer{
     width: 100vw;
@@ -89,8 +88,8 @@ hr{
     background-color: white
 }
 .mainLogo{
-    width: 45vw;
-    height: 45vw;
+    width: 50vw;
+    height: 50vw;
 }
 .homeTitle{
     font-size: 12vh
@@ -106,7 +105,7 @@ hr{
 .scroll-arrow{
     text-align: center;
     font-size: 65px;
-    margin-top: 22vh;
+    margin-top: 23vh;
 }
 .scroll-arrow a{
     color: white;
@@ -116,6 +115,26 @@ hr{
 }
 .aboutContent{
     margin-top: 7vh;
+}
+.backArrow{
+    font-size: 7vh;
+    color: white;
+    padding: 3vw 0 0 3vw;
+    width: 15vw;
+}
+.backArrow:hover{
+    color: black;
+}
+.APContainer h1{
+    text-align: center;
+    font-size: 5vh;
+    color: white;
+    border-bottom: 3px dotted white;
+}
+.APContainer img{
+    border: 5px solid black;
+    width: auto;
+    height: auto;
 }
 
 .aboutTitle{
@@ -193,18 +212,23 @@ hr{
     border-bottom: 3px dashed #548fa4;
     padding: 2vh 0 0 0; 
 }
-footer{
+/* footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
+    height: 20vh;
+    background-color: white
 }
+footer img{
+   width: 10vw;
+   height: 8.9122807vw;
+} */
 
 
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 700px) and (min-width: 280px){
     .mainLogo{
-        width: 40vh;
-        height: 40vh;
+        width: 50vh;
+        height: 50vh;
     }
     .flamingo{
         margin-top: 7vh;
@@ -228,14 +252,32 @@ footer{
         font-size: 1.75vh;
     }
     .aboutImg{
-        width: 45vh;
+        width: 47.5vh;
+    }
+    .aboutContainer{
+        width: 100vw;
+        height: 100vh;
     }
     .skillsBox{
         height: 65vh;
         width: 75vw;
     }
     hr{
-        width: 50vw
+        width: 60vw
+    }
+    .skillsContanier{
+        height: auto;
+        background: url('./assets/images/blank.svg');
+     }
+}
+
+@media only screen and (max-width: 280px){
+    .aboutImg{
+        width: 40vh;
+    }
+    .mainLogo{
+        width: 40vw;
+        height: 40vw;
     }
 }
     

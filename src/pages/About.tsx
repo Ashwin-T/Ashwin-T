@@ -31,15 +31,9 @@ export const About: React.FC = () =>{
 
                             <img alt = 'C&H' src = {CH} className = 'aboutImg'/>
 
-                            <motion.div className = 'scroll-arrow2'
-                                animate = {{
-                                    y: [-40, 0],
-                                    transition: {
-                                        duration: 1,
-                                        yoyo: Infinity
-                                    }
-                                }}
-                            >
+                            <br/>
+
+                            <motion.div className = 'scroll-arrow2'>
                                 <a href = '#skills'>
                                     <AiOutlineDown />
                                 </a>

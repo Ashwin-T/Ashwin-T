@@ -40,11 +40,11 @@ export const Skills: React.FC =()=>{
                 </div>
                 <motion.div className = 'scroll-arrow'
                     animate = {{
-                        y: [-50, 0],
+                        y: [-40, 0],
                         transition: {
                             duration: 1,
-                            yoyo: Infinity
-                        }
+                            yoyo: 5,
+                    }
                     }}
                 >
                     <a href = '#projects'>
