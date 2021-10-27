@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/Ashwin-T/static/css/main.c164db54.chunk.css",
-    "main.js": "/Ashwin-T/static/js/main.9653cb5d.chunk.js",
-    "main.js.map": "/Ashwin-T/static/js/main.9653cb5d.chunk.js.map",
-    "runtime-main.js": "/Ashwin-T/static/js/runtime-main.5909bfc1.js",
-    "runtime-main.js.map": "/Ashwin-T/static/js/runtime-main.5909bfc1.js.map",
-    "static/js/2.3cb75b6d.chunk.js": "/Ashwin-T/static/js/2.3cb75b6d.chunk.js",
-    "static/js/2.3cb75b6d.chunk.js.map": "/Ashwin-T/static/js/2.3cb75b6d.chunk.js.map",
-    "index.html": "/Ashwin-T/index.html",
-    "static/css/main.c164db54.chunk.css.map": "/Ashwin-T/static/css/main.c164db54.chunk.css.map",
-    "static/js/2.3cb75b6d.chunk.js.LICENSE.txt": "/Ashwin-T/static/js/2.3cb75b6d.chunk.js.LICENSE.txt",
-    "static/media/CalvinHobbes.95ec2543.png": "/Ashwin-T/static/media/CalvinHobbes.95ec2543.png",
-    "static/media/index.css": "/Ashwin-T/static/media/blank.16628da9.svg",
-    "static/media/comic.9372bbfc.png": "/Ashwin-T/static/media/comic.9372bbfc.png",
-    "static/media/flamingo.fb2fa86d.png": "/Ashwin-T/static/media/flamingo.fb2fa86d.png",
-    "static/media/logo.79312c27.png": "/Ashwin-T/static/media/logo.79312c27.png"
+    "main.css": "/static/css/main.16a07fa3.chunk.css",
+    "main.js": "/static/js/main.9653cb5d.chunk.js",
+    "main.js.map": "/static/js/main.9653cb5d.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.674a9260.js",
+    "runtime-main.js.map": "/static/js/runtime-main.674a9260.js.map",
+    "static/js/2.3cb75b6d.chunk.js": "/static/js/2.3cb75b6d.chunk.js",
+    "static/js/2.3cb75b6d.chunk.js.map": "/static/js/2.3cb75b6d.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.16a07fa3.chunk.css.map": "/static/css/main.16a07fa3.chunk.css.map",
+    "static/js/2.3cb75b6d.chunk.js.LICENSE.txt": "/static/js/2.3cb75b6d.chunk.js.LICENSE.txt",
+    "static/media/CalvinHobbes.95ec2543.png": "/static/media/CalvinHobbes.95ec2543.png",
+    "static/media/index.css": "/static/media/blank.16628da9.svg",
+    "static/media/comic.9372bbfc.png": "/static/media/comic.9372bbfc.png",
+    "static/media/flamingo.fb2fa86d.png": "/static/media/flamingo.fb2fa86d.png",
+    "static/media/logo.79312c27.png": "/static/media/logo.79312c27.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.5909bfc1.js",
+    "static/js/runtime-main.674a9260.js",
     "static/js/2.3cb75b6d.chunk.js",
-    "static/css/main.c164db54.chunk.css",
+    "static/css/main.16a07fa3.chunk.css",
     "static/js/main.9653cb5d.chunk.js"
   ]
 }
