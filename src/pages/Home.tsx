@@ -5,7 +5,6 @@ import {AiOutlineDown} from 'react-icons/ai'
 
 export const Home: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=>{
 
-
     const sentenceMove = {
         inital:{
             x:'-100vw'
