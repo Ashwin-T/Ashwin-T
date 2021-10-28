@@ -97,6 +97,8 @@ export const Home: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=
          
          <div className='homeContainer'>
 
+             <br />
+
              <div className='flexbox row space-between'>
                  <div>
                      <h1 className = 'flexbox column homeTitle'>

@@ -5,6 +5,7 @@ import {Home} from './pages/Home';
 import {About} from './pages/About';
 import {Skills} from './pages/Skills';
 import {AboutPanel} from './pages/AboutPanel';
+import { Projects } from './pages/Projects';
 
 import {AnimatePresence} from 'framer-motion'
 import {Switch, Route, useLocation} from 'react-router-dom'
@@ -27,7 +28,7 @@ const App: React.FC = ()=>{
   
       setTimeout(()=>{
           ref.current = false;
-      }, 5000)
+      }, 2900)
 
     }, [])
 
@@ -41,6 +42,7 @@ const App: React.FC = ()=>{
               <Home anim = {ref}/>
               <About />
               <Skills />
+              <Projects />
               {/* <Footer /> */}
             </Route>
             <Route exact path = '/aboutme'>

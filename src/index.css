@@ -35,7 +35,7 @@ nav{
 p{
     color: #548fa4;
     font-weight: bold;
-    margin: 2vh 10vw;
+    margin: 1.25vh 10vw;
     text-align: center;
     font-size: 2.75vh
 }
@@ -45,16 +45,28 @@ hr{
     border-radius: 5px;
     width: 45vw;
 }
+h2{
+    text-align: center;
+    font-size: 3vh;
+}
+h3{
+    text-align: center;
+    font-size: 2.5vh;
+    margin: 2vh 3vw 2vh 3vw;
+    text-align: center;
+}
 
 .flexbox{
     display: flex;
+}
+.wrap{
     flex-wrap: wrap;
+}
+.dataContent{
+    width: 50vw
 }
 .column{
     flex-direction: column;
-}
-.row{
-    flex-direction: row;
 }
 .center{
     text-align: center;
@@ -120,21 +132,24 @@ hr{
     font-size: 7vh;
     color: white;
     padding: 3vw 0 0 3vw;
-    width: 15vw;
+    width: 20vw;
 }
 .backArrow:hover{
     color: black;
 }
 .APContainer h1{
-    text-align: center;
-    font-size: 5vh;
-    color: white;
-    border-bottom: 3px dotted white;
+    font-size: 4vh;
+    color: #1a1d22;
+    border-bottom: 3px dotted #1a1d22;
 }
 .APContainer img{
     border: 5px solid black;
-    width: auto;
+    width: 33.5vw;
+}
+.sectionz{
+    width: 100vw;
     height: auto;
+    padding: 10px
 }
 
 .aboutTitle{
@@ -212,17 +227,34 @@ hr{
     border-bottom: 3px dashed #548fa4;
     padding: 2vh 0 0 0; 
 }
-/* footer{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 20vh;
-    background-color: white
+.bold{
+    color: black;
 }
-footer img{
-   width: 10vw;
-   height: 8.9122807vw;
-} */
+.aboutA{
+    color:#1a1d22;
+}
+.aboutB{
+    color:gold;
+}
+.aboutP{
+    color:violet;
+}
+.aboutM{
+    color:black;
+    border-bottom: 3px solid red;
+}
+.aboutPaneltitle{    
+    color:#1a1d22;
+}
+.projectContainer{
+    width: 100vw;
+    height: auto;
+    background-color: white;
+    padding: 100px 0
+}
+.projectContainer h1{
+    color: #548fa4
+}
 
 
 @media only screen and (max-width: 700px) and (min-width: 280px){
@@ -269,6 +301,12 @@ footer img{
         height: auto;
         background: url('./assets/images/blank.svg');
      }
+     .APContainer h1{
+         font-size: 3vh;
+     }
+     .dataContent{
+        width: 100vw
+    }
 }
 
 @media only screen and (max-width: 280px){

@@ -1,0 +1,39 @@
+{
+    "aboutMe": "Hey, my name is Ashwin. I am currently a Senior at Mountain View Highschool in California. I started coding in my sophmore year of highschool, where I learned languages like Java, C, & Python. From there I branched out on my own & learning web based languages such as HTML, CSS, & Javascript, as well as frameworks such as React.",
+    "aboutMore": "My hobbies include swimming & athletics in general, programming websites & desktop applications, & reading Calvin and Hobbes",
+    "activities": [
+        {
+            "message": "I have been a part of the school Varsity Swim Team for every year of High School & am the Varisty Captain this upcoming season. I also swim year-round for LAMVAC, a local competitive swim club"
+        },
+        {
+            "message": "My swim career has caused me to pursue being a lifeguard & am CPR & First-Aid certified"
+        }
+        ,{
+            "message": "I particapate in many clubs throughout my school, includuing Spartan Buddies which I have been apart of for the past 4 years"
+        }
+    ],
+    
+    "rightNow": [
+        {
+            "message": "Senior year has begun, which means college apps. My class-load this year includes: Advanced CS, Photography I, Philosophy in Literature, AP Physics C Mechanics, AP Statistics, & AP Government",
+            "css": "aboutA"
+        },
+        {
+            "title": "School Wide Projects",
+            "message": "I am currently leading a team that is working on a project that will better my school known as MV Xperience as well as working with MVHS Ambassadors to build an app that will help incoming freshmen",
+            "css": "aboutB"
+        },
+        {
+            "title": "MVHacks 4.5",
+            "message": "MVHacks 4.5 is a beginer orientated hackathon, for which I am the Event Director. As the Event Director I am in charge of the logistics & execution of the event",
+            "css": "aboutM",
+            "link": "https://mvhacks.io"
+            
+        },
+        {
+            "title": "Personal Projects",
+            "message": "As of right now I am working on projects that will help improve my progamming skills. I want to get more practice with TypeScript, Gatsby, MongoDB, CSS as well as learn Next.js",
+            "css": "aboutP"
+        }
+    ]
+}

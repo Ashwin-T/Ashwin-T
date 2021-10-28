@@ -21,7 +21,7 @@ export const Navbar: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim}
         {
             title: "Projects",
             icon : <FaProjectDiagram />,
-            tag: "/#projects"
+            tag: "/#project"
         },
         {
             title: "Contact",
