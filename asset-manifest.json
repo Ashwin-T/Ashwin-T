@@ -1,27 +1,31 @@
 {
   "files": {
-    "main.css": "/Ashwin-T/static/css/main.1f9d8ca6.chunk.css",
-    "main.js": "/Ashwin-T/static/js/main.6e435a54.chunk.js",
-    "main.js.map": "/Ashwin-T/static/js/main.6e435a54.chunk.js.map",
+    "main.css": "/Ashwin-T/static/css/main.24b234b8.chunk.css",
+    "main.js": "/Ashwin-T/static/js/main.47b8484d.chunk.js",
+    "main.js.map": "/Ashwin-T/static/js/main.47b8484d.chunk.js.map",
     "runtime-main.js": "/Ashwin-T/static/js/runtime-main.5909bfc1.js",
     "runtime-main.js.map": "/Ashwin-T/static/js/runtime-main.5909bfc1.js.map",
     "static/css/2.7fc9bc2b.chunk.css": "/Ashwin-T/static/css/2.7fc9bc2b.chunk.css",
-    "static/js/2.3f8b3204.chunk.js": "/Ashwin-T/static/js/2.3f8b3204.chunk.js",
-    "static/js/2.3f8b3204.chunk.js.map": "/Ashwin-T/static/js/2.3f8b3204.chunk.js.map",
+    "static/js/2.f42f787b.chunk.js": "/Ashwin-T/static/js/2.f42f787b.chunk.js",
+    "static/js/2.f42f787b.chunk.js.map": "/Ashwin-T/static/js/2.f42f787b.chunk.js.map",
     "index.html": "/Ashwin-T/index.html",
     "static/css/2.7fc9bc2b.chunk.css.map": "/Ashwin-T/static/css/2.7fc9bc2b.chunk.css.map",
-    "static/css/main.1f9d8ca6.chunk.css.map": "/Ashwin-T/static/css/main.1f9d8ca6.chunk.css.map",
-    "static/js/2.3f8b3204.chunk.js.LICENSE.txt": "/Ashwin-T/static/js/2.3f8b3204.chunk.js.LICENSE.txt",
+    "static/css/main.24b234b8.chunk.css.map": "/Ashwin-T/static/css/main.24b234b8.chunk.css.map",
+    "static/js/2.f42f787b.chunk.js.LICENSE.txt": "/Ashwin-T/static/js/2.f42f787b.chunk.js.LICENSE.txt",
     "static/media/CalvinHobbes.95ec2543.png": "/Ashwin-T/static/media/CalvinHobbes.95ec2543.png",
     "static/media/index.css": "/Ashwin-T/static/media/blank.16628da9.svg",
+    "static/media/comicx.d64993f0.jpg": "/Ashwin-T/static/media/comicx.d64993f0.jpg",
+    "static/media/comicz.5721728c.jpg": "/Ashwin-T/static/media/comicz.5721728c.jpg",
     "static/media/flamingo.fb2fa86d.png": "/Ashwin-T/static/media/flamingo.fb2fa86d.png",
-    "static/media/logo.79312c27.png": "/Ashwin-T/static/media/logo.79312c27.png"
+    "static/media/logo.79312c27.png": "/Ashwin-T/static/media/logo.79312c27.png",
+    "static/media/suit.feebe50e.png": "/Ashwin-T/static/media/suit.feebe50e.png",
+    "static/media/us.3f8671bd.png": "/Ashwin-T/static/media/us.3f8671bd.png"
   },
   "entrypoints": [
     "static/js/runtime-main.5909bfc1.js",
     "static/css/2.7fc9bc2b.chunk.css",
-    "static/js/2.3f8b3204.chunk.js",
-    "static/css/main.1f9d8ca6.chunk.css",
-    "static/js/main.6e435a54.chunk.js"
+    "static/js/2.f42f787b.chunk.js",
+    "static/css/main.24b234b8.chunk.css",
+    "static/js/main.47b8484d.chunk.js"
   ]
 }
