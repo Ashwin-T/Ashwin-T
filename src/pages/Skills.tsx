@@ -47,7 +47,7 @@ export const Skills: React.FC =()=>{
                     }
                     }}
                 >
-                    <a href = '#projects'>
+                    <a href = '/#projects'>
                         <AiOutlineDown />
                     </a>
                 </motion.div>

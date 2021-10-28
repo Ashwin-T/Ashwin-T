@@ -1,6 +1,7 @@
 import React from 'react'
 import {motion} from 'framer-motion'
 import { Link } from 'react-router-dom'
+import { HashLink } from 'react-router-hash-link';
 import {AiOutlineDown} from 'react-icons/ai'    
 import CH from '../assets/images/CalvinHobbes.png'
 
@@ -22,21 +23,20 @@ export const About: React.FC = () =>{
                             </p>
 
                             <p>
-                                Outside of school and programming he enjoys swimming, weightlifting, playing any sport, reading Calvin and Hobbes, playing games and watching anime with his younger brother, as well as trying out new things.
+                                Outside of school and programming he enjoys swimming, weightlifting, playing any sport, reading Calvin and Hobbes, playing games and watching anime with his younger brother, eating, as well as trying out new things.
                             </p>
 
                             <motion.button className = 'learnMoreButton'>
-                                <Link className = 'aboutBtnTxt' to = '/about'>Click to Learn More</Link>
+                                <Link className = 'aboutBtnTxt' to = '/aboutme'>Click to Learn More</Link>
                             </motion.button>
 
                             <img alt = 'C&H' src = {CH} className = 'aboutImg'/>
 
-                            <br/>
 
                             <motion.div className = 'scroll-arrow2'>
-                                <a href = '#skills'>
+                                <HashLink smooth to = '/#skills'>
                                     <AiOutlineDown />
-                                </a>
+                                </HashLink>
                             </motion.div>
 
                         </div>

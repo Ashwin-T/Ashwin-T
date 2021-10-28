@@ -2,6 +2,8 @@ import {FaMailBulk, FaRegUser,FaCode, FaProjectDiagram} from "react-icons/fa";
 import {motion} from 'framer-motion'
 import logo from '../assets/images/logo.png'
 import React from 'react'
+import { HashLink } from 'react-router-hash-link';
+
   
 export const Navbar: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=>{
 
@@ -9,22 +11,22 @@ export const Navbar: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim}
         {
             title: "About",
             icon : <FaRegUser />,
-            tag: "#about"
+            tag: "/#about"
         },
         {
             title: "Skills",
             icon : <FaCode />,
-            tag: "#skills"
+            tag: "/#skills"
         },
         {
             title: "Projects",
             icon : <FaProjectDiagram />,
-            tag: "#projects"
+            tag: "/#projects"
         },
         {
             title: "Contact",
             icon : <FaMailBulk />,
-            tag: "#contact"
+            tag: "/#contact"
         },
         
         
@@ -68,14 +70,14 @@ export const Navbar: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim}
     const Regular: React.FC = () =>{
         return(
             <nav>
-                <a onClick = {()=>{anim.current = true}}href = '/' className="navItemz">
+                <HashLink onClick = {()=>{anim.current = true}} smooth to = '/'  className="navItemz">
                     <img className = 'logo' alt = 'logo' src = {logo} />
-                </a>
+                </HashLink>
 
                 <div className="navbarItem">
                     {NavbarData.map((item: any)=>{
                         return(
-                            <a key = {item.title} href = {item.tag}>{item.icon}</a>
+                            <HashLink key = {item.title} smooth to = {item.tag}>{item.icon}</HashLink>
                         )
                     })}
                 </div> 

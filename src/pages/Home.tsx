@@ -2,6 +2,8 @@ import React from 'react'
 import {motion} from 'framer-motion'
 import flamingo from '../assets/images/flamingo.png'
 import {AiOutlineDown} from 'react-icons/ai'
+import { HashLink } from 'react-router-hash-link';
+
 
 export const Home: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=>{
 
@@ -78,9 +80,9 @@ export const Home: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=
                 variants = {arrowVarients}
                 initial = 'inital'
                 animate = 'animate'>  
-                 <motion.a href = '#about'>
+                 <HashLink smooth to = '/#about'>
                      <AiOutlineDown />
-                 </motion.a>
+                 </HashLink>
              </motion.div>
 
          </motion.div>
@@ -110,9 +112,9 @@ export const Home: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=
              </div>
 
              <div className = 'scroll-arrow'>
-                 <a href = '#about'>
+                <HashLink smooth to = '/#about'>
                      <AiOutlineDown />
-                 </a>
+                 </HashLink>
              </div>
          </div>
         </>

@@ -43,7 +43,7 @@ const App: React.FC = ()=>{
               <Skills />
               {/* <Footer /> */}
             </Route>
-            <Route exact path = '/about'>
+            <Route exact path = '/aboutme'>
                 <AboutPanel /> 
             </Route>
           </Switch>
