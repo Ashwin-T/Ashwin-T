@@ -58,6 +58,7 @@ h3{
 
 .flexbox{
     display: flex;
+    flex-wrap: wrap;
 }
 .wrap{
     flex-wrap: wrap;
@@ -288,7 +289,7 @@ h3{
     }
     .aboutContainer{
         width: 100vw;
-        height: 100vh;
+        height: 105vh;
     }
     .skillsBox{
         height: 65vh;
