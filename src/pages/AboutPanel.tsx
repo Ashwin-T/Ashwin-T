@@ -37,7 +37,7 @@ export const AboutPanel: React.FC = ()=>{
 
             <div className="flexbox column center APContainer" >
 
-                <div className="flexbox row center" data-aos="flip-left">
+                <div className="flexbox row center" data-aos="fade-right">
                     {!isMobile() &&
                         <div className="flexbox column center">
                             <img src={suit} alt = 'suit' />
