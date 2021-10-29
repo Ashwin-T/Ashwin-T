@@ -2,6 +2,8 @@ import React from 'react'
 import {RiComputerLine} from 'react-icons/ri'
 import {motion} from 'framer-motion'
 import {AiOutlineDatabase, AiOutlineDown} from 'react-icons/ai'
+import { HashLink } from 'react-router-hash-link';
+
 
 export const Skills: React.FC =()=>{
     return (
@@ -47,9 +49,9 @@ export const Skills: React.FC =()=>{
                     }
                     }}
                 >
-                    <a href = '/#projects'>
+                    <HashLink smooth to = '/#projects'>
                         <AiOutlineDown />
-                    </a>
+                    </HashLink>
                 </motion.div>
                 
             </div>

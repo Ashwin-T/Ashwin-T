@@ -6,7 +6,7 @@ import isMobile from '../hooks/isMobile'
 
 export const Projects: React.FC = () =>{
     return (
-        <div className = 'projectContainer' id = 'project'>
+        <div className = 'projectContainer' id = 'projects'>
             <div className="flexbox center column">
                 <h1>Project Section Coming Soon! In the mean time enjoy this comic!</h1>
                 <br />

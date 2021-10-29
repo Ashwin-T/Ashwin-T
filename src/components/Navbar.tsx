@@ -21,7 +21,7 @@ export const Navbar: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim}
         {
             title: "Projects",
             icon : <FaProjectDiagram />,
-            tag: "/#project"
+            tag: "/#projects"
         },
         {
             title: "Contact",
@@ -52,14 +52,14 @@ export const Navbar: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim}
             initial = "inital"
             animate = "animate"
             >
-                <a href = '/' className="navItemz">
+                <HashLink smooth to = '/' className="navItemz">
                     <img className = 'logo' alt = 'logo' src = {logo} />
-                </a>
+                </HashLink>
 
                 <div className="navbarItem">
                     {NavbarData.map((item: any)=>{
                         return(
-                            <a key = {item.title} href = {item.tag}>{item.icon}</a>
+                            <HashLink key = {item.title} smooth to = {item.tag}>{item.icon}</HashLink>
                         )
                     })}
                 </div> 
