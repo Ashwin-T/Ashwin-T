@@ -7,8 +7,8 @@ import {Skills} from './pages/Skills';
 import {AboutPanel} from './pages/AboutPanel';
 import { Projects } from './pages/Projects';
 
-import {AnimatePresence} from 'framer-motion'
-import {Switch, Route, useLocation} from 'react-router-dom'
+import {HashRouter} from 'react-router-dom';
+import {Switch, Route} from 'react-router-dom'
 
 
 const App: React.FC = ()=>{
@@ -19,8 +19,6 @@ const App: React.FC = ()=>{
     };
   }
 
-  let location = useLocation<LocationState>();
-
 
   const ref = useRef(true);
 
@@ -28,30 +26,29 @@ const App: React.FC = ()=>{
   
       setTimeout(()=>{
           ref.current = false;
-      }, 2900)
+      }, 3000)
 
     }, [])
 
 
   return (
     <div className="App">
-        <AnimatePresence>
-          <Switch location = {location} key = {location.key}>
+        <HashRouter>
+          <Switch>
             <Route exact path = '/'>
               <Navbar anim = {ref}/>
               <Home anim = {ref}/>
               <About />
               <Skills />
-              <Projects />
-              {/* <Footer /> */}
             </Route>
-            <Route exact path = '/aboutme'>
-                <AboutPanel /> 
+            <Route path = '/aboutme'>
+              <AboutPanel />
             </Route>
           </Switch>
-        </AnimatePresence>  
-      </div>
+        </HashRouter>
+    </div>
   );
 }
+
 
 export default App;

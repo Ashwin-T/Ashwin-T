@@ -1,9 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 *{
     margin: 0;
-    font-family: 'Raleway', sans-serif;    
+    font-family: "Open Sans", sans-serif;    
     scroll-behavior: smooth;
     overflow-x: hidden;
+}
+
+::selection {
+    background: #ffb6c1 ; /* WebKit/Blink Browsers */
+}
+  ::-moz-selection {
+    background: #ffb6c1 ; /* Gecko Browsers */
 }
 
 body{
@@ -28,7 +35,7 @@ nav{
     height: 10vh;
     font-size: 4vh;
     margin: 3vh 3vw;
-    background-color: white;
+    background-color: white !important;
     border-radius: 20px;
 }
 
@@ -253,9 +260,20 @@ h3{
     background-color: white;
     padding: 100px 0
 }
-.projectContainer h1{
-    color: #548fa4
+.projectOutline{
+    width:  30vw;
+    height: 30vw;
+    background-color: #548fa4;
+    border-radius: 25px;
+    padding: 15px
 }
+.projectOutline img{
+    width: 30vw;
+    clip-path: circle();
+    background-color: white
+}
+
+
 
 
 @media only screen and (max-width: 700px) and (min-width: 280px){
@@ -279,7 +297,7 @@ h3{
     .scroll-arrow{
         text-align: center;
         font-size: 65px;
-        margin-top: 15vh;
+        margin-top: 7vh;
     }
     p{
         font-size: 1.75vh;
@@ -308,6 +326,10 @@ h3{
      .dataContent{
         width: 100vw
     }
+    .projectOutline img{
+        width: 30vw;       
+    }
+   
 }
 
 @media only screen and (max-width: 280px){

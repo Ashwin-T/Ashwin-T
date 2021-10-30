@@ -53,16 +53,16 @@ export const Navbar: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim}
             animate = "animate"
             >
                 <HashLink smooth to = '/' className="navItemz">
-                    <img className = 'logo' alt = 'logo' src = {logo} />
+                    <motion.img className = 'logo' alt = 'logo' src = {logo} />
                 </HashLink>
 
-                <div className="navbarItem">
+                <motion.div className="navbarItem">
                     {NavbarData.map((item: any)=>{
                         return(
                             <HashLink key = {item.title} smooth to = {item.tag}>{item.icon}</HashLink>
                         )
                     })}
-                </div> 
+                </motion.div> 
         </motion.nav>
         )
     }
@@ -70,7 +70,7 @@ export const Navbar: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim}
     const Regular: React.FC = () =>{
         return(
             <nav>
-                <HashLink onClick = {()=>{anim.current = true}} smooth to = '/'  className="navItemz">
+                <HashLink onClick = {()=>{anim.current = true}} smooth to = '/#'  className="navItemz">
                     <img className = 'logo' alt = 'logo' src = {logo} />
                 </HashLink>
 
@@ -89,7 +89,7 @@ export const Navbar: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim}
 
     return (
         <>
-         {anim.current ? <Animation /> : <Regular />}
+        <Animation />
         </>
     )
 }
