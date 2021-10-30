@@ -7,8 +7,8 @@ import {Skills} from './pages/Skills';
 import {AboutPanel} from './pages/AboutPanel';
 import { Projects } from './pages/Projects';
 
-import {HashRouter} from 'react-router-dom';
 import {Switch, Route} from 'react-router-dom'
+import { AnimatePresence } from 'framer-motion';
 
 
 const App: React.FC = ()=>{
@@ -33,7 +33,7 @@ const App: React.FC = ()=>{
 
   return (
     <div className="App">
-        <HashRouter>
+        <AnimatePresence>
           <Switch>
             <Route exact path = '/'>
               <Navbar anim = {ref}/>
@@ -45,7 +45,7 @@ const App: React.FC = ()=>{
               <AboutPanel />
             </Route>
           </Switch>
-        </HashRouter>
+        </AnimatePresence>
     </div>
   );
 }
