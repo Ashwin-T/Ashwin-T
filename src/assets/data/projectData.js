@@ -2,6 +2,8 @@
 import mvx from '../images/logos/MVX.png';
 import Hungry from '../images/logos/Hungry.PNG'
 import todo from '../images/logos/todo19.PNG'
+import pr from '../images/logos/prformance.png'
+import old from '../images/logos/Main.PNG'
 const projectData = [
     {
         "title": "MV Xperience",
@@ -18,7 +20,6 @@ const projectData = [
         "inspiration": "Due to how hard it is to adapt to a new school, MVHS Ambassadors asked to work with them to create a PWA to help incoming freshmen on campus",
         "css": 'bkwhite'
 
-
     },
     {
         "title": "Hungry?",
@@ -32,7 +33,10 @@ const projectData = [
         "title": "Prformance",
         "about": "A social media PWA for athletes with an empahsis on self-confidense and building a strong community.",
         "stack": "React.js, Redux, Express, Firebase",
-        "inspiration": "As an athelete myself, I understand how hard it is to motivate myself. This cuased me to create Prforamce, a platform where atheletes can post accomplishments for others to boost them along their journey."
+        "inspiration": "As an athelete myself, I understand how hard it is to motivate myself. This cuased me to create Prforamce, a platform where atheletes can post accomplishments for others to boost them along their journey.",
+        "image": pr,
+        "css": 'bkblack'
+
     },
     {
         "title": "ToDo19",
@@ -48,6 +52,7 @@ const projectData = [
         "title": "Old Personal Website",
         "about": "My old website! View to see my progress within the feild in the past 6 months",
         "stack": "HTML, CSS, JavaScript",
+        "image": old,
         "css": 'bkwhite'
 
     },

@@ -13,12 +13,6 @@ import { AnimatePresence } from 'framer-motion';
 
 const App: React.FC = ()=>{
 
-  interface LocationState {
-    from: {
-      pathname: string;
-    };
-  }
-
 
   const ref = useRef(true);
 
