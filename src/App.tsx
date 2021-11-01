@@ -40,6 +40,7 @@ const App: React.FC = ()=>{
               <Home anim = {ref}/>
               <About />
               <Skills />
+              <Projects />
             </Route>
             <Route path = '/aboutme'>
               <AboutPanel />

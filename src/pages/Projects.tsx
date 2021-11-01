@@ -11,11 +11,12 @@ export const Projects: React.FC = () =>{
             <div className="flexbox column center">
                 <h1 className = 'aboutTitle'>PROJECTS</h1>
             </div>
+            <br />
 
             <div className="flexbox space-between marginz">
                 {projectData.map((project: any, index: number) => {
                     return (
-                        <div className="flexbox">
+                        <div className="flexbox column center">
                             <ProjectOutline project = {project} />
                         </div>
                     ) 

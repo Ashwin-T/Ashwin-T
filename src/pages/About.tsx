@@ -29,6 +29,8 @@ export const About: React.FC = () =>{
                                     <motion.button className = 'learnMoreButton aboutBtnTxt'>Click to Learn More</motion.button>
                                 </HashLink>
 
+                            <br />
+
                             <img alt = 'C&H' src = {CH} className = 'aboutImg'/>
 
                             <motion.div className = 'scroll-arrow2'>

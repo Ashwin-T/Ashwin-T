@@ -194,7 +194,7 @@ h3{
     color: white
 }
 .aboutImg{
-    width: auto
+    width: 40vw;
 }
 .skillsContanier{
    height: auto;
@@ -261,22 +261,25 @@ h3{
     padding: 100px 0
 }
 .projectOutline{
-    width:  30vw;
-    height: 30vw;
+    width:  37vh;
+    height: 37vh;
     background-color: #548fa4;
     border-radius: 25px;
-    padding: 15px
+    margin: 5vw
 }
 .projectOutline img{
-    width: 30vw;
+    width: 33vh;
     clip-path: circle();
-    background-color: white
+}
+.bkwhite{
+    background-color: white;
+}
+.bkblack{
+    background-color: black;
 }
 
 
-
-
-@media only screen and (max-width: 700px) and (min-width: 280px){
+@media only screen and (max-width: 850px) and (min-width: 280px){
     .mainLogo{
         width: 50vh;
         height: 50vh;
@@ -327,7 +330,7 @@ h3{
         width: 100vw
     }
     .projectOutline img{
-        width: 30vw;       
+        width: 30vh;       
     }
    
 }
