@@ -57,6 +57,9 @@ export const Home: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=
              animate = 'animate'
          >
 
+             <br />
+
+
              <motion.div className='flexbox row space-between'
                  variants = {sentenceMove}
                  initial = 'inital'

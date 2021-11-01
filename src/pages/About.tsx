@@ -17,6 +17,8 @@ export const About: React.FC = () =>{
                                 ABOUT ME
                             </h1>
 
+                            <br/>
+
                             <p>
                                 — Ashwin Talwalkar is a dedicated and resilient student who is interested in Computer Science and Computer Engineering as a major. He is a current senior currently located at Mountain View High School in Mountain View, California.
                             </p>

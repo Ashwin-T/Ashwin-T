@@ -2,8 +2,10 @@
 import mvx from '../images/logos/MVX.png';
 import Hungry from '../images/logos/Hungry.PNG'
 import todo from '../images/logos/todo19.PNG'
-import pr from '../images/logos/prformance.png'
+import pr from '../images/logos/prformance2.png'
 import old from '../images/logos/Main.PNG'
+import snowcones from '../images/logos/snowcones.png'
+
 const projectData = [
     {
         "title": "MV Xperience",
@@ -53,15 +55,27 @@ const projectData = [
         "about": "My old website! View to see my progress within the feild in the past 6 months",
         "stack": "HTML, CSS, JavaScript",
         "image": old,
-        "css": 'bkwhite'
+        "css": 'bkpurple'
 
     },
     {
         "title": "At Home Snow Cones",
         "about": "A website and online store for my younger brother`s snow cone business",
         "stack": "React.js, Firebase, Express",
-        "inspiration": "With this being the second summer in a row for my younger brother's buisness he asked me to create a way so that people can order ahead of time."
-    }
+        "inspiration": "With this being the second summer in a row for my younger brother's buisness he asked me to create a way so that people can order ahead of time.",
+        "image": snowcones,
+        "css": 'bkwhite'
+    },
+
+    {
+        "title": "Java Projects",
+        "about": "",
+        "stack": "Java",
+        "inspiration": "",
+        "image": "",
+        "css": 'bkwhite'
+    },
+    
 
 ]
 

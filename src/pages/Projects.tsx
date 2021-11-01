@@ -1,17 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {ProjectOutline} from '../components/ProjectOutline'
 import projectData from '../assets/data/projectData'
 
-
-
 export const Projects: React.FC = () =>{
 
+    const [project, setProject] = useState(1000)
+
+    const ProjectModal = ({project}: any)=>{
+        return(
+            <>Hi</>
+        )
+    }
+
     return (
-        <div className = 'projectContainer' id = 'projects'>
+        <div className = 'projectContainer flexbox column center' id = 'projects'>
             <div className="flexbox column center">
                 <h1 className = 'aboutTitle'>PROJECTS</h1>
             </div>
-            <br />
 
             <div className="flexbox space-between marginz">
                 {projectData.map((project: any, index: number) => {
@@ -23,6 +28,8 @@ export const Projects: React.FC = () =>{
                 })}
                
             </div>
+
+            <ProjectModal project = {projectData[project]}/>
         </div>
     )
 }

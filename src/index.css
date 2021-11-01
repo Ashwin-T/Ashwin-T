@@ -194,7 +194,7 @@ h3{
     color: white
 }
 .aboutImg{
-    width: 40vw;
+    width: auto;
 }
 .skillsContanier{
    height: auto;
@@ -265,7 +265,7 @@ h3{
     height: 37vh;
     background-color: #548fa4;
     border-radius: 25px;
-    margin: 5vw
+    margin: 3.5vw
 }
 .projectOutline img{
     width: 33vh;
@@ -276,6 +276,9 @@ h3{
 }
 .bkblack{
     background-color: black;
+}
+.bkpurple{
+    background-color: #2d1493;
 }
 
 

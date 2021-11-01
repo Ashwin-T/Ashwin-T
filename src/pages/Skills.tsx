@@ -7,10 +7,12 @@ import { HashLink } from 'react-router-hash-link';
 
 export const Skills: React.FC =()=>{
     return (
-        <div id = 'skills' className="skillsContanier">
+        <div id = 'skills' className="skillsContanier flexbox column center">
             <div className="flexbox column center ">
 
+                <br/>                
                 <br/>
+
             
                 <h1 className = 'skillsTitle'>
                     SKILLS
