@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/Ashwin-T/static/css/main.b315acb6.chunk.css",
-    "main.js": "/Ashwin-T/static/js/main.c048ce0f.chunk.js",
-    "main.js.map": "/Ashwin-T/static/js/main.c048ce0f.chunk.js.map",
+    "main.js": "/Ashwin-T/static/js/main.68edc074.chunk.js",
+    "main.js.map": "/Ashwin-T/static/js/main.68edc074.chunk.js.map",
     "runtime-main.js": "/Ashwin-T/static/js/runtime-main.5909bfc1.js",
     "runtime-main.js.map": "/Ashwin-T/static/js/runtime-main.5909bfc1.js.map",
     "static/css/2.7fc9bc2b.chunk.css": "/Ashwin-T/static/css/2.7fc9bc2b.chunk.css",
@@ -15,9 +15,11 @@
     "static/media/CalvinHobbes.95ec2543.png": "/Ashwin-T/static/media/CalvinHobbes.95ec2543.png",
     "static/media/Hungry.b5a86cd2.PNG": "/Ashwin-T/static/media/Hungry.b5a86cd2.PNG",
     "static/media/MVX.f1587b2b.png": "/Ashwin-T/static/media/MVX.f1587b2b.png",
+    "static/media/Main.5f715fca.PNG": "/Ashwin-T/static/media/Main.5f715fca.PNG",
     "static/media/index.css": "/Ashwin-T/static/media/blank.16628da9.svg",
     "static/media/flamingo.fb2fa86d.png": "/Ashwin-T/static/media/flamingo.fb2fa86d.png",
     "static/media/logo.79312c27.png": "/Ashwin-T/static/media/logo.79312c27.png",
+    "static/media/prformance.42ae5f29.png": "/Ashwin-T/static/media/prformance.42ae5f29.png",
     "static/media/suit.feebe50e.png": "/Ashwin-T/static/media/suit.feebe50e.png",
     "static/media/todo19.4e6f30a9.PNG": "/Ashwin-T/static/media/todo19.4e6f30a9.PNG",
     "static/media/us.2a0cad03.png": "/Ashwin-T/static/media/us.2a0cad03.png"
@@ -27,6 +29,6 @@
     "static/css/2.7fc9bc2b.chunk.css",
     "static/js/2.c4a56302.chunk.js",
     "static/css/main.b315acb6.chunk.css",
-    "static/js/main.c048ce0f.chunk.js"
+    "static/js/main.68edc074.chunk.js"
   ]
 }
