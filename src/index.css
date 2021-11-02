@@ -226,7 +226,7 @@ h3{
     cursor: pointer;
 }
 .learnMoreButton:hover{
-    border: 3px solid #f755ab;
+    border: 5px solid #f755ab;
 }
 .aboutBtnTxt{
     color: white
