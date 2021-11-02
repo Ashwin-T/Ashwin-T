@@ -1,5 +1,5 @@
 {
-    "aboutMe": "Hey, my name is Ashwin. I am currently a Senior at Mountain View Highschool in California. I started coding in my sophomore year of highschool, where I learned languages like Java, C, & Python. From there I branched out on my own & learning web based languages such as HTML, CSS, & Javascript, as well as frameworks such as React.",
+    "aboutMe": "Hey, my name is Ashwin. I am currently a Senior at Mountain View High School in California. I started coding in my sophomore year of high school, where I learned languages like Java, C, & Python. From there I branched out on my own & learned web based languages such as HTML, CSS, & Javascript, as well as frameworks such as React.",
     "aboutMore": "My hobbies include swimming & athletics in general, programming websites & desktop applications, & reading Calvin and Hobbes",
     "activities": [
         {
@@ -15,17 +15,17 @@
     
     "rightNow": [
         {
-            "message": "Senior year has begun, which means college apps. My class-load this year includes: Advanced CS, Photography I, Philosophy in Literature, AP Physics C Mechanics, AP Statistics, & AP Government",
+            "message": "Senior year has begun, which means college apps. My class-load this year includes: Advanced CS, Photography I, Philosophy in Literature, AP Physics C Mechanics, AP Statistics, & AP Government.",
             "css": "aboutA"
         },
         {
             "title": "School Wide Projects",
-            "message": "I am currently leading a team  of 4 that is working on a project that will better my school known as MV Xperience as well as working with MVHS Ambassadors to build an app that will help incoming freshmen",
+            "message": "I am currently leading a team  of 4 that is working on a project that will better my school known as MV Xperience as well as working with MVHS Ambassadors to build an app that will help incoming freshmen.",
             "css": "aboutB"
         },
         {
             "title": "MVHacks 4.5",
-            "message": "MVHacks 4.5 is a beginer orientated hackathon, and have taken the postion of Event Director. I am in charge of leading a team of 4 in order to plan out the logistics & execution of the event",
+            "message": "MVHacks 4.5 is a beginner orientated hackathon, and have taken the postion of Event Director. I am in charge of leading a team of 5 in order to plan out the logistics & execution of the event.",
             "css": "aboutM",
             "link": "https://mvhacks.io"
             

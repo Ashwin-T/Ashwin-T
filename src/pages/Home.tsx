@@ -69,7 +69,7 @@ export const Home: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=
                      <h1 className = 'flexbox column homeTitle'>
                          Hey, I'm Ashwin
                          <div className = 'flexbox column homeTitle2'>
-                             Student | Athelete | Developer
+                             Student | Athlete | Developer
                          </div>
                      </h1>
                     
