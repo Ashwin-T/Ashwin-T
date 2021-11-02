@@ -9,7 +9,7 @@ export const About: React.FC = () =>{
     return (
         <div id = 'about'>
             <div className="aboutContainer" >
-    
+     
                 <div className="aboutContent">
                     <motion.div className='flexbox column space-between'>
                         <div className ='flexbox column center'> 
@@ -24,7 +24,7 @@ export const About: React.FC = () =>{
                             </p>
 
                             <p>
-                                Outside of school and programming he enjoys swimming, weightlifting, playing sports, reading Calvin and Hobbes, playing games and watching anime with his younger brother, eating, as well as trying out new things.
+                                Outside of school and programming he enjoys swimming, weightlifting, playing sports, reading Calvin and Hobbes, playing games and watching anime with his younger brother, and eating.
                             </p>
         
                                 <HashLink to = '/aboutme/#top'>

@@ -9,6 +9,7 @@ import { Projects } from './pages/Projects';
 
 import {Switch, Route} from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion';
+import { Footer } from './components/Footer';
 
 
 const App: React.FC = ()=>{
@@ -35,6 +36,7 @@ const App: React.FC = ()=>{
               <About />
               <Skills />
               <Projects />
+              <Footer />
             </Route>
             <Route path = '/aboutme'>
               <AboutPanel />

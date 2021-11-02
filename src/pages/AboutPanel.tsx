@@ -8,7 +8,10 @@ import "aos/dist/aos.css";
 import data from "../assets/data/data.json"
 
 import suit from "../assets/images/suit.png"
+import suit2 from "../assets/images/suit2.png"
+
 import us from "../assets/images/us.png"
+import us2 from "../assets/images/us2.png"
 
 
 export const AboutPanel: React.FC = ()=>{
@@ -38,9 +41,13 @@ export const AboutPanel: React.FC = ()=>{
             <div className="flexbox column center APContainer" >
 
                 <div className="flexbox row center" data-aos="fade-right">
-                    {!isMobile() &&
+                    {!isMobile() ?
                         <div className="flexbox column center">
                             <img src={suit} alt = 'suit' />
+                        </div> 
+                        :  
+                        <div className="flexbox column center">
+                            <img src={suit2} alt = 'suit' />
                         </div>
                     }                   
 
@@ -54,7 +61,13 @@ export const AboutPanel: React.FC = ()=>{
                 </div>
 
                 <div className=" flexbox row center" data-aos="fade-right">
-                   
+
+  
+                    {isMobile() &&
+                        <div className="flexbox column center">
+                            <img src={us2} alt = 'me' />
+                        </div>
+                    }  
                     <div className=" flexbox column center dataContent">
                         <h1 className = 'aboutPaneltitle'>RIGHT NOW?</h1>
                         {data.rightNow.map((item: any, index: number)=>{
@@ -69,17 +82,14 @@ export const AboutPanel: React.FC = ()=>{
 
                     {!isMobile() &&
                         <div className="flexbox column center">
-                            <img src={us} alt = 'us' />
+                            <img src={us} alt = 'me' />
                         </div>
-                    } 
+                    }   
+
                 </div>
 
                 <br />
-                <br/>
-                <br/>
-
-
-
+            
                 <div className=" flexbox row center"  data-aos="fade-left">
                     <div className=" flexbox column center">
                         <h1 className = 'aboutPaneltitle'>OTHER ACTIVITIES</h1>

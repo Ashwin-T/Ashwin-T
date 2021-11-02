@@ -6,18 +6,19 @@ import pr from '../images/logos/prformance2.png'
 import old from '../images/logos/Main.PNG'
 import snowcones from '../images/logos/snowcones.png'
 import SA from '../images/logos/SA.png'
-import java from '../images/logos/java.png'
-
+import sm from '../images/logos/smartmirror.png'
 const projectData = [
     {
         "title": "MV Xperience",
         "about": "MV Xperience is a resource that provides students with reviews and advice from real current and previous MVHS students, giving students a better idea of the commitment level and course load of different classes and composite schedules based off real student experience.",
         "stack": "React.js, Node.js, Firebase",
-        "inspiration": "With senior year apporaching I noticted how difficult is is to choose classes and how limited the information is about the difficulty and other apsects about a class.",
+        "inspiration": "With senior year apporaching I noticted how difficult is is to choose classes and how limited the information is about the difficulty and other aspects about a class.",
         "image": mvx,
         "css": 'bkwhite',
         "status" : "In Progress",
-        "bkcolor": 'white'
+        "bkcolor": 'white',
+        "github": "https://github.com/Ashwin-T/Xperiance",
+        "link": "None"
 
     },
     {
@@ -28,53 +29,60 @@ const projectData = [
         "css": 'bkwhite',
         "image": SA,
         "status" : "In Progress",
-        "bkcolor": 'white'
-
-
+        "bkcolor": 'white',
+        "github": "None",
+        "link": "None"
     },
     {
         "title": "Hungry?",
         "about": "Hungry yet cant decide what to eat. 'Hungry?©' can help you out. With the vast amount of features it allows you to choose a random cuisine, go out, order in, or make it yourself with our large collection of recipes. Explore cuisine from different cultures and eat to your stomach's extent!",
         "stack": "React.js, Express, Firebase",
-        "inspiration": "During dinner time my family often has an issue choosing where to eat or what to cook, and we often I decided it would be easier",
+        "inspiration": "During dinner time my family often has the issue of choosing where to eat or what to cook. I decided it would be easier if there was an app that would choose for us, and so 'Hungry?' was born",
         "image" : Hungry,
         "css": 'bkwhite',
         "status" : "Revamp Coming Soon",
-        "bkcolor": 'white'
+        "bkcolor": 'white',
+        "github": "https://github.com/Ashwin-T/Hungry",
+        "link": "https://www.hungry-yet.herokuapp.com/"
 
 
     },
     {
         "title": "Prformance",
-        "about": "A social media PWA for athletes with an empahsis on self-confidense and building a strong community.",
+        "about": "A social media PWA for athletes with an emphasis on self-confidence and building a strong community.",
         "stack": "React.js, Redux, Express, Firebase",
-        "inspiration": "As an athelete myself, I understand how hard it is to motivate myself. This cuased me to create Prforamce, a platform where atheletes can post accomplishments for others to boost them along their journey.",
+        "inspiration": "As an athlete myself, I understand how hard it is to motivate myself. This caused me to create Prformance, a platform where athletes can post accomplishments for others to boost them along their journey.",
         "image": pr,
         "css": 'bkblack',
         "status" : "Revamp Coming Soon",
-        "bkcolor": 'black'
+        "bkcolor": 'black',
+        "github": "https://github.com/Ashwin-T/PRformance",
+        "link": "https://www.prformance.net"
 
     },
     {
         "title": "ToDo19",
-        "about": "A To Do App linked to your google account to to keep you organized! Easily add or delete To-Dos from any device.",
+        "about": "A To Do App linked to your google account to keep you organized! Easily add or delete To-Dos from any device.",
         "stack": "React.js, Node.js, Express, Firebase",
         "inspiration": "As I use multiple devices and often become unorganized, ToDo19 helps me stay on track. It was also a project to further my react and css skills",
         "image": todo,
         "css": 'bkblack',
         "status" : "Finished",
-        "bkcolor": 'black'
-
+        "bkcolor": 'black',
+        "github": "https://github.com/Ashwin-T/To-Do-19",
+        "link": "https://www.to-do-19.herokuapp.com/"
 
     },
     {
         "title": "Old Personal Website",
-        "about": "My old website! View to see my progress within the feild in the past 6 months",
+        "about": "My old, very vanilla, website! View to see my how different my web dev skills were 6 months ago",
         "stack": "HTML, CSS, JavaScript",
         "image": old,
         "css": 'bkpurple',
         "status" : "Finished",
-        "bkcolor": '#2d1493'
+        "bkcolor": '#2d1493',
+        "github": "https://github.com/Ashwin-T/Old-Website",
+        "link": "https://ashwin-t.github.io/Old-Website/"   
 
     },
     {
@@ -85,20 +93,22 @@ const projectData = [
         "image": snowcones,
         "css": 'bkwhite',
         "status" : "Finished",
-        "bkcolor": 'white'
+        "bkcolor": 'white',
+        "github": "https://github.com/Ashwin-T/Snow-Cones-At-Home",
+        "link": "https://at-home-snow-cones.herokuapp.com/"
     },
-
     {
-        "title": "Java Projects",
-        "about": "",
-        "stack": "Java",
-        "inspiration": "",
-        "image": java,
+        "title": "Smart Mirror",
+        "about": "A Computer Engineering project that I created using an old monitor, a Raspberry Pi, and a lot of cables",
+        "stack": "React.js, Electron.js, Rest APIs, Firebase, Express, Node.js",
+        "inspiration": "To stay organized and keep up with my busy mornings I created a Smart Mirror: the Smart Mirror is a mirror with a display behind it allowing it to show different components onto the screen. I wrote the code using React and numerous other JavaScript libraries incuding Moment.js and Electron.js, which allows the program to run as an application on a Linux operating system. I also used other node modules and APIs including the OpenWeather API to display real time data. I also used Firebase to hook up a to-do list which I an update on my phone.",
+        "image": sm,
         "css": 'bkwhite',
         "status" : "Finished",
-        "bkcolor": 'white'
+        "bkcolor": 'white',
+        "github": "https://github.com/Ashwin-T/SmartMirror",
+        "link": "None"
     },
-    
 
 ]
 

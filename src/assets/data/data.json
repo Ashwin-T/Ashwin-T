@@ -1,15 +1,15 @@
 {
-    "aboutMe": "Hey, my name is Ashwin. I am currently a Senior at Mountain View Highschool in California. I started coding in my sophmore year of highschool, where I learned languages like Java, C, & Python. From there I branched out on my own & learning web based languages such as HTML, CSS, & Javascript, as well as frameworks such as React.",
+    "aboutMe": "Hey, my name is Ashwin. I am currently a Senior at Mountain View Highschool in California. I started coding in my sophomore year of highschool, where I learned languages like Java, C, & Python. From there I branched out on my own & learning web based languages such as HTML, CSS, & Javascript, as well as frameworks such as React.",
     "aboutMore": "My hobbies include swimming & athletics in general, programming websites & desktop applications, & reading Calvin and Hobbes",
     "activities": [
         {
-            "message": "I have been a part of the school Varsity Swim Team for every year of High School & am the Varisty Captain this upcoming season. I also swim year-round for LAMVAC, a local competitive swim club"
+            "message": "I have been a part of the school Varsity Swim Team for every year of High School & am the Varsity Captain this upcoming season. I also swim year-round for LAMVAC, a local competitive swim club"
         },
         {
-            "message": "My swim career has caused me to pursue being a lifeguard & am CPR & First-Aid certified"
+            "message": "My swim career has caused me to pursue being a lifeguard and am also CPR & First-Aid certified"
         }
         ,{
-            "message": "I particapate in many clubs throughout my school, includuing Spartan Buddies which I have been apart of for the past 4 years"
+            "message": "I participate in many clubs throughout my school, including Spartan Buddies which I have been apart of for the past 4 years"
         }
     ],
     

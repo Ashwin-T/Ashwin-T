@@ -39,6 +39,24 @@ nav{
     border-radius: 20px;
 }
 
+footer{
+    background-color:#548fa4;
+    width: 100vw;
+    height: 35vh;
+    overflow: hidden;
+}
+.footerContent h4{
+    margin-top: 5vh;
+    font-size: 2vh;
+}
+.footerContent p{
+    color: white;
+}
+
+.footer-item{
+    padding: 5vw
+}
+
 p{
     color: #548fa4;
     font-weight: bold;
@@ -82,7 +100,17 @@ h3{
     align-items: center;
     justify-content: space-around;
 }
-
+.icons{
+    justify-content: flex-start;
+}
+.iconsChild{
+    padding: 0 10px;
+    border-bottom: 0;
+    transition: all ease 0.1s;
+}
+.iconsChild:hover{
+    filter: hue-rotate(90deg);
+}
 .logo{
     width: 6vh;
 }
@@ -129,6 +157,7 @@ h3{
 }
 .scroll-arrow a{
     color: white;
+    transition: all ease 0.5s;
 }
 .scroll-arrow a:hover{
     color: #f755ab;
@@ -173,6 +202,8 @@ h3{
 }
 .scroll-arrow2 a{
     color: #1a1d22;
+    transition: all ease 0.5s;
+
 }
 .scroll-arrow2 a:hover{
     color: #f755ab;
@@ -183,9 +214,16 @@ h3{
     font-weight: bold;
     width: 20vh;
     height: 5vh;
-    border-radius: 7px;
+    border-radius: 10px;
     background-color: #548fa4;
     color: white;
+    transition: all linear 0.25s;
+}
+.learnMoreButton:hover{
+    border: 5px solid #f755ab;
+    width: 27vh;
+    height: 7vh;
+    font-size: 2.5vh;
 }
 .aboutBtnTxt{
     color: white
@@ -333,6 +371,7 @@ h3{
 }
 
 
+
 @media only screen and (max-width: 850px) and (min-width: 280px){
     .mainLogo{
         width: 50vh;
@@ -380,12 +419,24 @@ h3{
      .APContainer h1{
          font-size: 3vh;
      }
+     .APContainer img{
+        width: 85vw;
+        margin-bottom: 2vh
+    }
      .dataContent{
         width: 100vw
     }
-    .projectOutline img{
+    .projectModalIMG{
         width: 30vh;       
     }
+   .projectContent h1{
+       font-size: 4vh;
+       text-align: center;
+   } 
+   .projectContent p{
+    font-size: 2vh;
+    text-align: center;
+} 
    
 }
 
