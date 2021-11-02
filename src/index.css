@@ -372,6 +372,14 @@ h3{
     width: 60vh;
     height: auto;
 }
+.CantFindContainer{
+    width: 100vw;
+    height: auto;
+    background: url('./assets/images/404_4x.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 
 
