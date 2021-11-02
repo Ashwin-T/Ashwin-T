@@ -43,7 +43,9 @@ const App: React.FC = ()=>{
             <Route exact path = '/aboutme'>
               <AboutPanel />
             </Route>
-            <Route path = "" component={CantFindPage} />
+            <Route path = "">
+              <CantFindPage />
+            </Route>
           </Switch>
         </AnimatePresence>
     </div>

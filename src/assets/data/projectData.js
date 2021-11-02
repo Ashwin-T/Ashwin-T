@@ -43,7 +43,7 @@ const projectData = [
         "status" : "Revamp Coming Soon",
         "bkcolor": 'white',
         "github": "https://github.com/Ashwin-T/Hungry",
-        "link": "https://www.hungry-yet.herokuapp.com/"
+        "link": "https://hungry-yet.herokuapp.com/"
 
 
     },
@@ -57,7 +57,7 @@ const projectData = [
         "status" : "Revamp Coming Soon",
         "bkcolor": 'black',
         "github": "https://github.com/Ashwin-T/PRformance",
-        "link": "https://www.prformance.net"
+        "link": "https://prformance.net"
 
     },
     {
@@ -70,7 +70,7 @@ const projectData = [
         "status" : "Finished",
         "bkcolor": 'black',
         "github": "https://github.com/Ashwin-T/To-Do-19",
-        "link": "https://www.to-do-19.herokuapp.com/"
+        "link": "https://to-do-19.herokuapp.com/"
 
     },
     {

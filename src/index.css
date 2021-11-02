@@ -373,13 +373,37 @@ h3{
     height: auto;
 }
 .CantFindContainer{
-    width: 100vw;
-    height: auto;
-    background: url('./assets/images/404_4x.png');
+    margin-top: 5vh;
+    width: 90vw;
+    height: 90vh;
+    background: url(./assets/images/footer.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    border-radius: 25px;
+
 }
+.CantFindContainer h1{
+    color: #2e3035;
+    font-size: 10vh;
+    text-align: left;
+}
+.CantFindContainer h3{
+    color: black;
+    font-size: 5vh;
+    text-align: left;
+    margin: 0;
+}
+.CantFindContainer h4{
+    color: black;
+    font-size: 3vh;
+    text-align: left;
+    margin: 0;
+}
+.content404{
+    padding: 10vw;
+} 
+
 
 
 
@@ -445,9 +469,15 @@ h3{
        text-align: center;
    } 
    .projectContent p{
-    font-size: 2vh;
-    text-align: center;
-} 
+        font-size: 2vh;
+        text-align: center;
+    }
+    .CantFindContainer{
+        background: url(./assets/images/footer2.png);
+    }
+    .content404{
+        padding: 10vw;
+    }  
    
 }
 
