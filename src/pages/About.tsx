@@ -9,7 +9,7 @@ export const About: React.FC = () =>{
     return (
         <div id = 'about'>
             <div className="aboutContainer" >
-                
+    
                 <div className="aboutContent">
                     <motion.div className='flexbox column space-between'>
                         <div className ='flexbox column center'> 
@@ -30,8 +30,6 @@ export const About: React.FC = () =>{
                                 <HashLink to = '/aboutme/#top'>
                                     <motion.button className = 'learnMoreButton aboutBtnTxt'>Click to Learn More</motion.button>
                                 </HashLink>
-
-                            <br />
 
                             <img alt = 'C&H' src = {CH} className = 'aboutImg'/>
 

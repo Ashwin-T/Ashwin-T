@@ -42,8 +42,6 @@ nav{
 p{
     color: #548fa4;
     font-weight: bold;
-    margin: 1.25vh 10vw;
-    text-align: center;
     font-size: 2.75vh
 }
 
@@ -57,10 +55,9 @@ h2{
     font-size: 3vh;
 }
 h3{
-    text-align: center;
     font-size: 2.5vh;
     margin: 2vh 3vw 2vh 3vw;
-    text-align: center;
+    text-align: left;
 }
 
 .flexbox{
@@ -106,6 +103,9 @@ h3{
     width: 100vw;
     height: auto;
     background-color: white
+}
+.aboutContainer p{
+    margin: 1.25vh 10vw;
 }
 .mainLogo{
     width: 50vw;
@@ -194,7 +194,7 @@ h3{
     color: white
 }
 .aboutImg{
-    width: auto;
+    width: 75vh;
 }
 .skillsContanier{
    height: auto;
@@ -265,20 +265,71 @@ h3{
     height: 37vh;
     background-color: #548fa4;
     border-radius: 25px;
-    margin: 3.5vw
+    position: absolute;
+
+    border: 0;
+    top: 4vh;
+    left: 4vh;
+    transition: all 0.2s ease;
+}
+.projectOutline:hover{
+    border-right: 12px solid #f755ab;
+    border-bottom: 12px solid #f755ab;
+    top: calc(4vh - 12px);
+    left: calc(4vh - 12px);
 }
 .projectOutline img{
     width: 33vh;
     clip-path: circle();
 }
+.styledOutline{
+    width:  45vh;
+    height: 45vh;
+    margin: 3vw;
+    position: relative;
+
+}
 .bkwhite{
     background-color: white;
+    clip-path: circle();
+
 }
 .bkblack{
     background-color: black;
+    clip-path: circle();
+
 }
 .bkpurple{
     background-color: #2d1493;
+    clip-path: circle();
+
+}
+.projectModal{
+    background-color: #548fa4;
+    border-radius: 25px;
+    width: 90vw;
+    height: 75vh;
+
+}
+.projectContent{
+    padding: 3vw;
+    width: 40vw
+}
+.projectContent h1{
+    color: #1a1d22;
+    text-align: left;
+    font-size: 6vh;
+    font-weight: bold;
+}
+.projectContent p{
+    color: white;
+    font-size: 2vh;
+    text-align: left;
+
+}
+.projectModalIMG{
+    width: 60vh;
+    height: auto;
 }
 
 
@@ -309,12 +360,12 @@ h3{
         font-size: 1.75vh;
     }
     .aboutImg{
-        width: 47.5vh;
+        width: 47vh;
     }
     .aboutContainer{
         width: 100vw;
         height: 105vh;
-    }
+    } 
     .skillsBox{
         height: 65vh;
         width: 75vw;
