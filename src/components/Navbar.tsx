@@ -35,10 +35,10 @@ export const Navbar: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim}
 
     const navbarVarients = {
         inital:{
-            y:'-25vh'
+            opacity:0
         },
         animate:{
-            y: 0,
+            opacity:1,
             transition:{
                 duration: 1.5,
             }

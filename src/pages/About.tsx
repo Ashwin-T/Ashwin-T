@@ -7,17 +7,16 @@ import CH from '../assets/images/CalvinHobbes.png'
 export const About: React.FC = () =>{
 
     return (
-        <div id = 'about'>
-            <div className="aboutContainer" >
+        <div>
+            <div className="aboutContainer"  id = 'about'>
      
                 <div className="aboutContent">
                     <motion.div className='flexbox column space-between'>
-                        <div className ='flexbox column center'> 
+                        <div className ='flexbox column center' > 
                             <h1 className = 'aboutTitle'>
                                 ABOUT ME
                             </h1>
 
-                            <br/>
 
                             <p>
                                 — Ashwin Talwalkar is a dedicated and resilient student who is interested in Computer Science & Computer Engineering as a major. He is a senior currently located at Mountain View High School in Mountain View, California.
@@ -27,9 +26,13 @@ export const About: React.FC = () =>{
                                 Outside of school & programming he enjoys swimming, weightlifting, playing sports, reading Calvin & Hobbes, playing games & watching anime with his younger brother, and eating.
                             </p>
         
+
+                            <br/>
+
                                 <HashLink to = '/aboutme/#top'>
                                     <motion.button className = 'learnMoreButton aboutBtnTxt'>Click to Learn More</motion.button>
                                 </HashLink>
+
 
                             <img alt = 'C&H' src = {CH} className = 'aboutImg'/>
 

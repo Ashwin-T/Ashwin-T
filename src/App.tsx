@@ -21,6 +21,7 @@ const App: React.FC = ()=>{
   
       setTimeout(()=>{
           ref.current = false;
+
       }, 3000)
 
     }, [])

@@ -28,7 +28,7 @@ export const Footer: React.FC =()=>{
             {
                 title: "View my Resume",
                 icon : <VscFilePdf size = {size}/>,
-                link: "https://docs.google.com/document/d/1NLQIKOcnzYjrMHtNSmq0sbLgd1uoctfdF5bPjV-1dgM/edit?usp=sharing"
+                link: "https://docs.google.com/document/d/1NLQIKOcnzYjrMHtNSmq0sbLgd1uoctfdF5bPjV-1dgM/preview"
 
             },
             {
@@ -58,9 +58,8 @@ export const Footer: React.FC =()=>{
 
                         return(
                             <>
-                                <div onClick = {()=>handleClick(data.link)}key = {index} className="footer-item">{data.icon}</div>
-                            </>
-                            
+                                <div onClick = {()=>handleClick(data.link)} key = {index} className="footer-item">{data.icon}</div>
+                            </> 
                         )
                     })}
                 </div>
