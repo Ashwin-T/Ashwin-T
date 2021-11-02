@@ -59,7 +59,7 @@ footer{
     cursor: pointer;
 }
 .footer-item:hover{
-    color: #f755ab;
+    color: #ffb6c1;
 }
 
 p{
@@ -114,7 +114,7 @@ h3{
     transition: all ease 0.1s;
 }
 .iconsChild:hover{
-    color: #f755ab;
+    color: #ffb6c1;
 }
 .logo{
     width: 6vh;
@@ -478,7 +478,23 @@ h3{
     .content404{
         padding: 10vw;
     }  
-   
+    .CantFindContainer h1{
+        color: #2e3035;
+        font-size: 7vh;
+        text-align: left;
+    }
+    .CantFindContainer h3{
+        color: black;
+        font-size: 4vh;
+        text-align: left;
+        margin: 0;
+    }
+    .CantFindContainer h4{
+        color: black;
+        font-size: 2.5vh;
+        text-align: left;
+        margin: 0;
+    }
 }
 
 @media only screen and (max-width: 280px){
