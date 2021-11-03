@@ -1,4 +1,1 @@
-#<div align="center">
-  Hey I'm Ashwin, a high school student interested in programming
-</div>
-
+<center> <h1>Hey im Ashwin, a high school student</h1> </center>
