@@ -65,10 +65,9 @@ export const Footer: React.FC =()=>{
                 </div>
 
                 <div className = 'flexbox column center'>
-                    <h4>Created by Ashwin Talwalkar using TypeScript & React.js</h4>
-                    <br/>
-                    <h4>Last Updated on 11/3/2021</h4>
-                    <h4>v1.15</h4>
+                    <h5>Created by Ashwin Talwalkar</h5>
+                    <h5>Last Updated on 11/3/2021</h5>
+                    <h5>v1.15</h5>
                 </div>
 
             </div>
