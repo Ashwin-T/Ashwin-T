@@ -63,6 +63,12 @@ export const Footer: React.FC =()=>{
                         )
                     })}
                 </div>
+
+                <h4>Created by Ashwin Talwalkar using TypeScript & React.js</h4>
+                <br/>
+                <h4>Last Updated on 11/3/2021</h4>
+                <h4>v1.15</h4>
+
             </div>
         </footer>
     )
