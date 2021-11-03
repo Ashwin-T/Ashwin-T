@@ -54,6 +54,10 @@ footer{
     color: white;
 }
 
+.footerContent h5{
+    margin: 1.5vh 0;
+}
+
 .footer-item{
     padding: 5vw;
     cursor: pointer;
