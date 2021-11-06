@@ -23,7 +23,7 @@ const projectData = [
     },
     {
         "title": "Spartan Assistant",
-        "about": "A PWA with a multitude of functions to help incoming freshmen on campus", 
+        "about": "A PWA created to help incoming freshmen orient themselves on campus by using an interactive map with GPS functionality and other tools.", 
         "stack": "React.js, Redux, Express, Firebase",
         "inspiration": "Due to how hard it is to adapt to a new school, MVHS Ambassadors asked to work with them to create a PWA to help incoming freshmen on campus",
         "css": 'bkwhite',
