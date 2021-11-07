@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {BsInstagram} from 'react-icons/bs';
 import {GoMarkGithub} from 'react-icons/go';
-import {VscFilePdf} from 'react-icons/vsc';
+import {CgFileDocument} from 'react-icons/cg';
 import {AiOutlineMail} from 'react-icons/ai';
 import isMobile from '../hooks/isMobile';
 
@@ -14,6 +14,7 @@ export const Footer: React.FC =()=>{
     useEffect(()=>{
         isMobile() ? setSize(25) : setSize(50);
     },[setSize]);
+
     const footerData: any = [
             {
                 title: "Follow my Instagram Account",
@@ -27,7 +28,7 @@ export const Footer: React.FC =()=>{
             },
             {
                 title: "View my Resume",
-                icon : <VscFilePdf size = {size}/>,
+                icon : <CgFileDocument size = {size}/>,
                 link: "https://docs.google.com/document/d/1NLQIKOcnzYjrMHtNSmq0sbLgd1uoctfdF5bPjV-1dgM/preview"
 
             },
