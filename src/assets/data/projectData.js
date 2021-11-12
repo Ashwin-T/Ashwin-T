@@ -75,6 +75,18 @@ const projectData = [
 
     },
     {
+        "title": "Poll Taker",
+        "about": "A live poll taking session that allows for the presenter to get live feedback as they present",
+        "stack": "React.js, Firebase 9",
+        "inspiration": "A simple live poll taking website created to be able to get live feedback from the Advanced Web Dev class that I teach",
+        "image": pt,
+        "css": 'bkwhite',
+        "status" : "Finished",
+        "bkcolor": 'white',
+        "github": "https://github.com/Ashwin-T/Poll-Taker",
+        "link": "https://ashwin-t.github.io/Poll-Taker/"
+    },
+    {
         "title": "Old Personal Website",
         "about": "My old, very vanilla, website! View to see my how different my web dev skills were 6 months ago",
         "stack": "HTML, CSS, JavaScript",
@@ -110,18 +122,7 @@ const projectData = [
         "github": "https://github.com/Ashwin-T/SmartMirror",
         "link": "None"
     },
-    {
-        "title": "Poll Taker",
-        "about": "A live poll taking session that allows for the presenter to get live feedback as they present",
-        "stack": "React.js, Electron.js, Rest APIs, Firebase, Express, Node.js",
-        "inspiration": "A simple live poll taking website created to be able to get live feedback from the Advanced Web Dev class that I teach",
-        "image": pt,
-        "css": 'bkwhite',
-        "status" : "Finished",
-        "bkcolor": 'white',
-        "github": "https://github.com/Ashwin-T/Poll-Taker",
-        "link": "https://ashwin-t.github.io/Poll-Taker/"
-    },
+    
 
 ]
 
