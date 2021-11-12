@@ -7,6 +7,7 @@ import old from '../images/logos/Main.PNG'
 import snowcones from '../images/logos/snowcones.png'
 import SA from '../images/logos/SA.png'
 import sm from '../images/logos/smartmirror.png'
+import pt from '../images/logos/polltaker.png'
 const projectData = [
     {
         "title": "MV Xperience",
@@ -108,6 +109,18 @@ const projectData = [
         "bkcolor": 'white',
         "github": "https://github.com/Ashwin-T/SmartMirror",
         "link": "None"
+    },
+    {
+        "title": "Poll Taker",
+        "about": "A live poll taking session that allows for the presenter to get live feedback as they present",
+        "stack": "React.js, Electron.js, Rest APIs, Firebase, Express, Node.js",
+        "inspiration": "A simple live poll taking website created to be able to get live feedback from the Advanced Web Dev class that I teach",
+        "image": pt,
+        "css": 'bkwhite',
+        "status" : "Finished",
+        "bkcolor": 'white',
+        "github": "https://github.com/Ashwin-T/Poll-Taker",
+        "link": "https://ashwin-t.github.io/Poll-Taker/"
     },
 
 ]
