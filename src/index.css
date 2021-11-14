@@ -36,7 +36,7 @@ nav{
     margin: 3vh 3vw;
     background-color: white !important;
     border-radius: 20px;
-    animation: translateZ(0);
+    /* animation: translateZ(0); */
 }
 
 
@@ -116,6 +116,7 @@ h3{
     padding: 0 10px;
     border-bottom: 0;
     transition: all ease 0.1s;
+    cursor: pointer;
 }
 .iconsChild:hover{
     color: #ffb6c1;
