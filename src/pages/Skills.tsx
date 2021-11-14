@@ -35,7 +35,7 @@ export const Skills: React.FC =()=>{
                         <div className="flexbox column center">
                             <div className = 'boxTittle'>Backend <AiOutlineDatabase /></div>
                             <div className = 'skillsSubHeader'>Languages</div>
-                            <span>JavaScript, Java, Python, C, C++,</span>
+                            <span>JavaScript, Java, Python, C, C++, Golang</span>
                             <div className = 'skillsSubHeader'>Frameworks / Libraries / Tools</div>
                             <span>Express, MongoDB, Firebase</span>
                         </div>
