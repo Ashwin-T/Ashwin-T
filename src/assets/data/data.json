@@ -24,6 +24,11 @@
             "css": "aboutB"
         },
         {
+            "title": "Advanced Web Development Teacher",
+            "message": "I am currently teaching Advanced Web Development to students in within the MVHS CS Club. As of right now this course will cover aspects of React.js and other tools that will help students learn to code bigger full stack applications.",
+            "css": "aboutD"
+        },
+        {
             "title": "MVHacks 4.5",
             "message": "MVHacks 4.5 is a beginner orientated hackathon, and have taken the postion of Event Director. I am in charge of leading a team of 5 in order to plan out the logistics & execution of the event.",
             "css": "aboutM",

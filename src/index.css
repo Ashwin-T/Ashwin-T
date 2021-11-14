@@ -299,6 +299,9 @@ h3{
 .aboutP{
     color:violet;
 }
+.aboutD{
+    color: #61dafb;
+}
 .aboutM{
     color:black;
     border-bottom: 3px solid red;
