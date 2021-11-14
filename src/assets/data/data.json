@@ -32,7 +32,7 @@
         },
         {
             "title": "Personal Projects",
-            "message": "As of right now I am working on projects that will help improve my progamming skills. I want to get more practice with TypeScript, Gatsby, MongoDB, CSS as well as learn Next.js",
+            "message": "As of right now I am working on projects that will help improve my progamming skills. I want to get more practice with TypeScript, Gatsby, MongoDB, CSS, Golang, as well as learn Next.js",
             "css": "aboutP"
         }
     ]
