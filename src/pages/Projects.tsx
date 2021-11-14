@@ -51,10 +51,10 @@ export const Projects: React.FC = () =>{
                         <p className = 'flexbox icons'>
                         {project.github !== "None" ?
                             <span className = 'iconsChild'>
-                                <BsGithub onClick = {()=>handleClick(project.github)} size = '25'/> 
+                                <BsGithub className = 'iconz' onClick = {()=>handleClick(project.github)} size = '25'/> 
                             </span>: null}
                             <span className = 'iconsChild'>
-                                {project.link !== "None" ? <BiLink onClick = {()=>handleClick(project.link)} size = '25'/> : <BiUnlink size = '25'/>}
+                                {project.link !== "None" ? <BiLink className = 'iconz' onClick = {()=>handleClick(project.link)} size = '25'/> : <BiUnlink size = '25'/>}
                             </span>
                         </p>
                         <br />

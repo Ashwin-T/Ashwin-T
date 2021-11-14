@@ -120,7 +120,13 @@ h3{
 }
 .iconsChild:hover{
     color: #ffb6c1;
+    cursor: pointer;
 }
+
+.iconz{
+    cursor: pointer;
+}
+
 .logo{
     width: 6vh;
 }
