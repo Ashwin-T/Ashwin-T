@@ -75,7 +75,7 @@ export const Projects: React.FC = () =>{
             <div className='flexbox space-between marginz'>
                 {projectData.map((project: any, index: number) => {
                     return (
-                        <HashLink smooth to = '/#projectDisplay' onClick = {()=>{setProject(project)}}className='flexbox column center'>
+                        <HashLink key = {index} smooth to = '/#projectDisplay' onClick = {()=>{setProject(project)}}className='flexbox column center'>
                             <ProjectOutline project = {project}/>
                         </HashLink>
                     ) 

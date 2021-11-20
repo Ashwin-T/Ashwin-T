@@ -46,7 +46,7 @@ export const Footer: React.FC =()=>{
         }
 
     return (
-        <footer id = 'contact'> 
+        <footer key = 'contact' id = 'contact'> 
             <div className="footerContent flexbox column center ">
 
                 <br />
@@ -56,10 +56,9 @@ export const Footer: React.FC =()=>{
 
                 <div className="flexbox row center">
                     {footerData.map((data: any, index: number)=>{
-
                         return(
                             <>
-                                <div onClick = {()=>handleClick(data.link)} key = {index} className="footer-item">{data.icon}</div>
+                                <span key = {index} onClick = {()=>handleClick(data.link)}  className="footer-item">{data.icon}</span>
                             </> 
                         )
                     })}
