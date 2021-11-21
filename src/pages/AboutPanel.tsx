@@ -61,6 +61,7 @@ export const AboutPanel: React.FC = ()=>{
                 </div>
 
                 <br />
+                <br />
 
                 <div className=" flexbox row center" data-aos="fade-right">
 
