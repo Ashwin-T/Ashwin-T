@@ -46,7 +46,6 @@ const projectData = [
         "github": "https://github.com/Ashwin-T/Hungry",
         "link": "https://hungry-yet.herokuapp.com/"
 
-
     },
     {
         "title": "PRformance",
