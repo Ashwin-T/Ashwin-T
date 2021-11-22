@@ -36,7 +36,7 @@ const projectData = [
     },
     {
         "title": "Hungry?",
-        "about": "Hungry yet cant decide what to eat. 'Hungry?©' can help you out. With the vast amount of features it allows you to choose a random cuisine, go out, order in, or make it yourself with our large collection of recipes. Explore cuisine from different cultures and eat to your stomach's extent!",
+        "about": "Hungry yet cant decide what to eat? 'Hungry?©' can help you out. With the vast amount of features it allows you to choose a random cuisine, go out, order in, or make it yourself with our large collection of recipes. Explore cuisine from different cultures and eat to your stomach's extent!",
         "stack": "React.js, Express, Firebase",
         "inspiration": "During dinner time my family often has the issue of choosing where to eat or what to cook. I decided it would be easier if there was an app that would choose for us, and so 'Hungry?' was born",
         "image" : Hungry,
