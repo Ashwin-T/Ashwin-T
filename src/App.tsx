@@ -6,6 +6,7 @@ import {About} from './pages/About';
 import {Skills} from './pages/Skills';
 import {AboutPanel} from './pages/AboutPanel';
 import { Projects } from './pages/Projects';
+
 import {CantFindPage} from './components/404';
 
 import {Switch, Route} from 'react-router-dom'

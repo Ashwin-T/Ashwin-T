@@ -32,7 +32,6 @@ nav{
     justify-content: space-between;
     flex-direction: row;
     height: 10vh;
-    font-size: 4vh;
     margin: 3vh 3vw;
     background-color: white !important;
     border-radius: 20px;
@@ -128,14 +127,14 @@ h3{
 }
 
 .logo{
-    width: 6vh;
+    width: 60px;
 }
 
 .navItemz{
-    padding: 0vw 1.5vw
+    margin: 0 1.5vw;
 }
 .navbarItem a{
-    margin-right: 3vw
+    margin: 0 1.5vw
 }
 
 .homeContainer{

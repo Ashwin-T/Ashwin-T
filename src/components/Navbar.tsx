@@ -10,22 +10,22 @@ export const Navbar: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim}
     const NavbarData: any = [
         {
             title: "About",
-            icon : <FaRegUser />,
+            icon : <FaRegUser  size = {35}/>,
             tag: "/#about"
         },
         {
             title: "Skills",
-            icon : <FaCode />,
+            icon : <FaCode  size = {35}/>,
             tag: "/#skills"
         },
         {
             title: "Projects",
-            icon : <FaProjectDiagram />,
+            icon : <FaProjectDiagram  size = {35}/>,
             tag: "/#projects"
         },
         {
             title: "Contact",
-            icon : <FaMailBulk />,
+            icon : <FaMailBulk  size = {35}/>,
             tag: "/#contact"
         },
         
