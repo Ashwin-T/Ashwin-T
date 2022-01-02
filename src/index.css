@@ -28,11 +28,11 @@ a:hover{
 
 nav{
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     flex-direction: row;
     height: 10vh;
-    margin: 3vh 3vw;
+    margin: 3vh 3vh;
     background-color: white !important;
     border-radius: 20px;
     /* animation: translateZ(0); */
@@ -128,11 +128,12 @@ h3{
 
 .logo{
     width: 60px;
+    height: 60px;
 }
-
-.navItemz{
+.navItemz img{
     margin: 0 1.5vw;
 }
+
 .navbarItem a{
     margin: 0 1.5vw
 }
