@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
 *{
     margin: 0;
-    font-family: "Open Sans", sans-serif;    
+    font-family: "Raleway";    
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
@@ -30,11 +30,11 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-direction: row;
     height: 10vh;
     margin: 3vh 3vh;
     background-color: white !important;
     border-radius: 20px;
+    box-shadow: 0px 0px 3px #1a1d22;
     /* animation: translateZ(0); */
 }
 
@@ -128,10 +128,11 @@ h3{
 
 .logo{
     width: 60px;
-    height: 60px;
+    margin: 5px 1.5vw;
+    clip-path: circle();
 }
 .navItemz img{
-    margin: 0 1.5vw;
+    margin: 0px 1.5vw;
 }
 
 .navbarItem a{

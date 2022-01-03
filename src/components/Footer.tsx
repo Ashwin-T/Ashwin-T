@@ -57,9 +57,7 @@ export const Footer: React.FC =()=>{
                 <div className="flexbox row center">
                     {footerData.map((data: any, index: number)=>{
                         return(
-                            <>
-                                <span key = {index} onClick = {()=>handleClick(data.link)}  className="footer-item">{data.icon}</span>
-                            </> 
+                            <span key = {index} onClick = {()=>handleClick(data.link)}  className="footer-item">{data.icon}</span>
                         )
                     })}
                 </div>

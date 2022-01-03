@@ -24,9 +24,6 @@ export const AboutPanel: React.FC = ()=>{
       }, []);
 
       
-
-
-      
     return (
         <>
             

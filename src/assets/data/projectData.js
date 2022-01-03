@@ -1,10 +1,10 @@
 
 import mvx from '../images/logos/MVX.png';
 import Hungry from '../images/logos/Hungry.PNG'
-import todo from '../images/logos/todo19.PNG'
+// import todo from '../images/logos/todo19.PNG'
 import pr from '../images/logos/prformance2.png'
-import old from '../images/logos/Main.PNG'
-import snowcones from '../images/logos/snowcones.png'
+// import old from '../images/logos/Main.PNG'
+// import snowcones from '../images/logos/snowcones.png'
 import SA from '../images/logos/SA.png'
 import sm from '../images/logos/smartmirror.png'
 import pt from '../images/logos/polltaker.png'
@@ -61,19 +61,6 @@ const projectData = [
 
     },
     {
-        "title": "ToDo19",
-        "about": "A To Do App linked to your google account to keep you organized! Easily add or delete To-Dos from any device.",
-        "stack": "React.js, Node.js, Express, Firebase",
-        "inspiration": "As I use multiple devices and often become unorganized, ToDo19 helps me stay on track. It was also a project to further my react and css skills",
-        "image": todo,
-        "css": 'bkblack',
-        "status" : "Finished",
-        "bkcolor": 'black',
-        "github": "https://github.com/Ashwin-T/To-Do-19",
-        "link": "https://to-do-19.herokuapp.com/"
-
-    },
-    {
         "title": "Poll Taker",
         "about": "A live poll taking session that allows for the presenter to get live feedback as they present",
         "stack": "React.js, Firebase 9",
@@ -84,30 +71,6 @@ const projectData = [
         "bkcolor": 'white',
         "github": "https://github.com/Ashwin-T/Poll-Taker",
         "link": "https://ashwin-t.github.io/Poll-Taker/"
-    },
-    {
-        "title": "Old Personal Website",
-        "about": "My old, very vanilla, website! View to see my how different my web dev skills were 6 months ago",
-        "stack": "HTML, CSS, JavaScript",
-        "image": old,
-        "css": 'bkpurple',
-        "status" : "Finished",
-        "bkcolor": '#2d1493',
-        "github": "https://github.com/Ashwin-T/Old-Website",
-        "link": "https://ashwin-t.github.io/Old-Website/"   
-
-    },
-    {
-        "title": "At Home Snow Cones",
-        "about": "A website and online store for my younger brother`s snow cone business",
-        "stack": "React.js, Firebase, Express",
-        "inspiration": "With this being the second summer in a row for my younger brother's buisness \the asked me to create a way so that people can order ahead of time.",
-        "image": snowcones,
-        "css": 'bkwhite',
-        "status" : "Finished",
-        "bkcolor": 'white',
-        "github": "https://github.com/Ashwin-T/Snow-Cones-At-Home",
-        "link": "https://at-home-snow-cones.herokuapp.com/"
     },
     {
         "title": "Smart Mirror",
