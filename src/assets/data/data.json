@@ -15,17 +15,17 @@
     
     "rightNow": [
         {
-            "message": "Senior year has begun, which means college apps. My class-load this year includes: Advanced CS, Photography I, Philosophy in Literature, AP Physics C Mechanics, AP Statistics, & AP Government.",
+            "message": "My class-load this semester includes: Advanced CS, Photography I, Philosophy in Literature, AP Physics C Electricity and Magnetism, AP Statistics, & AP Macroeconomics.",
             "css": "aboutA"
         },
         {
             "title": "School Wide Projects",
-            "message": "I am currently leading a team  of 4 that is working on a project that will better my school known as MV Xperience as well as working with MVHS Ambassadors to build an app that will help incoming freshmen.",
+            "message": "I am currently leading a team of 4 that is working on a project that will better my school known as MV Xperience as well as working with MVHS Ambassadors to build an app that will help incoming freshmen.",
             "css": "aboutB"
         },
         {
             "title": "Advanced Web Development Teacher",
-            "message": "I am currently teaching Advanced Web Development to students in within the MVHS CS Club. As of right now this course will cover aspects of React.js and other tools that will help students learn to code bigger full stack applications.",
+            "message": "I am currently teaching Advanced Web Development to students in within the MVHS CS Club. As of right now this course will cover aspects of React.js and other tools that will help students learn to build bigger and better full stack applications.",
             "css": "aboutD"
         },
         {
@@ -37,7 +37,7 @@
         },
         {
             "title": "Personal Projects",
-            "message": "As of right now I am working on projects that will help improve my progamming skills. I want to get more practice with TypeScript, Gatsby, MongoDB, CSS, Golang, as well as learn Next.js",
+            "message": "As of right now I am working on projects that will help improve my progamming skills. I want to get more practice with C++, TypeScript, Gatsby, MongoDB, Tailwind CSS, as well as learn Next.js",
             "css": "aboutP"
         }
     ]

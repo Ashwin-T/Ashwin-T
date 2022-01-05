@@ -42,7 +42,7 @@ nav{
 footer{
     background-color:#548fa4;
     width: 100vw;
-    height: 45vh;
+    height: auto;
     overflow: hidden;
 }
 .footerContent h4{
@@ -57,8 +57,12 @@ footer{
     margin: 1vh 0;
 }
 
+.last-thing{
+    margin-bottom: 7.5vh !important;
+}
+
 .footer-item{
-    padding: 5vw;
+    padding: 5vh 5vw;
     cursor: pointer;
 }
 .footer-item:hover{
@@ -141,12 +145,12 @@ h3{
 
 .homeContainer{
     width: 100vw;
-        height: 100vh;
+    height: 100vh;
     overflow: hidden;
 }
 .aboutContainer{
     width: 100vw;
-    height: auto;
+    height: 100vh;
     background-color: white
 }
 .aboutContainer p{
@@ -203,7 +207,7 @@ h3{
 }
 .sectionz{
     width: 100vw;
-    height: auto;
+    height: 100vh;
     padding: 10px
 }
 
@@ -251,11 +255,12 @@ h3{
     width: 75vh;
 }
 .skillsContanier{
-   height: auto;
-   background: url('./assets/images/backgroundSkills.svg');
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
+    height: calc(100vh - 50px);
+    background: url('./assets/images/backgroundSkills.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 25px;
 }
 .skillsTitle{
     text-align: center;
@@ -386,7 +391,7 @@ h3{
 }
 .projectModalIMG{
     width: 60vh;
-    height: auto;
+    height: 100vh;
 }
 .CantFindContainer{
     margin-top: 5vh;
@@ -397,6 +402,7 @@ h3{
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 25px;
+
 
 }
 .CantFindContainer h1{
@@ -464,7 +470,7 @@ h3{
         width: 60vw
     }
     .skillsContanier{
-        height: auto;
+        height: 100vh;
         background: url('./assets/images/blank.svg');
      }
      .APContainer h1{
