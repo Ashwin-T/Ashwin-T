@@ -145,12 +145,13 @@ h3{
 
 .homeContainer{
     width: 100vw;
-    height: 100vh;
+    height: 105vh;
     overflow: hidden;
 }
 .aboutContainer{
     width: 100vw;
-    height: 100vh;
+    height: 105vh;
+    overflow: hidden;
     background-color: white
 }
 .aboutContainer p{
@@ -207,7 +208,7 @@ h3{
 }
 .sectionz{
     width: 100vw;
-    height: 100vh;
+    height: 105vh;
     padding: 10px
 }
 
@@ -391,7 +392,7 @@ h3{
 }
 .projectModalIMG{
     width: 60vh;
-    height: 100vh;
+    height: 105vh;
 }
 .CantFindContainer{
     margin-top: 5vh;
@@ -460,7 +461,7 @@ h3{
     }
     .aboutContainer{
         width: 100vw;
-        height: 100vh;
+        height: 105vh;
     } 
     .skillsBox{
         height: 65vh;
@@ -470,7 +471,7 @@ h3{
         width: 60vw
     }
     .skillsContanier{
-        height: 100vh;
+        height: 105vh;
         background: url('./assets/images/blank.svg');
      }
      .APContainer h1{
