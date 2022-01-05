@@ -3,11 +3,12 @@ import mvx from '../images/logos/MVX.png';
 import Hungry from '../images/logos/Hungry.PNG'
 // import todo from '../images/logos/todo19.PNG'
 import pr from '../images/logos/prformance2.png'
-// import old from '../images/logos/Main.PNG'
-// import snowcones from '../images/logos/snowcones.png'
+import old from '../images/logos/Main.PNG'
+import snowcones from '../images/logos/snowcones.png'
 import SA from '../images/logos/SA.png'
 import sm from '../images/logos/smartmirror.png'
 import pt from '../images/logos/polltaker.png'
+import ts from '../images/logos/tsLogo.png'
 const projectData = [
     {
         "title": "MV Xperience",
@@ -48,6 +49,18 @@ const projectData = [
 
     },
     {
+        "title": "Treasure Seeker",
+        "about": "Venture off & sail the high seas in order to become Pirate King! Voted as #1 final project in Advanced Computer Science.",
+        "stack": "Java",
+        "inspiration": "After watching One Piece I became inspired to create my final game around that theme as the criteria was pirate based.",
+        "image": ts,
+        "css": 'bkblack treasureSeeker',
+        "status" : "Finished",
+        "bkcolor": 'black',
+        "github": "https://github.com/Ashwin-T/SmartMirror",
+        "link": "https://ashwin-t.github.io/treasure-seeker/"
+    },
+    {
         "title": "PRformance",
         "about": "A social media PWA for athletes with an emphasis on self-confidence and building a strong community.",
         "stack": "React.js, Redux, Express, Firebase",
@@ -84,6 +97,30 @@ const projectData = [
         "github": "https://github.com/Ashwin-T/SmartMirror",
         "link": "None"
     },
+    {
+        "title": "At Home Snow Cones",
+        "about": "A website and online store for my younger brother`s snow cone business",
+        "stack": "React.js, Firebase, Express",
+        "inspiration": "With this being the second summer in a row for my younger brother's buisness \the asked me to create a way so that people can order ahead of time.",
+        "image": snowcones,
+        "css": 'bkwhite',
+        "status" : "Finished",
+        "bkcolor": 'white',
+        "github": "https://github.com/Ashwin-T/Snow-Cones-At-Home",
+        "link": "https://at-home-snow-cones.herokuapp.com/"
+    },
+    {
+        "title": "Old Personal Website",
+        "about": "My old, very vanilla, website! View to see my how different my web dev skills were 6 months ago",
+        "stack": "HTML, CSS, JavaScript",
+        "image": old,
+        "css": 'bkpurple',
+        "status" : "Finished",
+        "bkcolor": '#2d1493',
+        "github": "https://github.com/Ashwin-T/Old-Website",
+        "link": "https://ashwin-t.github.io/Old-Website/"   
+
+    }
     
 
 ]

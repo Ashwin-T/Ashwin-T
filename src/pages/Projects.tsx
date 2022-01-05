@@ -69,7 +69,7 @@ export const Projects: React.FC = () =>{
     return (
         <div className = 'projectContainer flexbox column center' id = 'projects'>
             <div className='flexbox column center'>
-                <h1 className = 'aboutTitle'>FAVORITE PROJECTS</h1>
+                <h1 className = 'aboutTitle'>PROJECTS</h1>
             </div>
 
             <div className='flexbox space-between marginz'>
