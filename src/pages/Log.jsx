@@ -9,6 +9,8 @@ export const Log = () => {
     const params = useParams();
 
     const [log, setLog] = useState({});
+    const [content, setContent] = useState('');
+
 
     useEffect(() => {
         const db = getFirestore();
@@ -17,14 +19,15 @@ export const Log = () => {
             const docSnap = await getDoc(docRef);
                 if (docSnap.exists()) {
                     setLog(docSnap.data());
-                    console.log(docSnap.data());
+                    setContent(docSnap.data().content);
                 } else {
                 // doc.data() will be undefined in this case
                 console.log("No such document!");
-                    
-                }
+            }
         }
         getData();
+
+
     }, [params.id])
 
     return ( 
@@ -40,7 +43,16 @@ export const Log = () => {
                 </div>
 
                 <div className = 'flexbox content'>
-                    <h2>{log.content}</h2>
+                    {
+                        content.split('!').map((item, index)=>{
+                            return (
+                                <div key = {index} >
+                                    <h2>{item}</h2>
+                                    <br/>
+                                </div>
+                            )
+                        })
+                    }
                 </div>
             </div>
         </>

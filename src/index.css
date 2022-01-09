@@ -145,8 +145,14 @@ h3{
     margin-bottom: 4vh;
 }
 .content{
-    width: 90vw;
+    width: 80vw;
     text-align: left;
+    border-radius: 16px;
+    padding: 50px;
+    font-weight: normal;
+    border: 10px solid #ffb6c1;
+    justify-content: flex-start;
+    flex-direction: column;    
 }
 
 .loginPage{
@@ -565,9 +571,13 @@ h3{
     height: 45vh;
     background-color: white;
     border-radius: 25px;
-    border: 7px solid #1a1d22;
     margin: 1vh 3vw;
+    border: 10px solid #1a1d22;
     position: relative;
+    transition: all ease 0.2s;
+}
+.logPreview:hover{
+    border: 10px solid #f755ab;
 }
 
 .logPreview h1{

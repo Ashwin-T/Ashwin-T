@@ -6,7 +6,7 @@ export const LogPreview = (props) => {
     
     const path = `/logs/${props.doc.date}`
 
-    const style = {background: props.doc.preview !== undefined ? `url(${props.doc.preview})` : '#fff'}
+    const style = {background: props.doc.preview !== null ? `url(${props.doc.preview})` : '#fff'}
 
     return (
         <>
