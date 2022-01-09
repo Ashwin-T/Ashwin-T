@@ -145,6 +145,7 @@ h3{
     margin-bottom: 4vh;
 }
 .content{
+    margin: 1vh 1vw;
     width: 80vw;
     text-align: left;
     border-radius: 16px;
@@ -599,6 +600,9 @@ h3{
 }
 
 @media only screen and (max-width: 850px) and (min-width: 280px){
+    .content{
+        width: 60vw;
+    }
     .mainLogo{
         width: 50vh;
         height: 50vh;
