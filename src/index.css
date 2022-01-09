@@ -50,7 +50,7 @@ footer{
     font-size: 2vh;
 }
 .footerContent p{
-    color: white;
+    color: #548fa4;
 }
 
 .footerContent h5{
@@ -112,6 +112,10 @@ h3{
     align-items: center;
     justify-content: space-around;
 }
+.space-evenly{
+    align-items: center;
+    justify-content: space-evenly;
+}
 .icons{
     justify-content: flex-start;
 }
@@ -125,6 +129,119 @@ h3{
     color: #ffb6c1;
     cursor: pointer;
 }
+.title{
+    width: 100vw;
+    text-align: left;
+}
+.title h1{
+    font-size: 5vh;
+    font-weight: bold;
+    margin: 1vh 0 2vh 0;
+}
+.title h4{
+    font-size: 2vh;
+    margin: 0;
+    font-weight: normal;
+    margin-bottom: 4vh;
+}
+.content{
+    width: 90vw;
+    text-align: left;
+}
+
+.loginPage{
+    width: 100vw;
+    height: 50vh;
+}
+
+.loginPage button{
+    width: 30vh;
+    height: 10vh;
+    border-radius: 16px;
+    border: none;
+    background-color: white;
+    color: #1a1d22;
+    font-size: 2.5vh;
+    cursor: pointer;
+    transition: all ease 0.1s;
+}
+.loginPage button:hover{
+    transform: scale(1.5);
+}
+
+.form{
+    width: 100vw;
+    margin-top: 2vh;
+}
+.addBlog h1{
+    font-size: 5vh;
+    border-bottom: 3px dashed #ffb6c1;
+}
+
+.form input[placeholder = "Title"]{
+    width: 35vw;
+    height: 7vh;
+    padding: 15px;
+    border-radius: 16px;
+    border: none;
+    background-color: white;
+    color: #1a1d22;
+    font-size: 2.5vh;
+    margin-bottom: 2vh;
+    transition: all ease 0.1s;
+}   
+.form input[placeholder = "Date"]:focus{
+    outline: none;
+}
+.form textarea{
+    width: calc(50vw - 50px);
+    height: 20vh;
+    padding: 25px;
+    border-radius: 16px;
+    border: none;
+    background-color: white;
+    color: #1a1d22;
+    font-size: 2.5vh;
+    margin-bottom: 2vh;
+    transition: all ease 0.1s;
+}
+.form input[type = 'file']{
+    display: none;
+}
+.form .file-upload{
+    width: 15vw;
+    height: 5vh;
+    padding: 15px;
+    border-radius: 16px;
+    background-color: white;
+    color: #1a1d22;
+    font-size: 2vh;
+    transition: all ease 0.1s;
+}
+.form button{
+    width: 10vw;
+    height: 5vh;
+    border-radius: 16px;
+    border: none;
+    background-color: white;
+    color: #1a1d22;
+    font-size: 2vh;
+    cursor: pointer;
+    transition: all ease 0.1s;
+    border: 5px solid #ffb6c1;
+}
+
+.form > *{
+    margin-top: 1vh;
+    margin-bottom: 3vh;
+}
+.form > *:hover{
+    transform: scale(1.05);
+}
+.form > *:focus{
+    outline: 5px solid #ffb6c1;
+}
+
 
 .iconz{
     cursor: pointer;
@@ -155,7 +272,7 @@ h3{
     background-color: white
 }
 .aboutContainer p{
-    font-size: 3vh;
+    font-size: 2.5vh;
     margin: 1.25vh 10vw;
 }
 .mainLogo{
@@ -186,8 +303,15 @@ h3{
     color: #f755ab;
 }
 .aboutContent{
-    margin-top: 7vh;
+    margin-top: 6vh;
 }
+.buttonContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+}
+
 .backArrow{
     font-size: 7vh;
     color: white;
@@ -235,16 +359,18 @@ h3{
     padding: 5px;
     font-size: 1.75vh;
     font-weight: bold;
-    width: 20vh;
-    height: 5vh;
+    width: 23vh;
+    height: 7vh;
     border-radius: 10px;
     background-color: #548fa4;
     color: white;
-    transition: all linear 0.25s;
+    transition: all ease-in 0.25s;
     cursor: pointer;
+    margin: 0.5vh 5vw;
 }
 .learnMoreButton:hover{
-    border: 5px solid #f755ab;
+    transform: scale(1.1);
+    border: 5px solid #ffb6c1;
 }
 .aboutBtnTxt{
     color: white
@@ -268,6 +394,7 @@ h3{
     font-size: 5vh;
     color: white;
     border-bottom: 3px dotted white;
+    margin-bottom: 5vh;
 }
 .skillsBox{
     background-color: #1a1d22;
@@ -424,7 +551,38 @@ h3{
 .content404{
     padding: 10vw;
 } 
+.devLogPanel h1{
+    font-size: 4vh;
+    color: white;
+    border-bottom: 3px dotted white;
+}
+.devLogPanel .about{
+    font-size: 2vh;
+    margin: 1vh 10vw;
+}
+.logPreview{
+    width:35vh;
+    height: 45vh;
+    background-color: white;
+    border-radius: 25px;
+    border: 7px solid #1a1d22;
+    margin: 1vh 3vw;
+    position: relative;
+}
 
+.logPreview h1{
+    color: #1a1d22;
+    font-size: 3vh;
+    text-align: center;
+    margin: 0;
+    border-bottom: 3px dotted #1a1d22;
+}
+.logPreview h2{
+    color: #1a1d22;
+    font-size: 2.5vh;
+    text-align: center;
+    margin: 0;
+}
 
 @media only screen and (max-width: 850px) and (min-width: 280px){
     .mainLogo{
@@ -518,6 +676,13 @@ h3{
         font-size: 2vh;
         margin: 1.25vh 10vw;
     }
+    .form input[type="text"]{
+        width: 60vw;
+    }
+    .form textarea{
+        width: 70vw;
+    }
+
 }
 
 @media only screen and (max-width: 280px){

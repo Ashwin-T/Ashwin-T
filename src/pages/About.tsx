@@ -23,15 +23,21 @@ export const About: React.FC = () =>{
                             </p>
 
                             <p>
-                                Outside of school & programming he enjoys swimming, weightlifting, playing sports, reading Calvin & Hobbes, playing games & watching anime with his younger brother, and eating.
+                                Outside of school & programming he enjoys swimming, weightlifting, playing sports, reading Calvin & Hobbes, playing games & watching anime with his younger brother, and eating. To learn more about my day to day life, check out the logs I keep below.
                             </p>
         
 
                             <br/>
 
+                            <div className = 'buttonContainer flexbox center'>
                                 <HashLink to = '/aboutme/#top'>
                                     <motion.button className = 'learnMoreButton aboutBtnTxt'>Click to Learn More</motion.button>
                                 </HashLink>
+
+                                <HashLink to = '/logs'>
+                                    <motion.button className = 'learnMoreButton aboutBtnTxt'>Click to Read My Logs</motion.button>
+                                </HashLink>
+                            </div>
 
 
                             <img alt = 'C&H' src = {CH} className = 'aboutImg'/>

@@ -9,16 +9,9 @@ export const Skills: React.FC =()=>{
     return (
         <div id = 'skills' className="skillsContanier flexbox column center">
             <div className="flexbox column center ">
-
-                <br/>                
-                <br/>
-
-            
                 <h1 className = 'skillsTitle'>
                     SKILLS
                 </h1>
-
-                <br/>
             
                 <div className="skillsBox flexbox column center">
                     <div className="skillsContent flexbox column center">
@@ -42,20 +35,12 @@ export const Skills: React.FC =()=>{
 
                     </div>
                 </div>
-                <motion.div className = 'scroll-arrow'
-                    animate = {{
-                        y: [-40, 0],
-                        transition: {
-                            duration: 1,
-                            yoyo: 5,
-                    }
-                    }}
-                >
+                <motion.div className = 'scroll-arrow'>
                     <HashLink smooth to = '/#projects'>
                         <AiOutlineDown />
                     </HashLink>
                 </motion.div>
-                
+    
             </div>
         </div>
        
