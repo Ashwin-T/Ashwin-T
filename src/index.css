@@ -154,6 +154,10 @@ h3{
     justify-content: flex-start;
     flex-direction: column;    
 }
+.content h2{
+    font-size: 2.5vh;
+    margin-bottom: 2vh;
+}
 
 .loginPage{
     width: 100vw;

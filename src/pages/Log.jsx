@@ -48,7 +48,6 @@ export const Log = () => {
                             return (
                                 <div key = {index} >
                                     <h2>{item}</h2>
-                                    <br/>
                                 </div>
                             )
                         })
