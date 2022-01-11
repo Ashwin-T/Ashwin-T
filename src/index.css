@@ -205,8 +205,8 @@ h3{
     outline: none;
 }
 .form textarea{
-    width: calc(50vw - 50px);
-    height: 35vh;
+    width: calc(80vw - 50px);
+    height: 42.5vh;
     padding: 25px;
     border-radius: 16px;
     border: none;
