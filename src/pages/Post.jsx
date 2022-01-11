@@ -19,7 +19,7 @@ export const Post = ()=>{
         content: 'Content',
         date: moment().format("MMM Do YY"),
         preview: null,
-        day: moment().format("DD") - 1,
+        day: moment().format("DD") - 8,
     })
 
     useEffect(() => {
@@ -53,6 +53,8 @@ export const Post = ()=>{
             content: newBlogData.content,
             date: newBlogData.date,
             preview: newBlogData.preview,
+            day: moment().format("DD") - 8,
+
         });
 
         history.push('/logs');
@@ -85,7 +87,7 @@ export const Post = ()=>{
                     <HashLink className = 'backArrow' smooth to = '/logs'><BsArrowLeftSquare /></HashLink>
                 </div>
                 <div className="loginPage flexbox column center">
-                    <button onClick={signIn}>Login</button>
+                    <button onClick={signIn}>Verify</button>
                 </div>  
             </>
         )
