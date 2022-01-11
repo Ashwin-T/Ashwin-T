@@ -1,8 +1,8 @@
-import { useState  } from 'react'
+import { useState, useEffect } from 'react'
 import {BsArrowLeftSquare} from 'react-icons/bs'
 import { HashLink } from 'react-router-hash-link'
 import { uid } from '../tools/FirebaseConfig'
-import { doc, getFirestore, setDoc } from "firebase/firestore"; 
+import { doc, getDoc, getFirestore, setDoc } from "firebase/firestore"; 
 import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth"
 import { useHistory } from 'react-router-dom';
 import moment from 'moment'
@@ -10,7 +10,11 @@ export const Post = ()=>{
 
     const auth = getAuth();
     const provider = new GoogleAuthProvider();
+    const db = getFirestore();
+
     let history = useHistory();
+
+   
 
     const [newBlogData, setNewBlogData] = useState({
         title: 'Title',
@@ -18,6 +22,21 @@ export const Post = ()=>{
         date: moment().format("MMM Do YY"),
         preview: null,
     })
+
+    useEffect(() => {
+       
+        const getData = async () => {
+            const docRef = doc(db, "logs", moment().format("MMM Do YY"),);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                setNewBlogData({...docSnap.data()});
+            }
+        }
+
+        getData();
+
+    } , [db])
 
     const addData = async ()=>{
         // Add a new document in collection "cities"
@@ -30,7 +49,6 @@ export const Post = ()=>{
         // })
 
         
-        const db = getFirestore();
         await setDoc(doc(db, "logs", newBlogData.date), {
             title: newBlogData.title,
             content: newBlogData.content,

@@ -1,6 +1,6 @@
 import {BsArrowLeftSquare} from 'react-icons/bs'
 import { HashLink } from 'react-router-hash-link';
-import { collection, getDocs, getFirestore } from "firebase/firestore";
+import { collection, getDocs, getFirestore, query, orderBy } from "firebase/firestore";
 import { useState, useEffect } from 'react';
 
 import { LogPreview } from '../components/LogPreview.jsx';
@@ -11,22 +11,22 @@ export const DevLogPanel = ()=>{
     
     const [docs, setDocs] = useState([]);
 
-    
 
     useEffect(() => {
 
         const getData = async () => {
             const db = getFirestore(app);
-
-            let tempArray = []
-
-            const querySnapshot = await getDocs(collection(db, "logs"));
+            const tempArray = [];
+            const logsRef = collection(db, "logs");
     
+            const querySnapshot = await getDocs(query(logsRef, orderBy("day", "desc")));
+
             querySnapshot.forEach((doc) => {
                 tempArray.push(doc.data());
             });
 
             setDocs(tempArray);
+
         }
 
         getData();
