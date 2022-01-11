@@ -14,13 +14,12 @@ export const Post = ()=>{
 
     let history = useHistory();
 
-   
-
     const [newBlogData, setNewBlogData] = useState({
         title: 'Title',
         content: 'Content',
         date: moment().format("MMM Do YY"),
         preview: null,
+        day: moment().format("DD") - 1,
     })
 
     useEffect(() => {
