@@ -57,8 +57,8 @@ const projectData = [
         "css": 'bkblack treasureSeeker',
         "status" : "Finished",
         "bkcolor": 'black',
-        "github": "https://github.com/Ashwin-T/SmartMirror",
-        "link": "https://ashwin-t.github.io/treasure-seeker/"
+        "github": "https://github.com/Ashwin-T/Treasure-Seeker",
+        "link": "https://ashwin-t.github.io/Treasure-Seeker/"
     },
     {
         "title": "PRformance",
