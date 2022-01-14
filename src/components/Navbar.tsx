@@ -4,7 +4,6 @@ import logo from '../assets/images/logo.png'
 import React from 'react'
 import { HashLink } from 'react-router-hash-link';
 
-  
 export const Navbar: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=>{
 
     const NavbarData: any = [

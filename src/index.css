@@ -241,7 +241,6 @@ h3{
     transition: all ease 0.1s;
     border: 5px solid #ffb6c1;
 }
-
 .form > *{
     margin-top: 1vh;
     margin-bottom: 3vh;
@@ -252,16 +251,12 @@ h3{
 .form > *:focus{
     outline: 5px solid #ffb6c1;
 }
-
-
 .iconz{
     cursor: pointer;
 }
-
 .logo{
-    width: 60px;
-    margin: 5px 1.5vw;
-    clip-path: circle();
+    width: 7vh;
+    margin: 0 1.75vw;
 }
 .navItemz img{
     margin: 0px 1.5vw;
