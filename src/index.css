@@ -525,7 +525,7 @@ h3{
 }
 .projectModalIMG{
     width: 60vh;
-    height: 60vh;
+    margin-top: 5vh;
 }
 .CantFindContainer{
     margin-top: 5vh;
@@ -595,6 +595,9 @@ h3{
 }
 
 @media only screen and (max-width: 850px) and (min-width: 280px){
+    .projectModalIMG{
+        width: 30vh;
+    }
     .content{
         width: 60vw;
     }
@@ -651,9 +654,11 @@ h3{
      .dataContent{
         width: 100vw
     }
-    .projectModalIMG{
-        width: 30vh;       
+
+    .projectContent{
+        width: 70vw;
     }
+
    .projectContent h1{
        font-size: 4vh;
        text-align: center;

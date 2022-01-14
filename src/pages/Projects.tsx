@@ -28,16 +28,12 @@ export const Projects: React.FC = () =>{
 
         const imgcss =  `projectModalIMG ${project.css}`
         return(
-
             <div id = 'projectDisplay'>
                 <br />
                 <div className = 'projectModal flexbox row center'>
-
                     <div className = 'flexbox column center'>
-                        <br />
                         <img className = {imgcss} src = {project.image} alt = 'project'/>
                     </div>
-                    
                     <div className = 'flexbox center column projectContent'>
                         <br />
                         <h1>{project.title}</h1>

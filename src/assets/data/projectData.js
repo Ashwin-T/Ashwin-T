@@ -19,7 +19,7 @@ const projectData = [
         "css": 'bkwhite',
         "status" : "In Progress",
         "bkcolor": 'white',
-        "github": "https://github.com/Ashwin-T/Xperiance",
+        "github": "https://github.com/MV-Xperience/Xperience",
         "link": "None"
 
     },
@@ -50,7 +50,7 @@ const projectData = [
     },
     {
         "title": "Treasure Seeker",
-        "about": "Venture off & sail the high seas in order to become Pirate King! Voted as #1 final project in Advanced Computer Science.",
+        "about": "Venture off & sail the high seas in order to become Pirate King! Voted as #1 final project in Advanced Computer Science. The game is written in Java and the download website is created using React.js",
         "stack": "Java",
         "inspiration": "After watching One Piece I became inspired to create my final game around that theme as the criteria was pirate based.",
         "image": ts,
