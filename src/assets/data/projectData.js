@@ -63,11 +63,11 @@ const projectData = [
     {
         "title": "PRformance",
         "about": "A social media PWA for athletes with an emphasis on self-confidence and building a strong community.",
-        "stack": "React.js, Redux, Express, Firebase",
+        "stack": "React.js, Firebase 9",
         "inspiration": "As an athlete myself, I understand how hard it is to motivate myself. This caused me to create Prformance, a platform where athletes can post accomplishments for others to boost them along their journey.",
         "image": pr,
         "css": 'bkblack',
-        "status" : "Revamp Coming Soon",
+        "status" : "Finished",
         "bkcolor": 'black',
         "github": "https://github.com/Ashwin-T/PRformance",
         "link": "https://prformance.net"
