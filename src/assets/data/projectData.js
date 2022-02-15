@@ -32,8 +32,8 @@ const projectData = [
         "image": SA,
         "status" : "In Progress",
         "bkcolor": 'white',
-        "github": "None",
-        "link": "None"
+        "github": "https://github.com/Ashwin-T/Spartan-Assistant",
+        "link": "https://the-spartan-assistant.web.app/"
     },
     {
         "title": "Hungry?",
