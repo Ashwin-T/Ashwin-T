@@ -1,4 +1,5 @@
-import {FaMailBulk, FaRegUser,FaCode, FaProjectDiagram} from "react-icons/fa";
+import {FaMailBulk, FaRegUser,FaCode} from "react-icons/fa";
+import {AiOutlineFundProjectionScreen} from "react-icons/ai";
 import {motion} from 'framer-motion'
 import logo from '../assets/images/logo.png'
 import React from 'react'
@@ -19,7 +20,7 @@ export const Navbar: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim}
         },
         {
             title: "Projects",
-            icon : <FaProjectDiagram  size = {35}/>,
+            icon : <AiOutlineFundProjectionScreen  size = {35}/>,
             tag: "/#projects"
         },
         {

@@ -19,23 +19,18 @@ export const About: React.FC = () =>{
 
 
                             <p>
-                                — Ashwin Talwalkar is a dedicated and resilient student who is interested in Computer Science & Computer Engineering as a major. He is a senior currently located at Mountain View High School in Mountain View, California.
+                                — I am a dedicated and resilient student who is interested in Computer Science/Computer Engineering as a major. I am currently a senior currently located at Mountain View High School in Mountain View, California.
                             </p>
 
                             <p>
-                                Outside of school & programming he enjoys swimming, weightlifting, playing sports, reading Calvin & Hobbes, playing games & watching anime with his younger brother, and eating. To learn more about my day to day life, check out the logs I keep below.
+                                Outside of school & programming I enjos swimming, weightlifting, playing sports, reading Calvin & Hobbes, playing games & watching anime with his younger brother, and eating.
                             </p>
         
-
                             <br/>
 
                             <div className = 'buttonContainer flexbox center'>
                                 <HashLink to = '/aboutme/#top'>
                                     <motion.button className = 'learnMoreButton aboutBtnTxt'>Click to Learn More</motion.button>
-                                </HashLink>
-
-                                <HashLink to = '/logs'>
-                                    <motion.button className = 'learnMoreButton aboutBtnTxt'>Click to Read My Logs</motion.button>
                                 </HashLink>
                             </div>
 

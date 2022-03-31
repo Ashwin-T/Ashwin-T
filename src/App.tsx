@@ -9,8 +9,8 @@ import { Projects } from './pages/Projects';
 import { DevLogPanel } from './pages/DevLogPanel.jsx';
 import { Log } from './pages/Log';
 import { Post } from './pages/Post.jsx';
-import {CantFindPage} from './components/404';
-
+import {CantFindPage} from './pages/CantFindPage';
+import {OtherProjects} from './pages/OtherProjects';
 import {Switch, Route} from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion';
 import { Footer } from './components/Footer';
@@ -43,6 +43,9 @@ const App: React.FC = ()=>{
             <Route exact path = '/aboutme'>
               <AboutPanel />
             </Route>
+            <Route exact path = '/other-projects'>
+              <OtherProjects />
+            </Route>
             <Route exact path = '/logs'>
               <DevLogPanel />
             </Route>
@@ -52,6 +55,7 @@ const App: React.FC = ()=>{
             <Route exact path = '/post'>
               <Post />
             </Route>
+
             <Route path = "">
               <CantFindPage />
             </Route>

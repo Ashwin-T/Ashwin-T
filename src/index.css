@@ -39,6 +39,8 @@ nav{
 }
 
 
+
+
 footer{
     background-color:#548fa4;
     width: 100vw;
@@ -262,13 +264,14 @@ h3{
     margin: 0px 1.5vw;
 }
 
-.navbarItem a{
+.navbarItem a svg{
     margin: 0 1.5vw
 }
 
+
 .homeContainer{
     width: 100vw;
-    height: 105vh;
+    height: 100vh;
     overflow: hidden;
 }
 .aboutContainer{
@@ -276,6 +279,22 @@ h3{
     height: 105vh;
     overflow: hidden;
     background-color: white
+}
+.otherProjectsContainer{
+    width: 100vw;
+    overflow: hidden;
+    background-color: white;
+}
+.otherProjectsContainer h1{
+    font-size: 5vh;
+    color: #1a1d22;
+}
+.otherProjectsContainer .backArrow{
+    color: #1a1d22;
+}
+.otherProjectsContainer .backArrow:hover{
+    color: #548fa4;
+    
 }
 .aboutContainer p{
     font-size: 2.5vh;
@@ -593,6 +612,31 @@ h3{
     text-align: center;
     margin: 0;
 }
+.projectDisplayContainer{
+    width: 100vw;
+    height: auto;
+}
+
+.projectDisplay{
+    width: 100vw;
+}
+
+.projectDisplayContainer{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.projectDisplayContainer > .projectContent{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.projectDisplayContainer img{
+    width: 50vh;
+}
 
 @media only screen and (max-width: 850px) and (min-width: 280px){
     .projectModalIMG{
@@ -699,6 +743,9 @@ h3{
     }
     .form textarea{
         width: 70vw;
+    }
+    .navbarItem a svg{
+        margin: 0 2vw;
     }
 
 }
