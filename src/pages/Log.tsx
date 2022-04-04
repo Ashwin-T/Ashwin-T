@@ -6,16 +6,16 @@ import { doc, getDoc, getFirestore } from "firebase/firestore";
 
 export const Log = () => {
 
-    const params = useParams();
+    const {id}:any = useParams();
 
-    const [log, setLog] = useState({});
+    const [log, setLog]:any = useState({});
     const [content, setContent] = useState('');
 
 
     useEffect(() => {
         const db = getFirestore();
         const getData = async () => {
-            const docRef = doc(db, "logs", params.id);
+            const docRef = doc(db, "logs", id);
             const docSnap = await getDoc(docRef);
                 if (docSnap.exists()) {
                     setLog(docSnap.data());
@@ -28,7 +28,7 @@ export const Log = () => {
         getData();
 
 
-    }, [params.id])
+    }, [id])
 
     return ( 
         <>

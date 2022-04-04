@@ -16,7 +16,7 @@ export const DevLogPanel = ()=>{
 
         const getData = async () => {
             const db = getFirestore(app);
-            const tempArray = [];
+            const tempArray:any = []; //LMFAO random :any love to see it
             const logsRef = collection(db, "logs");
     
             const querySnapshot = await getDocs(query(logsRef, orderBy("day", "desc")));

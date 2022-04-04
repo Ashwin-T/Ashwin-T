@@ -42,7 +42,7 @@ export const OtherProjects: React.FC = () =>{
             "title": "At Home Snow Cones",
             "about": "A website and online store for my younger brother`s snow cone business",
             "stack": "React.js, Firebase, Express",
-            "inspiration": "With this being the second summer in a row for my younger brother's buisness /the asked me to create a way so that people can order ahead of time.",
+            "inspiration": "With this being the second summer in a row for my younger brother's buisness, he asked me to create a way so that people can order ahead of time.",
             "image": snowcones,
             "css": 'bkwhite',
             "status" : "Finished",
