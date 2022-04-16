@@ -6,9 +6,9 @@ import {About} from './pages/About';
 import {Skills} from './pages/Skills';
 import {AboutPanel} from './pages/AboutPanel';
 import { Projects } from './pages/Projects';
-import { DevLogPanel } from './pages/DevLogPanel.jsx';
+import { DevLogPanel } from './pages/DevLogPanel';
 import { Log } from './pages/Log';
-import { Post } from './pages/Post.jsx';
+import { Post } from './pages/Post';
 import {CantFindPage} from './pages/CantFindPage';
 import {OtherProjects} from './pages/OtherProjects';
 import {Switch, Route} from 'react-router-dom'
