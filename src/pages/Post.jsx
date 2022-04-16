@@ -53,7 +53,7 @@ export const Post = ()=>{
             content: newBlogData.content,
             date: newBlogData.date,
             preview: newBlogData.preview,
-            day: moment().format("DD") - 8,
+            day: new Date(),
 
         });
 
