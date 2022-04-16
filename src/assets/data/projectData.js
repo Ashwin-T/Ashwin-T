@@ -22,6 +22,18 @@ const projectData = [
         "link": "https://the-spartan-assistant.web.app/"
     }, 
     {
+        "title": "MV Xperience",
+        "about": "MV Xperience is a resource that provides students with reviews and advice from real current and previous MVHS students, giving students a better idea of the commitment level and course load of different classes and composite schedules based off real student experience.",
+        "stack": "React.js, Node.js, Firebase",
+        "inspiration": "With senior year apporaching I noticted how difficult is is to choose classes and how limited the information is about the difficulty and other aspects about a class.",
+        "image": mvx,
+        "css": 'bkwhite',
+        "status" : "Done",
+        "bkcolor": 'white',
+        "github": "https://github.com/MV-Xperience/Xperience",
+        "link": "https://mvxperience.com"
+    },
+    {
         "title": "Treasure Seeker",
         "about": "Venture off & sail the high seas in order to become Pirate King! Voted as #1 final project in Advanced Computer Science. The game is written in Java and the download website is created using React.js",
         "stack": "Java",
@@ -46,19 +58,7 @@ const projectData = [
         "link": "https://prformance.net"
 
     },
-    {
-        "title": "MV Xperience",
-        "about": "MV Xperience is a resource that provides students with reviews and advice from real current and previous MVHS students, giving students a better idea of the commitment level and course load of different classes and composite schedules based off real student experience.",
-        "stack": "React.js, Node.js, Firebase",
-        "inspiration": "With senior year apporaching I noticted how difficult is is to choose classes and how limited the information is about the difficulty and other aspects about a class.",
-        "image": mvx,
-        "css": 'bkwhite',
-        "status" : "In Progress",
-        "bkcolor": 'white',
-        "github": "https://github.com/MV-Xperience/Xperience",
-        "link": "None"
-
-    },
+    
     {
         "title": "Hungry?",
         "about": "Hungry yet cant decide what to eat? 'Hungry?©' can help you out. With the vast amount of features it allows you to choose a random cuisine, go out, order in, or make it yourself with our large collection of recipes. Explore cuisine from different cultures and eat to your stomach's extent!",
