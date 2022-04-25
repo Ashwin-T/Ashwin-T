@@ -6,6 +6,10 @@
     overflow-x: hidden;
 }
 
+.swim-image{
+    width: 100vw !important;
+}
+
 ::selection {
     background: #ffb6c1 ; /* WebKit/Blink Browsers */
 }
@@ -351,7 +355,7 @@ h3{
     color: #1a1d22;
     border-bottom: 3px dotted #1a1d22;
 }
-.APContainer img{
+.APContainer .small-img{
     border: 5px solid black;
     width: 33.5vw;
 }
@@ -691,7 +695,7 @@ h3{
      .APContainer h1{
          font-size: 3vh;
      }
-     .APContainer img{
+     .APContainer .small-img{
         width: 85vw;
         margin-bottom: 2vh
     }

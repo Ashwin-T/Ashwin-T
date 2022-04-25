@@ -7,13 +7,10 @@ import AOS from 'aos';
 import "aos/dist/aos.css";
 import data from "../assets/data/data.json"
 
-import suit from "../assets/images/suit.png"
 import suit2 from "../assets/images/suit2.png"
 
-import us from "../assets/images/us.png"
-import us2 from "../assets/images/us2.png"
-
-
+import swim from "../assets/images/ashwinSwim.png"
+import swim2 from "../assets/images/ashwinSwim2.png"
 export const AboutPanel: React.FC = ()=>{
 
 
@@ -35,20 +32,18 @@ export const AboutPanel: React.FC = ()=>{
             <br/>
 
 
+            
+            
             <div className="flexbox column center APContainer" >
 
+             
                 <div className="flexbox row center" data-aos="fade-right">
-                    {!isMobile() ?
-                        <div className="flexbox column center">
-                            <img src={suit} alt = 'suit' />
-                        </div> 
-                        :  
-                        <div className="flexbox column center">
-                            <img src={suit2} alt = 'suit' />
-                        </div>
-                    }                   
+                   
+                    <div className="flexbox column center">
+                        <img className = "small-img" src={suit2} alt = 'suit' />
+                    </div>  
 
-                    <div className=" flexbox column center dataContent">
+                    <div className="flexbox column center dataContent">
                         <h1 className = 'aboutPaneltitle'>MORE ABOUT ME</h1>
                         <div className = 'wrap'>
                             <h3>{data.aboutMe}</h3>
@@ -57,17 +52,20 @@ export const AboutPanel: React.FC = ()=>{
                     </div>
                 </div>
 
-                <br />
+                <br />   
                 <br />
 
-                <div className=" flexbox row center" data-aos="fade-right">
-
-  
-                    {isMobile() &&
-                        <div className="flexbox column center">
-                            <img src={us2} alt = 'me' />
-                        </div>
-                    }  
+                <div className="flexbox row center" data-aos="fade-right">
+      
+                    {
+                        isMobile() &&
+                        
+                        <>
+                            <br />
+                            <img className = "small-img" src={swim} alt = 'us' />  
+                        </>
+                        
+                    }
                     <div className=" flexbox column center dataContent">
                         <h1 className = 'aboutPaneltitle'>RIGHT NOW?</h1>
                         {data.rightNow.map((item: any, index: number)=>{
@@ -80,11 +78,18 @@ export const AboutPanel: React.FC = ()=>{
                         })}
                     </div>
 
-                    {!isMobile() &&
-                        <div className="flexbox column center">
-                            <img src={us} alt = 'me' />
-                        </div>
-                    }   
+                    <div className="flexbox column center">
+                        <img className = "small-img" src={swim2} alt = 'swim' />
+                        {
+                            !isMobile() &&
+                            
+                            <>
+                                <br />
+                                <img className = "small-img" src={swim} alt = 'us' />  
+                            </>
+                          
+                        }
+                    </div>  
 
                 </div>
 
