@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/static/css/main.166c124e.chunk.css",
-    "main.js": "/static/js/main.bc1c61c6.chunk.js",
-    "main.js.map": "/static/js/main.bc1c61c6.chunk.js.map",
+    "main.css": "/static/css/main.2395efd3.chunk.css",
+    "main.js": "/static/js/main.1aab43fa.chunk.js",
+    "main.js.map": "/static/js/main.1aab43fa.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.674a9260.js",
     "runtime-main.js.map": "/static/js/runtime-main.674a9260.js.map",
     "static/css/2.7fc9bc2b.chunk.css": "/static/css/2.7fc9bc2b.chunk.css",
@@ -10,13 +10,15 @@
     "static/js/2.e511be7a.chunk.js.map": "/static/js/2.e511be7a.chunk.js.map",
     "index.html": "/index.html",
     "static/css/2.7fc9bc2b.chunk.css.map": "/static/css/2.7fc9bc2b.chunk.css.map",
-    "static/css/main.166c124e.chunk.css.map": "/static/css/main.166c124e.chunk.css.map",
+    "static/css/main.2395efd3.chunk.css.map": "/static/css/main.2395efd3.chunk.css.map",
     "static/js/2.e511be7a.chunk.js.LICENSE.txt": "/static/js/2.e511be7a.chunk.js.LICENSE.txt",
     "static/media/CalvinHobbes.95ec2543.png": "/static/media/CalvinHobbes.95ec2543.png",
     "static/media/Hungry.b5a86cd2.png": "/static/media/Hungry.b5a86cd2.png",
     "static/media/MVX.f1587b2b.png": "/static/media/MVX.f1587b2b.png",
     "static/media/Main.5f715fca.png": "/static/media/Main.5f715fca.png",
     "static/media/SA.034e5d00.png": "/static/media/SA.034e5d00.png",
+    "static/media/ashwinSwim.a7fab4e0.png": "/static/media/ashwinSwim.a7fab4e0.png",
+    "static/media/ashwinSwim2.11916578.png": "/static/media/ashwinSwim2.11916578.png",
     "static/media/index.css": "/static/media/footer2.e1792f8d.png",
     "static/media/flamingo.fb2fa86d.png": "/static/media/flamingo.fb2fa86d.png",
     "static/media/hol-anim.0e352516.png": "/static/media/hol-anim.0e352516.png",
@@ -27,18 +29,15 @@
     "static/media/snowball.27a4fad3.png": "/static/media/snowball.27a4fad3.png",
     "static/media/snowcones.58758fce.png": "/static/media/snowcones.58758fce.png",
     "static/media/spaceShip.5bb2d488.png": "/static/media/spaceShip.5bb2d488.png",
-    "static/media/suit.feebe50e.png": "/static/media/suit.feebe50e.png",
     "static/media/suit2.6350a985.png": "/static/media/suit2.6350a985.png",
     "static/media/todo19.4e6f30a9.png": "/static/media/todo19.4e6f30a9.png",
-    "static/media/tsLogo.da766e67.png": "/static/media/tsLogo.da766e67.png",
-    "static/media/us.2a0cad03.png": "/static/media/us.2a0cad03.png",
-    "static/media/us2.f53f4cbe.png": "/static/media/us2.f53f4cbe.png"
+    "static/media/tsLogo.da766e67.png": "/static/media/tsLogo.da766e67.png"
   },
   "entrypoints": [
     "static/js/runtime-main.674a9260.js",
     "static/css/2.7fc9bc2b.chunk.css",
     "static/js/2.e511be7a.chunk.js",
-    "static/css/main.166c124e.chunk.css",
-    "static/js/main.bc1c61c6.chunk.js"
+    "static/css/main.2395efd3.chunk.css",
+    "static/js/main.1aab43fa.chunk.js"
   ]
 }
