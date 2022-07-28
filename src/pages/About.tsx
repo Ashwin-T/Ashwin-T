@@ -19,18 +19,18 @@ export const About: React.FC = () =>{
 
 
                             <p>
-                                — I am a dedicated and resilient student who is interested in Computer Science/Computer Engineering as a major. I am currently a senior currently located at Mountain View High School in Mountain View, California.
+                                — I am a dedicated and resilient student who will be attending the University of Wisconsin–Madison studying Computer Science.
                             </p>
 
                             <p>
-                                Outside of school & programming I enjos swimming, weightlifting, playing sports, reading Calvin & Hobbes, playing games & watching anime with his younger brother, and eating.
+                                Outside of school, I am a major Calvin and Hobbes fan and Jamba Juice enthusiast. In addition I enjoy playing sports and working out!
                             </p>
-        
+
                             <br/>
 
                             <div className = 'buttonContainer flexbox center'>
                                 <HashLink to = '/aboutme/#top'>
-                                    <motion.button className = 'learnMoreButton aboutBtnTxt'>Click to Learn More</motion.button>
+                                    <button className = 'learnMoreButton aboutBtnTxt'>Click to Learn More</button>
                                 </HashLink>
                             </div>
 

@@ -53,7 +53,7 @@ export const Navbar: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim}
             animate = "animate"
             >   
                 <HashLink smooth to = '/'>
-                    <motion.img className = 'logo' alt = 'logo' src = {logo} />
+                    <img className = 'logo' alt = 'logo' src = {logo} />
                 </HashLink>
 
                 <motion.div className="navbarItem">

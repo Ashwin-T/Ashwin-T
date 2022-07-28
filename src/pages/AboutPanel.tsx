@@ -7,7 +7,7 @@ import AOS from 'aos';
 import "aos/dist/aos.css";
 import data from "../assets/data/data.json"
 
-import suit2 from "../assets/images/suit2.png"
+import suit2 from "../assets/images/friends.jpg"
 
 import swim from "../assets/images/ashwinSwim.png"
 import swim2 from "../assets/images/ashwinSwim2.png"
@@ -66,6 +66,7 @@ export const AboutPanel: React.FC = ()=>{
                         </>
                         
                     }
+
                     <div className=" flexbox column center dataContent">
                         <h1 className = 'aboutPaneltitle'>RIGHT NOW?</h1>
                         {data.rightNow.map((item: any, index: number)=>{
@@ -79,7 +80,6 @@ export const AboutPanel: React.FC = ()=>{
                     </div>
 
                     <div className="flexbox column center">
-                        <img className = "small-img" src={swim2} alt = 'swim' />
                         {
                             !isMobile() &&
                             
@@ -94,6 +94,14 @@ export const AboutPanel: React.FC = ()=>{
                 </div>
 
                 <br />
+
+                
+                {
+                        isMobile() &&
+                        <>
+                            <img className = "small-img" src={swim2} alt = 'swim' />
+                        </>
+                    }
             
                 <div className=" flexbox row center"  data-aos="fade-left">
                     <div className=" flexbox column center">

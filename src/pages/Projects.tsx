@@ -16,9 +16,8 @@ export const Projects: React.FC = () =>{
         'github': '',
         'link': ''
     }
-    const [project, setProject] = useState(tempData)
 
-    
+    const [project, setProject] = useState(tempData)
 
     return (
         <div className = 'projectContainer flexbox column center' id = 'projects'>

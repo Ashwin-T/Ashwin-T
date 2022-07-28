@@ -1,9 +1,9 @@
 {
-    "aboutMe": "Hey, my name is Ashwin. I am currently a Senior at Mountain View High School in California. I started coding in my sophomore year of high school, where I learned languages like Java, C, & Python. From there I branched out on my own & learned web based languages such as HTML, CSS, & Javascript, as well as frameworks such as React.",
+    "aboutMe": "Hey, my name is Ashwin and I just graduated from Mountain View High School in California. I started coding in my sophomore year of high school, where I learned languages like Java, C, & Python. From there I branched out on my own & learned web based languages such as HTML, CSS, & Javascript, as well as frameworks such as React.",
     "aboutMore": "My hobbies include swimming & athletics in general, hanging out with my family and friends, & reading Calvin and Hobbes.",
     "activities": [
         {
-            "message": "I am a Captain of the MVHS varsity swim team, and have been a part of the school Varsity Swim Team for every year of High School. I also swim year-round for LAMVAC, a local competitive swim club"
+            "message": "I was a Captain of the MVHS varsity swim team, and have been a part of the school Varsity Swim Team for every year of High School. I also swim year-round for LAMVAC, a local competitive swim club"
         },
         {
             "message": "My swim career has caused me to pursue being a lifeguard and am also CPR & First-Aid certified"
@@ -16,25 +16,13 @@
     
     "rightNow": [
         {
-            "message": "My class-load this semester includes: Advanced CS, Photography I, Philosophy in Literature, AP Physics C Electricity and Magnetism, AP Statistics, & AP Macroeconomics.",
+            "message": "My class-load this semester includes: COMP SCI 300 — PROGRAMMING II,  COMP SCI 220 — DATA SCIENCE PROGRAMMING I, PSYCH 202 — INTRODUCTION TO PSYCHOLOGY, HIST SCI 150 — THE DIGITAL AGE            ",
             "css": "aboutA"
         },
         {
-            "title": "School Wide Projects",
-            "message": "I am working with MVHS Ambassadors and launched Spartan Assistant, an app that will help incoming freshmen orient themselves around campus. I have also finished leading a team of 4 that worked on a project that will better my school known as MV Xperience.",
-            "css": "aboutB"
-        },
-        {
-            "title": "Advanced Web Development Teacher",
-            "message": "I am currently teaching Advanced Web Development to students in within the MVHS CS Club. As of right now this course will cover aspects of React.js and other tools that will help students learn to build bigger and better full stack applications.",
-            "css": "aboutD"
-        },
-        {
-            "title": "MVHacks 5.0",
-            "message": "MVHacks 5.0 is a beginner orientated hackathon, and have taken the postion of Event Director. I am in charge of leading a team of 5 in order to plan out the logistics & execution of the event.",
-            "css": "aboutM",
-            "link": "https://mvhacks.io"
-            
+            "title":"UW-Madison",
+            "message": "I am exicted start my fall semester and become a UW badger!.",
+            "css": "aboutM"
         },
         {
             "title": "Personal Projects",

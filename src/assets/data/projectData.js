@@ -28,7 +28,7 @@ const projectData = [
         "inspiration": "With senior year apporaching I noticted how difficult is is to choose classes and how limited the information is about the difficulty and other aspects about a class.",
         "image": mvx,
         "css": 'bkwhite',
-        "status" : "Done",
+        "status" : "Finished",
         "bkcolor": 'white',
         "github": "https://github.com/MV-Xperience/Xperience",
         "link": "https://mvxperience.com"

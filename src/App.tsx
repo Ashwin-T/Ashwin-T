@@ -6,9 +6,6 @@ import {About} from './pages/About';
 import {Skills} from './pages/Skills';
 import {AboutPanel} from './pages/AboutPanel';
 import { Projects } from './pages/Projects';
-import { DevLogPanel } from './pages/DevLogPanel';
-import { Log } from './pages/Log';
-import { Post } from './pages/Post';
 import {CantFindPage} from './pages/CantFindPage';
 import {OtherProjects} from './pages/OtherProjects';
 import {Switch, Route} from 'react-router-dom'
@@ -46,17 +43,7 @@ const App: React.FC = ()=>{
             <Route exact path = '/other-projects'>
               <OtherProjects />
             </Route>
-            <Route exact path = '/logs'>
-              <DevLogPanel />
-            </Route>
-            <Route exact path = '/logs/:id'>
-              <Log />
-            </Route>
-            <Route exact path = '/post'>
-              <Post />
-            </Route>
-
-            <Route path = "">
+            <Route path = "*">
               <CantFindPage />
             </Route>
           </Switch>

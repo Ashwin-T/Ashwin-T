@@ -34,7 +34,6 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 10vh;
     margin: 3vh 3vh;
     background-color: white !important;
     border-radius: 20px;
@@ -261,17 +260,16 @@ h3{
     cursor: pointer;
 }
 .logo{
-    width: 7vh;
-    margin: 0 1.75vw;
+    width: 3.25rem;
+    aspect-ratio: 1;
+    margin: 0 1vw;
+    padding: 0.5rem 0;
 }
-.navItemz img{
-    margin: 0px 1.5vw;
-}
+
 
 .navbarItem a svg{
-    margin: 0 1.5vw
+    margin: 0 1rem;
 }
-
 
 .homeContainer{
     width: 100vw;
@@ -351,7 +349,7 @@ h3{
     color: black;
 }
 .APContainer h1{
-    font-size: 4vh;
+    font-size: 2rem;
     color: #1a1d22;
     border-bottom: 3px dotted #1a1d22;
 }
@@ -411,12 +409,11 @@ h3{
     width: 75vh;
 }
 .skillsContanier{
-    height: calc(100vh - 50px);
+    height: calc(100vh);
     background: url('./assets/images/backgroundSkills.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    padding: 25px;
 }
 .skillsTitle{
     text-align: center;
@@ -467,7 +464,7 @@ h3{
     color: #61dafb;
 }
 .aboutM{
-    color:black;
+    color:white;
     border-bottom: 3px solid red;
 }
 .aboutPaneltitle{    
@@ -567,7 +564,7 @@ h3{
 }
 .CantFindContainer h3{
     color: black;
-    font-size: 5vh;
+    font-size: 5rem;
     text-align: left;
     margin: 0;
 }
@@ -717,24 +714,25 @@ h3{
     }
     .CantFindContainer{
         background: url(./assets/images/footer2.png);
+        background-attachment: center;
     }
     .content404{
         padding: 10vw;
     }  
     .CantFindContainer h1{
         color: #2e3035;
-        font-size: 7vh;
+        font-size: 7rem;
         text-align: left;
     }
     .CantFindContainer h3{
         color: black;
-        font-size: 4vh;
+        font-size: 3rem;
         text-align: left;
         margin: 0;
     }
     .CantFindContainer h4{
         color: black;
-        font-size: 2.5vh;
+        font-size: 2.5rem;
         text-align: left;
         margin: 0;
     }
