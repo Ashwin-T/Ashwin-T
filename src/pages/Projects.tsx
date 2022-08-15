@@ -3,7 +3,7 @@ import {ProjectOutline} from '../components/ProjectOutline'
 import projectData from '../assets/data/projectData'
 import { HashLink } from 'react-router-hash-link'
 import { ProjectModal } from '../components/ProjectModal'
-export const Projects: React.FC = () =>{
+const Projects: React.FC = () =>{
 
     const tempData = {
         'title': '',
@@ -40,3 +40,5 @@ export const Projects: React.FC = () =>{
     </div>
     )
 }
+
+export default Projects;

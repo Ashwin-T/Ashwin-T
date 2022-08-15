@@ -8,10 +8,13 @@ import "aos/dist/aos.css";
 import data from "../assets/data/data.json"
 
 import suit2 from "../assets/images/friends.jpg"
+// import suit3 from "../assets/images/PromPortraits-35.jpeg"
+
 
 import swim from "../assets/images/ashwinSwim.png"
 import swim2 from "../assets/images/ashwinSwim2.png"
-export const AboutPanel: React.FC = ()=>{
+
+const AboutPanel: React.FC = ()=>{
 
 
     useEffect(() => {
@@ -131,3 +134,5 @@ export const AboutPanel: React.FC = ()=>{
         </>
     )
 }
+
+export default AboutPanel;

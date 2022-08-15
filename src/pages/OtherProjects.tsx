@@ -11,7 +11,7 @@ import { HashLink } from 'react-router-hash-link';
 import {ProjectOutline} from '../components/ProjectOutline'
 import { ProjectModal } from '../components/ProjectModal'
 
-export const OtherProjects: React.FC = () =>{
+const OtherProjects: React.FC = () =>{
     const tempData = {
         'title': '',
         'about': '',
@@ -141,3 +141,5 @@ export const OtherProjects: React.FC = () =>{
         </>
     )
 }
+
+export default OtherProjects;

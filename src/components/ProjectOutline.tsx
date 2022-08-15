@@ -1,4 +1,5 @@
 import React from 'react'
+
 export const ProjectOutline: React.FC<{project: any}> = ({project})=>{
     return (
         <div className = 'styledOutline'>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { HashLink } from 'react-router-hash-link'
 
-export const CantFindPage: React.FC = ()=>{
+const CantFindPage: React.FC = ()=>{
     return (
         <div className="flexbox column center">
             <div className="CantFindContainer flexbox" >
@@ -15,3 +15,5 @@ export const CantFindPage: React.FC = ()=>{
         </div>
     )
 }
+
+export default CantFindPage;

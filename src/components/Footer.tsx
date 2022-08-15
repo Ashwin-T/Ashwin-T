@@ -3,10 +3,10 @@ import {BsInstagram} from 'react-icons/bs';
 import {GoMarkGithub} from 'react-icons/go';
 import {CgFileDocument} from 'react-icons/cg';
 import {AiOutlineMail} from 'react-icons/ai';
+import {BsLinkedin} from 'react-icons/bs';
 import isMobile from '../hooks/isMobile';
 
-
-export const Footer: React.FC =()=>{
+const Footer: React.FC =()=>{
 
 
     const [size, setSize] = useState(50);
@@ -20,6 +20,11 @@ export const Footer: React.FC =()=>{
                 title: "Follow my Instagram Account",
                 icon : <BsInstagram size = {size}/>,
                 link: "https://www.instagram.com/_ashwin.t/"
+            },
+            {
+                title: "Follow my linkedin Account",
+                icon : <BsLinkedin size = {size}/>,
+                link: "https://www.linkedin.com/in/ashwin-talwalkar/"
             },
             {
                 title: "View My Github Portfolio",
@@ -64,11 +69,13 @@ export const Footer: React.FC =()=>{
 
                 <div className = 'flexbox column center'>
                     <h5>Created by Ashwin Talwalkar using TypeScript React</h5>
-                    <h5>Last Updated on 1/9/2022</h5>
-                    <h5 className='last-thing'>v2.3</h5>
+                    <h5>Last Updated on 8/14/2022</h5>
+                    <h5 className='last-thing'>v2.25</h5>
                 </div>
 
             </div>
         </footer>
     )
 }
+
+export default Footer;

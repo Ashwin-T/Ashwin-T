@@ -4,8 +4,7 @@ import flamingo from '../assets/images/flamingo.png'
 import {AiOutlineDown} from 'react-icons/ai'
 import { HashLink } from 'react-router-hash-link';
 
-
-export const Home: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=>{
+const Home: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=>{
 
     const sentenceMove = {
         inital:{
@@ -132,3 +131,5 @@ export const Home: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=
         </>
     )
 }
+
+export default Home;

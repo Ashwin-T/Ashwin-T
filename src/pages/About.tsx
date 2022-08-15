@@ -4,7 +4,7 @@ import { HashLink } from 'react-router-hash-link';
 import {AiOutlineDown} from 'react-icons/ai'    
 import CH from '../assets/images/CalvinHobbes.png'
 
-export const About: React.FC = () =>{
+const About: React.FC = () =>{
 
     return (
         <div>
@@ -56,3 +56,5 @@ export const About: React.FC = () =>{
         </div>
     )
 }
+
+export default About;

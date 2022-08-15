@@ -1,17 +1,23 @@
-import React, {useEffect, useRef} from 'react';
-import {Navbar} from './components/Navbar';
-// import {Footer} from './components/Footer';
-import {Home} from './pages/Home';
-import {About} from './pages/About';
-import {Skills} from './pages/Skills';
-import {AboutPanel} from './pages/AboutPanel';
-import { Projects } from './pages/Projects';
-import {CantFindPage} from './pages/CantFindPage';
-import {OtherProjects} from './pages/OtherProjects';
+import React, {useEffect, useRef, Suspense} from 'react';
+import Navbar from './components/Navbar';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+// import {About} from './pages/About';
+// import {Skills} from './pages/Skills';
+// import {AboutPanel} from './pages/AboutPanel';
+// import { Projects } from './pages/Projects';
+// import {CantFindPage} from './pages/CantFindPage';
+// import {OtherProjects} from './pages/OtherProjects';
 import {Switch, Route} from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion';
-import { Footer } from './components/Footer';
 
+//react lazy
+const About = React.lazy(()=> import('./pages/About'));
+const AboutPanel = React.lazy(()=>import('./pages/AboutPanel'));
+const Skills = React.lazy(()=>import('./pages/Skills'));
+const Projects = React.lazy(()=>import('./pages/Projects'));
+const CantFindPage = React.lazy(()=> import('./pages/CantFindPage'));
+const OtherProjects = React.lazy(()=>import('./pages/OtherProjects'));
 const App: React.FC = ()=>{
 
   const ref = useRef(true);
@@ -26,7 +32,7 @@ const App: React.FC = ()=>{
 
 
   return (
-    <div className="App">
+    <Suspense fallback = {<></>}>
         <AnimatePresence>
           <Switch>
             <Route exact path = '/'>
@@ -48,7 +54,7 @@ const App: React.FC = ()=>{
             </Route>
           </Switch>
         </AnimatePresence>
-    </div>
+    </Suspense>
   );
 }
 

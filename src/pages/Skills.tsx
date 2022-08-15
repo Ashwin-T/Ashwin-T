@@ -5,7 +5,7 @@ import {AiOutlineDatabase, AiOutlineDown} from 'react-icons/ai'
 import { HashLink } from 'react-router-hash-link';
 
 
-export const Skills: React.FC =()=>{
+const Skills: React.FC =()=>{
     return (
         <div id = 'skills' className="skillsContanier flexbox column center">
             <div className="flexbox column center ">
@@ -28,9 +28,9 @@ export const Skills: React.FC =()=>{
                         <div className="flexbox column center">
                             <div className = 'boxTittle'>Backend <AiOutlineDatabase /></div>
                             <div className = 'skillsSubHeader'>Languages</div>
-                            <span>JavaScript, Java, Python</span>
+                            <span>JavaScript, Java, C++, Python</span>
                             <div className = 'skillsSubHeader'>Frameworks / Libraries / Tools</div>
-                            <span>Express, MongoDB, Firebase</span>
+                            <span>Firebase, MongoDB, Express, Node/Deno</span>
                         </div>
 
                     </div>
@@ -46,3 +46,5 @@ export const Skills: React.FC =()=>{
        
     )
 }
+
+export default Skills;
