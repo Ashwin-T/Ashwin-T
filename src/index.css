@@ -34,14 +34,29 @@ nav{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 3vh 3vh;
-    background-color: white !important;
-    border-radius: 20px;
-    box-shadow: 0px 0px 3px #1a1d22;
-    /* animation: translateZ(0); */
+    margin: 2rem 1rem;
+    width: calc(100% - 2rem);
+    color: white !important;
+    z-index: 10;
+    position: absolute;
+    top: 0;
 }
 
+nav div a{
+    color: lightgrey;
+    margin: auto 1rem;
+    width: 1rem;
+}
 
+nav div a:hover{
+    color: white;
+}
+
+nav .name{
+    font-size: 1.75rem;
+    font-weight: 700;
+    margin: auto 1rem;
+}
 
 
 footer{
@@ -275,6 +290,10 @@ h3{
     width: 100vw;
     height: 100vh;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 2vh;
 }
 .aboutContainer{
     width: 100vw;
@@ -307,20 +326,21 @@ h3{
     height: 50vw;
 }
 .homeTitle{
-    font-size: 12vh
+    font-size: 8rem;
+    flex-wrap: wrap;
+    max-width: 50vw;
 }
 
 .homeTitle2{
     font-size: 4vh
 }
 .flamingo{
-    width: 45vh;
-    height: 45vh;
+    width: 30rem;
 }
 .scroll-arrow{
     text-align: center;
     font-size: 65px;
-    margin-top: 23vh;
+    margin-top: 10vh;
 }
 .scroll-arrow a{
     color: white;
@@ -639,7 +659,7 @@ h3{
     width: 50vh;
 }
 
-@media only screen and (max-width: 850px) and (min-width: 280px){
+@media only screen and (max-width: 786px) and (min-width: 280px){
     .projectModalIMG{
         width: 30vh;
     }
@@ -648,16 +668,15 @@ h3{
     }
     .mainLogo{
         width: 50vh;
-        height: 50vh;
     }
     .flamingo{
         margin-top: 7vh;
         width: 35vh;
-        height: 35vh;
     }
     .homeTitle{
         text-align: center;
-        font-size: 6vh
+        font-size: 6vh;
+        max-width: 100%;
     }
     .homeTitle2{
         text-align: center;
@@ -750,6 +769,27 @@ h3{
         margin: 0 2vw;
     }
 
+    nav{
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: center;
+        margin: 1.5rem 0;
+    }
+
+    nav a{
+        color: lightgrey;
+        margin: auto 1rem;
+    }
+
+    nav .name{
+        font-size: 2.5vh;
+        margin: 0;
+        text-align: center;
+        color: lightgrey;
+    }
+
 }
 
 @media only screen and (max-width: 280px){
@@ -761,3 +801,4 @@ h3{
         height: 40vw;
     }
 }
+

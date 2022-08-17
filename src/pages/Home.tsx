@@ -1,6 +1,7 @@
 import React from 'react'
 import {motion} from 'framer-motion'
 import flamingo from '../assets/images/flamingo.png'
+import Navbar from '../components/Navbar'
 import {AiOutlineDown} from 'react-icons/ai'
 import { HashLink } from 'react-router-hash-link';
 
@@ -56,7 +57,7 @@ const Home: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=>{
              animate = 'animate'
          >
 
-             <br />
+            <Navbar anim = {anim}/>
 
 
              <motion.div className='flexbox row space-between'
@@ -65,13 +66,15 @@ const Home: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=>{
                  animate = 'animate'>
 
                  <div>
-                     <h1 className = 'flexbox column homeTitle'>
-                         Hey, I'm Ashwin
-                         <div className = 'flexbox column homeTitle2'>
-                             Student | Athlete | Developer
-                         </div>
-                     </h1>
-                    
+                        <h1 className = 'homeTitle'>
+                            Student.
+                        </h1>
+                        <h1 className = 'homeTitle'>
+                            Athlete.
+                        </h1>
+                        <h1 className = 'homeTitle'>
+                            Developer.
+                        </h1>
                  </div>
 
                  <img src = {flamingo} alt = 'flamingo' className = 'flamingo'/>
@@ -93,41 +96,41 @@ const Home: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=>{
     }
 
 
-    const Regular: React.FC = ()=>{
-        return(
-        <>        
+    // const Regular: React.FC = ()=>{
+    //     return(
+    //     <>        
          
-         <div className='homeContainer'>
+    //      <div className='homeContainer'>
 
-             <br />
+    //          <br />
 
-             <div className='flexbox row space-between'>
-                 <div>
-                     <h1 className = 'flexbox column homeTitle'>
-                         Hey, I'm Ashwin
-                         <div className = 'flexbox column homeTitle2'>
-                            Student | Athlete | Developer
-                         </div>
-                     </h1>
-                 </div>
+    //          <div className='flexbox row space-between'>
+    //              <div>
+    //                  <h1 className = 'flexbox column homeTitle'>
+    //                      Hey, I'm Ashwin
+    //                      <div className = 'flexbox column homeTitle2'>
+    //                         Student | Athlete | Developer
+    //                      </div>
+    //                  </h1>
+    //              </div>
 
-                 <img src = {flamingo} alt = 'flamingo' className = 'flamingo'/>
+    //              <img src = {flamingo} alt = 'flamingo' className = 'flamingo'/>
 
-             </div>
+    //          </div>
 
-             <div className = 'scroll-arrow'>
-                <HashLink smooth to = '/#about'>
-                     <AiOutlineDown />
-                 </HashLink>
-             </div>
-         </div>
-        </>
-        )
-    }
+    //          <div className = 'scroll-arrow'>
+    //             <HashLink smooth to = '/#about'>
+    //                  <AiOutlineDown />
+    //              </HashLink>
+    //          </div>
+    //      </div>
+    //     </>
+    //     )
+    // }
     
     return (
         <>
-            {anim.current ? <Animation /> : <Regular />}
+            <Animation />
         </>
     )
 }

@@ -1,76 +1,69 @@
 import {FaMailBulk, FaRegUser,FaCode} from "react-icons/fa";
 import {AiOutlineFundProjectionScreen} from "react-icons/ai";
-import {motion} from 'framer-motion'
-import logo from '../assets/images/logo.png'
+
 import React from 'react'
 import { HashLink } from 'react-router-hash-link';
 
 const Navbar: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=>{
 
-    const NavbarData: any = [
-        {
-            title: "About",
-            icon : <FaRegUser  size = {35}/>,
-            tag: "/#about"
-        },
-        {
-            title: "Skills",
-            icon : <FaCode  size = {35}/>,
-            tag: "/#skills"
-        },
-        {
-            title: "Projects",
-            icon : <AiOutlineFundProjectionScreen  size = {35}/>,
-            tag: "/#projects"
-        },
-        {
-            title: "Contact",
-            icon : <FaMailBulk  size = {35}/>,
-            tag: "/#contact"
-        },
-        
-        
-    ]
-
-
-    const navbarVarients = {
-        inital:{
-            opacity:0
-        },
-        animate:{
-            opacity:1,
-            transition:{
-                duration: 1.5,
-            }
-        }
-    }
-
-    const Animation: React.FC = () =>{
+    const MobileNav = ()=>{
         return(
-            <motion.nav 
-            variants = {navbarVarients}
-            initial = "inital"
-            animate = "animate"
-            >   
-                <HashLink smooth to = '/'>
-                    <img className = 'logo' alt = 'logo' src = {logo} />
+            <nav>
+                <HashLink smooth to = '/#about'>
+                    <FaRegUser  size = {25}/>
                 </HashLink>
 
-                <motion.div className="navbarItem">
-                    {NavbarData.map((item: any)=>{
-                        return(
-                            <HashLink key = {item.title} smooth to = {item.tag}>{item.icon}</HashLink>
-                        )
-                    })}
-                </motion.div> 
-        </motion.nav>
+                <HashLink smooth to = '/#skills'>
+                    <FaCode  size = {25}/>
+                </HashLink>
+
+                <HashLink smooth to = '/'>
+                    Ashwin Talwalkar
+                </HashLink>
+
+                <HashLink smooth to = '/#projects'>
+                    <AiOutlineFundProjectionScreen  size = {25}/>
+                </HashLink>
+
+                <HashLink smooth to = '/#contact'>
+                    <FaMailBulk  size = {25}/>
+                </HashLink>
+            </nav>
         )
     }
-
-
+  
     return (
         <>
-            <Animation />
+            {window.innerWidth > 786 ? 
+            <nav>
+                <div>
+                    <HashLink smooth to = '/#about'>
+                        About
+                    </HashLink>
+
+                    <HashLink smooth to = '/#skills'>
+                        Skills
+                    </HashLink>
+                </div>
+
+                <div className = 'name'>
+                    <HashLink smooth to = '/'>
+                        Ashwin Talwalkar
+                    </HashLink>
+                </div>
+
+                <div>
+                    <HashLink smooth to = '/#projects'>
+                        Projects
+                    </HashLink>
+
+                    <HashLink smooth to = '/#contact'>
+                        Contact
+                    </HashLink>
+                </div>
+            </nav>
+                : <MobileNav />
+            }
         </>
     )
 }

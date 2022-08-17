@@ -1,5 +1,4 @@
 import React, {useEffect, useRef, Suspense} from 'react';
-import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 // import {About} from './pages/About';
@@ -36,7 +35,6 @@ const App: React.FC = ()=>{
         <AnimatePresence>
           <Switch>
             <Route exact path = '/'>
-              <Navbar anim = {ref}/>
               <Home anim = {ref}/>
               <About />
               <Skills />
