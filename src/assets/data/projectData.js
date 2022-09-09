@@ -13,7 +13,7 @@ const projectData = [
         "title": "Spartan Assistant",
         "about": "A PWA created to help incoming freshmen orient themselves on campus by using an interactive map with GPS functionality and other tools.", 
         "stack": "React.js, Mapbox, Firebase",
-        "inspiration": "Due to how hard it is to adapt to a new school, MVHS Ambassadors asked to work with them to create a PWA to help incoming freshmen on campus. This app was launched in Fall of 2022 and reached a peak of 535 daily users!",
+        "inspiration": "Due to how hard it is to adapt to a new school, MVHS Ambassadors asked to work with them to create a PWA to help incoming freshmen on campus. This app was launched in Fall of 2022 and reached a peak of 635 daily distinct users!",
         "css": 'bkwhite',
         "image": SA,
         "status" : "Maintaining",
