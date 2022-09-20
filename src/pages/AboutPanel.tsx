@@ -7,12 +7,10 @@ import AOS from 'aos';
 import "aos/dist/aos.css";
 import data from "../assets/data/data.json"
 
-import suit2 from "../assets/images/friends.jpg"
+import ash from "../assets/images/ash1.jpg"
 // import suit3 from "../assets/images/PromPortraits-35.jpeg"
-
-
 import swim from "../assets/images/ashwinSwim.png"
-import swim2 from "../assets/images/ashwinSwim2.png"
+import suit from "../assets/images/suit2.png"
 
 const AboutPanel: React.FC = ()=>{
 
@@ -33,24 +31,20 @@ const AboutPanel: React.FC = ()=>{
 
             <br/>
             <br/>
-
-
-            
             
             <div className="flexbox column center APContainer" >
 
              
-                <div className="flexbox row center" data-aos="fade-right">
+                <div className="flexbox row center">
                    
                     <div className="flexbox column center">
-                        <img className = "small-img" src={suit2} alt = 'suit' />
+                        <img className = "small-img" src={ash} alt = 'suit' />
                     </div>  
 
                     <div className="flexbox column center dataContent">
                         <h1 className = 'aboutPaneltitle'>MORE ABOUT ME</h1>
                         <div className = 'wrap'>
                             <h3>{data.aboutMe}</h3>
-                            <h3>{data.aboutMore}</h3>
                         </div>
                     </div>
                 </div>
@@ -58,21 +52,21 @@ const AboutPanel: React.FC = ()=>{
                 <br />   
                 <br />
 
-                <div className="flexbox row center" data-aos="fade-right">
+                <div className="flexbox row center">
       
                     {
                         isMobile() &&
                         
                         <>
-                            <br />
                             <img className = "small-img" src={swim} alt = 'us' />  
+                            <br />
                         </>
                         
                     }
 
-                    <div className=" flexbox column center dataContent">
-                        <h1 className = 'aboutPaneltitle'>RIGHT NOW?</h1>
-                        {data.rightNow.map((item: any, index: number)=>{
+                    <div className="flexbox column center dataContent" >
+                        <h1 className = 'aboutPaneltitle'>Interests</h1>
+                        {data.interests.map((item: any, index: number)=>{
                             return(
                                 <div key = {index} className="flexbox column center">
                                     <h2 className = {item.css}>{item.title}</h2>
@@ -87,8 +81,8 @@ const AboutPanel: React.FC = ()=>{
                             !isMobile() &&
                             
                             <>
-                                <br />
                                 <img className = "small-img" src={swim} alt = 'us' />  
+                                <br />
                             </>
                           
                         }
@@ -96,39 +90,54 @@ const AboutPanel: React.FC = ()=>{
 
                 </div>
 
-                <br />
-
                 
-                {
-                        isMobile() &&
-                        <>
-                            <img className = "small-img" src={swim2} alt = 'swim' />
-                        </>
-                    }
+                <br />   
+                <br />
             
-                <div className=" flexbox row center"  data-aos="fade-left">
-                    <div className=" flexbox column center">
-                        <h1 className = 'aboutPaneltitle'>OTHER ACTIVITIES</h1>
-                        <br />
-                        {data.activities.map((item: any, index: number)=>{
+            
+            
+                <div className="flexbox row center">
+
+                    {
+                        isMobile() &&
+                        
+                        <>
+                            <img className = "small-img" src={suit} alt = 'us' />  
+                            <br />
+                        </>
+                        
+                    }
+
+                    
+
+                    <div className="flexbox column center">
+                        {
+                            !isMobile() &&
+                            
+                            <>
+                                <br />
+                                <img className = "small-img" src={suit} alt = 'us' />  
+                            </>
+                            
+                        }
+                    </div>  
+                        
+                    <div className=" flexbox column center dataContent">
+                        <h1 className = 'aboutPaneltitle'>Right Now?</h1>
+                        {data.rightNow.map((item: any, index: number)=>{
                             return(
-                                <div className = 'flexbox row center' key = {index}>
-                                    <div className = 'flexbox column center'>
-                                        <h3>{item.message}</h3>
-                                    </div>
+                                <div key = {index} className="flexbox column center">
+                                    <h2 className = {item.css}>{item.title}</h2>
+                                    <h3>{item.message}</h3>
                                 </div>
                             )
                         })}
                     </div>
                 </div>
 
-                
                 <br />
                 <br/>
                 <br/>
-
-                
-
 
             </div>
         </>

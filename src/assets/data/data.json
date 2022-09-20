@@ -1,33 +1,26 @@
 {
-    "aboutMe": "Hey, my name is Ashwin and I just graduated from Mountain View High School in California. I started coding in my sophomore year of high school, where I learned languages like Java, C, & Python. From there I branched out on my own & learned web based languages such as HTML, CSS, & Javascript, as well as frameworks such as React.",
-    "aboutMore": "My hobbies include swimming & athletics in general, hanging out with my family and friends, & reading Calvin and Hobbes.",
-    "activities": [
+    "aboutMe": "Hey, my name is Ashwin Talwalkar and I am a Computer Science major studying at the University of Wisconsin Madison!",
+    "interests": [
         {
-            "message": "I was a Captain of the MVHS varsity swim team, and have been a part of the school Varsity Swim Team for every year of High School. I also swim year-round for LAMVAC, a local competitive swim club"
+            "message": "I love spending time swimming, watching/participating in atheltics, and weightlifting. In my downtime I enjoy reading Calvin & Hobbes and creating software for my community."
         },
         {
-            "message": "My swim career has caused me to pursue being a lifeguard and am also CPR & First-Aid certified"
-        }
-        ,
+            "message": "I participated in many clubs throughout high school including the Computer Science Club, Spartan Buddies, and the Indian Culture Club, and plan to join clubs similar in messages within college."
+        },
         {
-            "message": "I participate in many clubs throughout my school including Spartan Buddies, which I have been apart of for the past 4 years, as well as the CS Club and others"
+            "message": "My swim career has caused me to pursue a certification in CPR, First-Aid, and lifeguarding."
         }
     ],
     
     "rightNow": [
         {
-            "message": "My class-load this semester includes: COMP SCI 300 — PROGRAMMING II,  COMP SCI 220 — DATA SCIENCE PROGRAMMING I, PSYCH 202 — INTRODUCTION TO PSYCHOLOGY, HIST SCI 150 — THE DIGITAL AGE            ",
+            "message": "As an freshmen at UW Madison, my class-load this semester includes: COMP SCI 300 - Programming II\n,  COMP SCI 220 — Data Science Programming I\n, PSYCH 202 — Introduction to Psychology\n, HIST SCI 150 — The Digital Age\n",
             "css": "aboutA"
         },
         {
-            "title":"UW-Madison",
-            "message": "I am exicted start my fall semester and become a UW badger!.",
-            "css": "aboutM"
-        },
-        {
             "title": "Personal Projects",
-            "message": "As of right now I am working on projects that will help improve my progamming skills. I want to get more practice with C++/C#, TypeScript, Gatsby, MongoDB, Tailwind CSS, as well as learn Next.js",
-            "css": "aboutP"
+            "message": "As of right now I am working on projects that will help improve my progamming skills. I want to get more practice with TypeScript and the C family",
+            "css": "aboutM"
         }
     ]
 }

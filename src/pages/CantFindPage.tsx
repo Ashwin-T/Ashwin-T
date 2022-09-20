@@ -9,7 +9,7 @@ const CantFindPage: React.FC = ()=>{
                     <h1>404</h1>
                     <h3>This page doesn't exist</h3>
                     <br/>
-                    <h4><HashLink  to = '/#'>Click here to find your way back</HashLink></h4>
+                    <HashLink  to = '/#'><h4>Click here to find your way back</h4></HashLink>
                 </div>
             </div>
         </div>

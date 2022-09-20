@@ -120,6 +120,9 @@ h3{
 .dataContent{
     width: 50vw
 }
+.dataContent h3{
+    font-size: 1.5rem;
+}
 .column{
     flex-direction: column;
 }
@@ -368,6 +371,9 @@ h3{
 .backArrow:hover{
     color: black;
 }
+.APContainer > .flexbox{
+    width: 100%;
+}
 .APContainer h1{
     font-size: 2rem;
     color: #1a1d22;
@@ -375,7 +381,7 @@ h3{
 }
 .APContainer .small-img{
     border: 5px solid black;
-    width: 33.5vw;
+    width: 30vw;
 }
 .sectionz{
     width: 100vw;
@@ -489,6 +495,7 @@ h3{
 }
 .aboutPaneltitle{    
     color:#1a1d22;
+    font-size: 2rem;
 }
 .projectContainer{
     width: 100vw;
@@ -571,7 +578,6 @@ h3{
     margin-top: 5vh;
     width: 90vw;
     height: 90vh;
-    background: url(./assets/images/footer.png);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -658,6 +664,9 @@ h3{
 .projectDisplayContainer img{
     width: 50vh;
 }
+.CantFindContainer h4:hover{
+    color: white !important;
+}
 
 @media only screen and (max-width: 786px) and (min-width: 280px){
     .projectModalIMG{
@@ -712,7 +721,7 @@ h3{
          font-size: 3vh;
      }
      .APContainer .small-img{
-        width: 85vw;
+        width: 65vw;
         margin-bottom: 2vh
     }
      .dataContent{
@@ -732,8 +741,8 @@ h3{
         text-align: center;
     }
     .CantFindContainer{
-        background: url(./assets/images/footer2.png);
         background-attachment: center;
+        text-align: center;
     }
     .content404{
         padding: 10vw;
@@ -741,18 +750,15 @@ h3{
     .CantFindContainer h1{
         color: #2e3035;
         font-size: 7rem;
-        text-align: left;
     }
     .CantFindContainer h3{
         color: black;
         font-size: 3rem;
-        text-align: left;
         margin: 0;
     }
     .CantFindContainer h4{
         color: black;
         font-size: 2.5rem;
-        text-align: left;
         margin: 0;
     }
     .aboutContainer p{

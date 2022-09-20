@@ -43,7 +43,7 @@ const projectData = [
         "status" : "Finished",
         "bkcolor": 'black',
         "github": "https://github.com/Ashwin-T/Treasure-Seeker",
-        "link": "https://ashwin-t.github.io/Treasure-Seeker/"
+        "link": "https://treasure-seeker.netlify.app/"
     },
     {
         "title": "PRformance",
@@ -86,7 +86,7 @@ const projectData = [
     },
     {
         "title": "Smart Mirror",
-        "about": "A Computer Engineering project that I created using an old monitor, a Raspberry Pi, and a lot of cables",
+        "about": "A Computer Engineering project that I created using an old monitor, a Raspberry Pi, and a few of cables & nicrofans",
         "stack": "React.js, Electron.js, Rest APIs, Firebase, Express, Node.js",
         "inspiration": "To stay organized and keep up with my busy mornings I created a Smart Mirror: the Smart Mirror is a mirror with a display behind it allowing it to show different components onto the screen. I wrote the code using React and numerous other JavaScript libraries incuding Moment.js and Electron.js, which allows the program to run as an application on a Linux operating system. I also used other node modules and APIs including the OpenWeather API to display real time data. I also used Firebase to hook up a to-do list which I an update on my phone via another app I created myself.",
         "image": sm,
