@@ -20,7 +20,7 @@ const Skills: React.FC =()=>{
                             <div className = 'skillsSubHeader'>Languages</div>
                             <span>JavaScript, TypeScript, HTML5 & CSS3, </span>
                             <div className = 'skillsSubHeader'>Frameworks / Libraries / Tools</div>
-                            <span> React.js, Gatsby, Redux, Bootstrap, Material-UI, A lot of React.js/JS libraries</span>
+                            <span>React.js, Vue.js, Next, Bootstrap, Material-UI, Node.js</span>
                         </div> 
 
                        <hr />
@@ -37,7 +37,7 @@ const Skills: React.FC =()=>{
                 </div>
                 <motion.div className = 'scroll-arrow'>
                     <HashLink smooth to = '/#projects'>
-                        <AiOutlineDown />
+                        <AiOutlineDown size = {'2.5rem'}/>
                     </HashLink>
                 </motion.div>
     

@@ -39,7 +39,7 @@ const About: React.FC = () =>{
 
                             <motion.div className = 'scroll-arrow2'>
                                 <HashLink smooth to = '/#skills'>
-                                    <AiOutlineDown />
+                                    <AiOutlineDown size = {'2.5rem'}/>
                                 </HashLink>
                             </motion.div>
 

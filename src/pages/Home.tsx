@@ -60,7 +60,7 @@ const Home: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=>{
             <Navbar anim = {anim}/>
 
 
-             <motion.div className='flexbox row space-between'
+             <motion.div className='flexbox row space-between home-anim'
                  variants = {sentenceMove}
                  initial = 'inital'
                  animate = 'animate'>
@@ -86,7 +86,7 @@ const Home: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=>{
                 initial = 'inital'
                 animate = 'animate'>  
                  <HashLink smooth to = '/#about'>
-                     <AiOutlineDown />
+                     <AiOutlineDown size = {'3rem'}/>
                  </HashLink>
              </motion.div>
 

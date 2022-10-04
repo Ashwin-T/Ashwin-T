@@ -329,7 +329,7 @@ h3{
     height: 50vw;
 }
 .homeTitle{
-    font-size: 8rem;
+    font-size: 8vw;
     flex-wrap: wrap;
     max-width: 50vw;
 }
@@ -338,7 +338,7 @@ h3{
     font-size: 4vh
 }
 .flamingo{
-    width: 30rem;
+    width: 32vw;
 }
 .scroll-arrow{
     text-align: center;
@@ -355,12 +355,7 @@ h3{
 .aboutContent{
     margin-top: 6vh;
 }
-.buttonContainer{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-}
+
 
 .backArrow{
     font-size: 7vh;
@@ -398,7 +393,7 @@ h3{
 
 .scroll-arrow2{
     text-align: center;
-    font-size: 65px;
+    font-size: 50px;
 }
 .scroll-arrow2 a{
     color: #1a1d22;
@@ -409,12 +404,10 @@ h3{
     color: #f755ab;
 }
 .learnMoreButton{
-    padding: 5px;
-    font-size: 1.75vh;
+    padding: 10px;
     font-weight: bold;
-    width: 23vh;
-    height: 7vh;
-    border-radius: 10px;
+    width: 10rem !important;
+    border-radius: 7px;
     background-color: #548fa4;
     color: white;
     transition: all ease-in 0.25s;
@@ -432,14 +425,14 @@ h3{
     color: white
 }
 .aboutImg{
-    width: 75vh;
+    width: 40rem;
 }
 .skillsContanier{
+    width: calc(100%);
     height: calc(100vh);
     background: url('./assets/images/backgroundSkills.svg');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
 }
 .skillsTitle{
     text-align: center;
@@ -776,7 +769,7 @@ h3{
     }
 
     nav{
-        width: 100vw;
+        width: 100%;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -808,3 +801,32 @@ h3{
     }
 }
 
+@media only screen and (max-height: 414px) and (min-width: 786px){
+    
+    .scroll-arrow2{
+        font-size: 25px;
+    }
+    .aboutContent p{
+        font-size: 0.75rem;
+    }
+    .home-anim{
+        margin-top: 5rem;
+    }
+
+    .homeTitle{
+        font-size: 3rem;
+    }
+
+    .flamingo{
+        width: 12rem;
+    }
+
+    .aboutImg{
+        width: 17rem;
+    }
+    
+    .learnMoreButton{
+        width: 5rem;
+        max-width: 50vw;;
+    }
+}

@@ -1,10 +1,26 @@
 import {FaMailBulk, FaRegUser,FaCode} from "react-icons/fa";
 import {AiOutlineFundProjectionScreen} from "react-icons/ai";
 
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import { HashLink } from 'react-router-hash-link';
 
 const Navbar: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=>{
+
+    const [width, setWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+
+        window.addEventListener('resize', function(event){
+            setWidth(window.innerWidth)
+        });
+
+        return () => {
+            window.removeEventListener('resize', function(event){
+                setWidth(window.innerWidth)
+            });
+        }
+
+    }, []); 
 
     const MobileNav = ()=>{
         return(
@@ -34,7 +50,7 @@ const Navbar: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=>{
   
     return (
         <>
-            {window.innerWidth > 786 ? 
+            {width > 786 ? 
             <nav>
                 <div>
                     <HashLink smooth to = '/#about'>
