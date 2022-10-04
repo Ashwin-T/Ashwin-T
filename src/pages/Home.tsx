@@ -70,10 +70,10 @@ const Home: React.FC<{anim: React.MutableRefObject<boolean>}> = ({anim})=>{
                             Student.
                         </h1>
                         <h1 className = 'homeTitle'>
-                            Athlete.
+                            Developer.
                         </h1>
                         <h1 className = 'homeTitle'>
-                            Developer.
+                            Innovator.
                         </h1>
                  </div>
 
