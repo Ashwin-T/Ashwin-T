@@ -1,0 +1,104 @@
+:root {
+  --font-family: "Merriweather", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --line-height: 1.5;
+  --font-weight: 400;
+
+  --light-color: rgba(255, 255, 255, 0.87);
+  --dark-color: rgba(0, 0, 0, 0.87);
+  --background-color-light: #ffffff;
+  --background-color-dark: #121212;
+  --text-color-light: #8b8a8c;
+  --font-synthesis: none;
+  --text-rendering: optimizeLegibility;
+  --webkit-font-smoothing: antialiased;
+  --moz-osx-font-smoothing: grayscale;
+  --color: var(--text-color-light);
+  --background-color: var(--background-color-light);
+  --secondary-color: #0096C7;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  line-height: var(--line-height);
+  font-weight: var(--font-weight);
+  color: var(--color);
+  background-color: var(--background-color);
+  font-synthesis: var(--font-synthesis);
+  text-rendering: var(--text-rendering);
+  -webkit-font-smoothing: var(--webkit-font-smoothing);
+  -moz-osx-font-smoothing: var(--moz-osx-font-smoothing);
+  
+  margin: 0;
+
+}
+
+a{
+  color: var(--color);
+  text-decoration: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  animation: fadeIn 1s linear forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+
+.flex-inline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+p {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+button {
+  background-color: #4c4c4c; /* Darker grey background */
+  color: #ffffff; /* White text color */
+  border-radius: 0.3rem; /* Slightly reduce border radius */
+  padding: 0.5rem 1rem; /* Slightly reduce padding */
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, color 0.3s; /* Smooth transition effect */
+  display: flex;
+  align-items: center;
+}
+
+button > svg {
+  margin-right:0.5rem;
+}
+
+button:hover {
+  background-color: #333; /* Darken the background on hover */
+  color: #fff; /* Change text color on hover */
+} 
+
+/* remove later */
+
+.img {
+  width: 35rem;
+  height: 35rem;
+
+  border-radius: 50%;
+  background: grey;
+  margin: 1rem;
+}

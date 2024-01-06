@@ -1,0 +1,165 @@
+.uw {
+  color: #C5050C
+}
+
+.active-circle {
+  background-color: green;
+  width: 0.65rem;
+  height: 0.65rem;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+}
+
+.link {
+  margin: 0.5rem 0.65rem;
+  opacity: 0.6;
+  transition: all 0.2s ease-in-out;
+}
+
+.link:hover {
+  opacity: 1;
+}
+
+h3 {
+  margin: 2rem;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 85%;
+  margin-top: 1rem;
+}
+
+.content-bit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0;
+}
+
+.content-bit > * {
+  text-align: left;
+}
+
+.enter{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  height: calc(100vh - 4rem);
+}
+
+.enter > * {
+  margin: 0 0.5rem;
+}
+
+h1{
+  font-size: 3rem;
+  font-weight: 500;
+  margin: 0;
+  color: var(--secondary-color)
+}
+
+h4 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  margin-top: 2rem;
+  color: var(--secondary-color)
+}
+
+.bgSkills {
+  width: 100%;
+}
+
+.skills {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.skill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 10rem;
+  margin: 1rem;
+}
+
+.skill img {
+  width: 100%;
+  padding: 0.5rem;
+}
+
+.rship {
+  position: absolute;
+  top: 5rem;
+  left: 5rem;
+  width: 2rem;
+}
+
+.upsidedown-rship {
+  position: absolute;
+  bottom: 5rem;
+  right: 5rem;
+  width: 2rem;
+  transform: rotate(180deg);
+}
+
+
+@media screen and (max-width: 768px) {
+  .content {
+    width: 95%;
+  }
+
+  h1 {
+    font-size: 2.75rem;
+  }
+
+  .content-bit {
+    margin: 1rem 0;
+  }
+
+  .enter {
+    flex-direction: column-reverse;
+    height: auto;
+  }
+
+  .enter .img {
+    width: 15rem;
+    height: 15rem;
+  }
+
+  .enter > * {
+    margin: 0.5rem 0;
+  }
+  .skills {
+    width: 100%;
+  }
+
+  .skill {
+    width: 8rem;
+  }
+
+
+  .rship {
+    top: 5rem;
+    left: 4rem;
+    width: 1.75rem;
+  }
+  
+  .upsidedown-rship {
+    display: none;
+  }
+  
+}

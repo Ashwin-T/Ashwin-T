@@ -1,0 +1,30 @@
+footer {
+  background-color: var(--secondary-color);
+  color: #fff;
+  padding: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 1rem;
+}
+
+footer h2 {
+  text-align: center;
+}
+
+footer p {
+  margin: 0.5rem auto;
+}
+
+.trademark {
+  font-size: 0.8rem;
+  position: fixed;
+  bottom: 0.25rem;
+  right: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .trademark {
+    display: none;
+  }
+}
+

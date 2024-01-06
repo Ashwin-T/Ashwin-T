@@ -1,0 +1,39 @@
+
+.work-card {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #ddd;
+  border-radius: 0.5rem;
+}
+
+.work-card-image img {
+  width: 45%;
+  padding: 0 27.5%;
+  background-color: white;
+  border-bottom: 2px solid #ddd;
+}
+
+.work-card-content {
+  padding: 1rem;
+}
+
+.work-card-title {
+  font-size: 1.5rem;
+  margin: 0;
+  margin-bottom: 0.5rem;
+}
+
+.work-card-description {
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 768px) {
+  
+  .work-card-image img {
+    width: 75%;
+    padding: 0 12.5%;
+    background-color: white;
+    border-bottom: 2px solid #ddd;
+  }
+  
+}

@@ -1,0 +1,20 @@
+.skill-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.skill-card div {
+  margin: 0 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skill-card img {
+  width: 10rem;
+  height: 10rem;
+  background-color: white;
+}
+
