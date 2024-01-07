@@ -1,5 +1,5 @@
 import '../nav.css'
-import {FaHome, FaInfoCircle, FaCode} from 'react-icons/fa'
+import { FaInfoCircle, FaCode} from 'react-icons/fa'
 const DesktopNav = () => {
 
   const links = [
