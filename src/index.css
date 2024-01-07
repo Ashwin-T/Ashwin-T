@@ -92,13 +92,11 @@ button:hover {
   color: #fff; /* Change text color on hover */
 } 
 
-/* remove later */
-
 .img {
   width: 35rem;
   height: 35rem;
 
   border-radius: 50%;
-  background: grey;
+  /* background: grey; */
   margin: 1rem;
 }

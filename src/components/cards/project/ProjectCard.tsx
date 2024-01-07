@@ -1,5 +1,4 @@
 
-import React from 'react';
 import './projectCard.css';
 import { FaGithub, FaLink } from 'react-icons/fa';
 
