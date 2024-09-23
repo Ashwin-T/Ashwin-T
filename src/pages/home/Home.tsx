@@ -25,9 +25,15 @@ const Home = () => {
 
   const workData = [
     {
+      image: '/images/hiro-logo.png',
+      title: 'Software Engineer Intern @ Plume Design Inc',
+      date: 'May 2024 - August 2024',
+      description: "Developed data transformations and visualizations for C-suite executives, delivering actionable insights to drive strategic decision-making. Updated and worked with simulated annealing to improve Hidden Markov Model accuracy Engineered an automated Spark job using Databricks and Python to efficiently process and transform data from Kafka streams. Designed and implemented a Dash application for visualizing and analyzing Quality of Experience (QoE) and WiFi metrics, enabling the identification of discrepancies in large datasets for a proof of concept. Conducted advanced statistical analysis and data science on extensive datasets to identify key metrics and factors, informing the development of high-impact analytics applications."
+    },
+    {
       image: '/images/plume-logo.png',
       title: 'Software Intern @ Plume Design Inc',
-      date: 'June 2022 - September 2022',
+      date: 'June 2023 - September 2023',
       description: "Developed a data collection pipeline at Plume Labs, enhancing data acquisition for a Hidden Markov Model. Engineered Python programs for Raspberry Pis in order to aquire data via MQTT and Bluetooth data handling. Leveraged AWS products such as Kinesis, S3, Elasticache, and IoT Core as well as Apache Flink for data transformation. Streamlined program management and created data visualizers for debugging."
     }
   ];
@@ -64,7 +70,7 @@ const Home = () => {
       "timeline": "June 2023 – Present",
       "borderColor": 'transparent',
       "backgroundColor": "transparent",
-      "highlights": "Hiro is an IOS app built with React Native. It was designed to manage custom smart home devices such as smart frames, temperature sensors, smart lights, and more. This is part of a fullstack project that utilizes AWS IoT Core, Firebase, a React Native frontend, and a express backend. It is published on the iOS Apple App Store."
+      "highlights": "Hiro is an IOS app built with React Native. It was designed to manage custom smart home devices such as smart frames, temperature sensors, smart lights, smart mini basketball hoops, and more. This is part of a fullstack project that utilizes AWS IoT Core, Firebase, a React Native frontend, and a express backend. It is published on the iOS Apple App Store."
     },
     {
       "name": "Spartan Assistant",
