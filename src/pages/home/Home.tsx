@@ -25,7 +25,7 @@ const Home = () => {
 
   const workData = [
     {
-      image: '/images/hiro-logo.png',
+      image: '/images/plume-logo.png',
       title: 'Software Engineer Intern @ Plume Design Inc',
       date: 'May 2024 - August 2024',
       description: "Developed data transformations and visualizations for C-suite executives, delivering actionable insights to drive strategic decision-making. Updated and worked with simulated annealing to improve Hidden Markov Model accuracy Engineered an automated Spark job using Databricks and Python to efficiently process and transform data from Kafka streams. Designed and implemented a Dash application for visualizing and analyzing Quality of Experience (QoE) and WiFi metrics, enabling the identification of discrepancies in large datasets for a proof of concept. Conducted advanced statistical analysis and data science on extensive datasets to identify key metrics and factors, informing the development of high-impact analytics applications."
@@ -61,6 +61,17 @@ const Home = () => {
   ];
 
   const projects = [
+    {
+      "name": "RetroSpecs",
+      "description": "React.js, Flask, ChromaDB, OpenAI Vision API, OpenCV, Raspberry Pi",
+      "image": "images/retrospecs_logo.png",  // You'll need to update this path to your actual image
+      "link": "https://github.com/RetroSpecs-Suite/.github/tree/main/profile", // Add the deployed link when available
+      "github": "https://github.com/RetroSpecs-Suite/.github", // Add the main repository link when available
+      "timeline": "2024",
+      "borderColor": 'transparent',
+      "backgroundColor": "white",
+      "highlights": "RetroSpecs is a revolutionary smart glasses system built during CheeseHacks 2024 (& won 1st place) that helps individuals with Alzheimer's maintain independence through AI-powered memory assistance. The system continuously captures daily activities and allows natural language querying of experiences. Built using React.js frontend, Flask backend on Raspberry Pi, and leverages OpenAI Vision API for image analysis. "
+    },
     {
       "name": "Hiro",
       "description": "React Native, Typescript, Express, Firebase, AWS, Arduino C",

@@ -4,6 +4,7 @@
   flex-direction: column;
   border: 2px solid #ddd;
   border-radius: 0.5rem;
+  margin-bottom: 1rem;
 }
 
 .work-card-image img {

@@ -116,7 +116,6 @@ h4 {
   transform: rotate(180deg);
 }
 
-
 @media screen and (max-width: 768px) {
   .content {
     width: 95%;
