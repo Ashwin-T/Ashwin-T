@@ -31,7 +31,7 @@ const Footer = () => {
       ))}        
       <p>+1(425)892-0645 | atalwalkar719@gmail.com</p>
       <p>Developed By Ashwin Talwalkar</p>
-      <p>Last update was on 01/01/2023 - v3.0</p>
+      <p>Last update was on 01/028/2025 - v3.0</p>
       <p className = 'trademark'>&copy; 2023 Ashwin Talwalkar. All rights reserved.</p>
     </footer>
   );
