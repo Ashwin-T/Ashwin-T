@@ -1,0 +1,43 @@
+.preview {
+  max-width: 56.25rem;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.title {
+  font-family: var(--font-dm-sans);
+  font-weight: 800;
+  font-size: 32px;
+  color: var(--color-black-600);
+  margin-bottom: 2rem;
+}
+
+.section {
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 0.125rem solid var(--color-gray-200);
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.sectionTitle {
+  font-family: var(--font-dm-mono);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--color-blue-600);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.demo {
+  font-family: var(--font-dm-sans);
+  font-size: 16px;
+  color: var(--color-black-600);
+  background-color: var(--color-blue-50);
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 0.125rem solid var(--color-blue-100);
+}

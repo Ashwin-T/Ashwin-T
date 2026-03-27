@@ -1,0 +1,23 @@
+.wrapper {
+  transition: filter 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+/* Blur variant */
+.blur {
+  filter: blur(12px);
+  opacity: 0.6;
+}
+
+.blur.loaded {
+  filter: blur(0);
+  opacity: 1;
+}
+
+/* Fade variant */
+.fade {
+  opacity: 0;
+}
+
+.fade.loaded {
+  opacity: 1;
+}

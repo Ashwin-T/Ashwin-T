@@ -1,0 +1,19 @@
+.ctaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 40px;
+  background-color: var(--color-blue-50);
+  border: 2px solid var(--color-blue-100);
+  border-radius: 100px;
+  font-family: var(--font-dm-mono);
+  font-weight: 500;
+  font-size: 15px;
+  color: var(--color-blue-600);
+  width: fit-content;
+  transition: all 0.2s ease;
+}
+
+.ctaButton:hover {
+  background-color: var(--color-blue-100);
+}

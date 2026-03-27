@@ -1,0 +1,55 @@
+.card {
+  background-color: var(--color-off-white);
+  border: 2.5px solid var(--color-gray-200);
+  border-radius: 20px;
+  padding: 24px 28px;
+  width: 320px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.indicator {
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-blue-600);
+  border-radius: 50%;
+}
+
+.title {
+  font-family: var(--font-dm-sans);
+  font-weight: 500;
+  font-size: 20px;
+  color: var(--color-blue-600);
+}
+
+.content {
+  display: flex;
+  gap: 40px;
+}
+
+.labels,
+.values {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.label {
+  font-family: var(--font-dm-mono);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--color-gray-400);
+  text-transform: uppercase;
+}
+
+.value {
+  font-family: var(--font-dm-mono);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--color-gray-600);
+}

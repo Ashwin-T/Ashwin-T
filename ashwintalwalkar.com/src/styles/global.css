@@ -1,0 +1,55 @@
+:root {
+  --color-white: #FFFFFF;
+  --color-gray-100: #F3F4F6;
+  --color-gray-200: #F0F0F0;
+  --color-gray-300: #E5E7EB;
+  --color-gray-400: #9CA3AF;
+  --color-gray-600: #374151;
+  --color-blue-50: #EFF6FF;
+  --color-blue-100: #BFDBFE;
+  --color-blue-600: #2563EB;
+  --color-black-600: #0D1117;
+  --color-off-white: #FAFAFA;
+
+  --font-unbounded: 'Unbounded', sans-serif;
+  --font-dm-sans: 'DM Sans', sans-serif;
+  --font-syne: 'Syne', sans-serif;
+  --font-dm-mono: 'DM Mono', monospace;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: var(--font-dm-sans);
+  background-color: var(--color-white);
+  color: var(--color-gray-400);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}

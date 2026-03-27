@@ -1,0 +1,247 @@
+.section {
+  width: 100vw;
+  min-height: 100vh;
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  padding: 0 5.5rem;
+  box-sizing: border-box;
+}
+
+.header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+}
+
+.subtitle {
+  font-family: var(--font-dm-sans);
+  font-weight: 500;
+  font-size: clamp(24px, 4vw, 50px);
+  color: var(--color-gray-400);
+}
+
+.subtitle2 {
+  font-family: var(--font-dm-sans);
+  font-size: clamp(14px, 2vw, 20px);
+  color: var(--color-gray-400);
+}
+
+.title {
+  font-family: var(--font-dm-sans);
+  font-weight: 800;
+  font-size: clamp(40px, 6vw, 75px);
+}
+
+.chatContainer {
+  flex: 1;
+  border: 0.125rem solid var(--color-gray-200);
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  max-width: 56.25rem;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 25rem;
+  max-height: 31.25rem;
+}
+
+.messages {
+  flex: 1;
+  padding: 1.5rem;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.message {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+}
+
+.messageRight {
+  justify-content: flex-end;
+}
+
+.avatar {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-dm-sans);
+  font-weight: 500;
+  font-size: 14px;
+  flex-shrink: 0;
+}
+
+.avatarAI {
+  background-color: var(--color-blue-50);
+  border: 0.125rem solid var(--color-blue-100);
+  color: var(--color-blue-600);
+}
+
+.avatarUser {
+  background-color: var(--color-blue-600);
+  color: var(--color-white);
+}
+
+.bubble {
+  max-width: 70%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-family: var(--font-dm-sans);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.bubbleAI {
+  background-color: var(--color-blue-50);
+  color: var(--color-black-600);
+}
+
+.bubbleUser {
+  background-color: var(--color-blue-600);
+  color: var(--color-white);
+}
+
+.inputArea {
+  border-top: 0.125rem solid var(--color-gray-200);
+  padding: 1rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.input {
+  flex: 1;
+  font-family: var(--font-dm-sans);
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--color-black-600);
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+.input::placeholder {
+  color: var(--color-gray-400);
+}
+
+.sendButton {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.75rem;
+  background-color: var(--color-blue-600);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+  cursor: pointer;
+  border: none;
+}
+
+.sendButton:hover {
+  background-color: var(--color-blue-700, #1a4fd1);
+}
+
+.sendIcon {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--color-white);
+}
+
+.suggestions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 1.5rem 0;
+  max-width: 56.25rem;
+  margin: 0 auto;
+}
+
+.suggestion {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-blue-50);
+  border: 0.125rem solid var(--color-blue-100);
+  border-radius: 6.25rem;
+  font-family: var(--font-dm-mono);
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--color-blue-600);
+  transition: background-color 0.2s;
+  cursor: pointer;
+}
+
+.suggestion:hover {
+  background-color: var(--color-blue-100);
+}
+
+.suggestionDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.suggestionDisabled:hover {
+  background-color: var(--color-blue-50);
+}
+
+.sendButtonDisabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.sendButtonDisabled:hover {
+  background-color: var(--color-blue-600);
+}
+
+.input:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Typing indicator */
+.typing {
+  display: flex;
+  gap: 0.25rem;
+  align-items: center;
+  padding: 0.25rem 0;
+}
+
+.dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: var(--color-blue-600);
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.dot:nth-child(1) {
+  animation-delay: -0.32s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: -0.16s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0.6);
+    opacity: 0.4;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
