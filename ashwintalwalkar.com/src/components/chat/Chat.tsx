@@ -1,10 +1,8 @@
 import { useState, useRef, useEffect } from 'react'
 import styles from './Chat.module.css'
-
-interface Message {
-  role: 'ai' | 'user'
-  content: string
-}
+import type { Message } from './types'
+import { sendMessage } from './api'
+import BlockRenderer from './components/BlockRenderer'
 
 const INITIAL_MESSAGES: Message[] = [
   {
@@ -41,41 +39,42 @@ export default function Chat() {
     }
   }, [messages, isLoading])
 
+  const fetchResponse = async (updatedMessages: Message[]) => {
+    setIsLoading(true)
+    try {
+      const blocks = await sendMessage(updatedMessages)
+      setMessages((prev) => [...prev, { role: 'ai', content: blocks }])
+    } catch {
+      setMessages((prev) => [
+        ...prev,
+        { role: 'ai', content: 'Sorry, something went wrong. Try again!' },
+      ])
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
   const handleSend = () => {
     if (!input.trim() || isLoading || isSpamLimited) return
 
     hasInteracted.current = true
-    setMessages((prev) => [...prev, { role: 'user', content: input }])
+    const userMessage: Message = { role: 'user', content: input }
+    const updatedMessages = [...messages, userMessage]
+    setMessages(updatedMessages)
     setInput('')
-    setIsLoading(true)
     setMessageCount((prev) => prev + 1)
-
-    // TODO: Connect to AI backend
-    setTimeout(() => {
-      setMessages((prev) => [
-        ...prev,
-        { role: 'ai', content: "I'm still being built! Check back soon." },
-      ])
-      setIsLoading(false)
-    }, 1500)
+    fetchResponse(updatedMessages)
   }
 
   const handleSuggestion = (suggestion: string) => {
     if (isLoading || isSpamLimited) return
 
     hasInteracted.current = true
-    setMessages((prev) => [...prev, { role: 'user', content: suggestion }])
-    setIsLoading(true)
+    const userMessage: Message = { role: 'user', content: suggestion }
+    const updatedMessages = [...messages, userMessage]
+    setMessages(updatedMessages)
     setMessageCount((prev) => prev + 1)
-
-    // TODO: Connect to AI backend
-    setTimeout(() => {
-      setMessages((prev) => [
-        ...prev,
-        { role: 'ai', content: "I'm still being built! Check back soon." },
-      ])
-      setIsLoading(false)
-    }, 1500)
+    fetchResponse(updatedMessages)
   }
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -109,7 +108,10 @@ export default function Chat() {
               <div
                 className={`${styles.bubble} ${msg.role === 'ai' ? styles.bubbleAI : styles.bubbleUser}`}
               >
-                {msg.content}
+                {typeof msg.content === 'string'
+                  ? msg.content
+                  : <BlockRenderer blocks={msg.content} />
+                }
               </div>
               {msg.role === 'user' && (
                 <div className={`${styles.avatar} ${styles.avatarUser}`}>You</div>
