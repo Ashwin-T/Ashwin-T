@@ -17,6 +17,9 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ashwintalwalkar.com
     steps:
       - uses: actions/checkout@v4
 
@@ -24,6 +27,7 @@ jobs:
         with:
           node-version: 20
           cache: npm
+          cache-dependency-path: ashwintalwalkar.com/package-lock.json
 
       - name: Install dependencies
         run: npm ci
@@ -46,7 +50,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: ashwintalwalkar.com/dist
 
   deploy:
     environment:
