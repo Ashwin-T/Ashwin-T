@@ -1,6 +1,6 @@
 import type { Message, AIResponse, Block } from './types'
 
-const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8787'
+const API_URL = import.meta.env.VITE_API_URL
 
 export async function sendMessage(messages: Message[]): Promise<{ blocks: Block[]; suggestions?: string[] }> {
   // Send only the text content for context
