@@ -8,7 +8,7 @@ export default function Followup() {
 
   return (
     <button className={styles.ctaButton} onClick={scrollToChat}>
-      {'"Talk" To Me \u2192'}
+      {'Chat With Me \u2192'}
     </button>
   )
 }
