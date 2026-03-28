@@ -3,16 +3,18 @@ import styles from './Chat.module.css'
 import type { Message } from './types'
 import { sendMessage } from './api'
 import BlockRenderer from './components/BlockRenderer'
+import { logEvent } from '../../lib/firebase'
 
 const INITIAL_MESSAGES: Message[] = [
   {
     role: 'ai',
-    content: 'Forget the resume and section by section info. What do you actually want to know about me?',
+    content: 'Forget reading section by section. Who cares about all that static. Lets chat instead!',
   },
 ]
+// const CONST_SUGGESTIONS = []
 
-const SUGGESTIONS = [
-  'How makes ashwintalwalkar.com special?',
+const INITIAL_SUGGESTIONS = [
+  'What makes ashwintalwalkar.com special?',
   'What other interests do you have?',
   'What are you working on right now?',
 ]
@@ -24,6 +26,7 @@ export default function Chat() {
   const [input, setInput] = useState('')
   const [isLoading, setIsLoading] = useState(false)
   const [messageCount, setMessageCount] = useState(0)
+  const [suggestions, setSuggestions] = useState<string[]>(INITIAL_SUGGESTIONS)
   const messagesEndRef = useRef<HTMLDivElement>(null)
   const hasInteracted = useRef(false)
 
@@ -42,8 +45,11 @@ export default function Chat() {
   const fetchResponse = async (updatedMessages: Message[]) => {
     setIsLoading(true)
     try {
-      const blocks = await sendMessage(updatedMessages)
+      const { blocks, suggestions: newSuggestions } = await sendMessage(updatedMessages)
       setMessages((prev) => [...prev, { role: 'ai', content: blocks }])
+      if (newSuggestions?.length) {
+        setSuggestions(newSuggestions)
+      }
     } catch {
       setMessages((prev) => [
         ...prev,
@@ -63,6 +69,7 @@ export default function Chat() {
     setMessages(updatedMessages)
     setInput('')
     setMessageCount((prev) => prev + 1)
+    logEvent('chat_message_sent', { message: input.slice(0, 100) })
     fetchResponse(updatedMessages)
   }
 
@@ -74,6 +81,7 @@ export default function Chat() {
     const updatedMessages = [...messages, userMessage]
     setMessages(updatedMessages)
     setMessageCount((prev) => prev + 1)
+    logEvent('chat_suggestion_clicked', { suggestion })
     fetchResponse(updatedMessages)
   }
 
@@ -162,7 +170,7 @@ export default function Chat() {
       </div>
 
       <div className={styles.suggestions}>
-        {SUGGESTIONS.map((suggestion) => (
+        {suggestions.map((suggestion) => (
           <button
             key={suggestion}
             className={`${styles.suggestion} ${isLoading || isSpamLimited ? styles.suggestionDisabled : ''}`}

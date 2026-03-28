@@ -2,7 +2,7 @@ import type { Message, AIResponse, Block } from './types'
 
 const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:8787'
 
-export async function sendMessage(messages: Message[]): Promise<Block[]> {
+export async function sendMessage(messages: Message[]): Promise<{ blocks: Block[]; suggestions?: string[] }> {
   // Send only the text content for context
   const history = messages.map((msg) => ({
     role: msg.role,
@@ -28,5 +28,5 @@ export async function sendMessage(messages: Message[]): Promise<Block[]> {
   }
 
   const data: AIResponse = await res.json()
-  return data.blocks
+  return { blocks: data.blocks, suggestions: data.suggestions }
 }

@@ -1,75 +1,50 @@
-# React + TypeScript + Vite
+# ashwintalwalkar.com
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+My personal website, but not the boring kind. No walls of text, no scrolling through sections you don't care about. Instead — just ask me anything.
 
-Currently, two official plugins are available:
+The site is built around an AI-powered chat interface that lets visitors have a real conversation to learn about my work, interests, and what I'm up to. Think of it as a resume that talks back.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## How it works
 
-## React Compiler
+You land on the site, see a chat box, and get a simple prompt:
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+> *"Forget the resume and section by section info. What do you actually want to know about me?"*
 
-Note: This will impact Vite dev & build performances.
+Ask anything you’d like. Responses aren’t just plain text—they come back as rich, structured content like cards, lists, code snippets, and inline links.
 
-## Expanding the ESLint configuration
+All of this is powered by a background cron job that builds a knowledge graph from the data I ingest (currently my GitHub, resume, LinkedIn, and personal notes). When you ask a question, Claude reads from that graph to generate a more informed, contextual answer.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tech
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **React 19** + **TypeScript 5.9** + **Vite 8**
+- React Compiler enabled for optimized re-renders
+- Chat responses rendered as structured blocks (text, cards, lists, code)
+- Backend powered by Claude, returning block-based content via `POST /chat`
+- CSS Modules for scoped styling
+- Spam protection (10 messages per session)
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## Running locally
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Set `VITE_API_URL` to point to your backend (defaults to `http://localhost:8787`).
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Structure
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+src/
+├── components/
+│   ├── chat/       # Chat interface + block renderer
+│   ├── hero/       # Name, location, current role
+│   ├── nowCard/    # What I'm working on / watching / doing
+│   ├── followup/   # Follow-up prompts
+│   ├── loading/    # Loading states
+│   ├── logo/       # Logo
+│   └── footer/     # Footer
+├── lib/api.ts      # API layer
+├── App.tsx
+└── main.tsx
 ```
