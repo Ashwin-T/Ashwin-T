@@ -89,8 +89,6 @@ app.post('/chat', async (c) => {
     parsed = { blocks: [{ type: 'text', content: rawText }] }
   }
 
-  console.log('Claude response:', parsed)
-
   return c.json(parsed)
 })
 
