@@ -92,6 +92,22 @@ app.post('/chat', async (c) => {
   return c.json(parsed)
 })
 
+// ─── Ingest cron (runs on startup + every 24h) ─────────────────
+// NOTE: bad practice to run ingest in the same process — ideally a separate cron service
+async function runIngest() {
+  try {
+    console.log('[ingest] Starting knowledge ingest...')
+    await import('./knowledge/ingest')
+    console.log('[ingest] Done.')
+  } catch (e) {
+    console.error('[ingest] Failed:', e)
+  }
+}
+
+runIngest()
+setInterval(runIngest, 24 * 60 * 60_000)
+
+// ─── Server ─────────────────────────────────────────────────────
 const port = Number(process.env.PORT) || 8787
 console.log(`Server running on port ${port}`)
 serve({ fetch: app.fetch, port })
