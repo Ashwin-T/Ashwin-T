@@ -11,9 +11,17 @@ const firebaseConfig = {
   measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID,
 }
 
-const app = initializeApp(firebaseConfig)
-export const analytics: Analytics = getAnalytics(app)
+let analytics: Analytics | null = null
+
+if (firebaseConfig.apiKey) {
+  const app = initializeApp(firebaseConfig)
+  analytics = getAnalytics(app)
+}
+
+export { analytics }
 
 export function logEvent(eventName: string, params?: Record<string, string>) {
-  firebaseLogEvent(analytics, eventName, params)
+  if (analytics) {
+    firebaseLogEvent(analytics, eventName, params)
+  }
 }
