@@ -207,6 +207,58 @@
   cursor: not-allowed;
 }
 
+/* Mobile */
+@media (max-width: 768px) {
+  .section {
+    padding: 0 1rem;
+  }
+
+  .header {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .chatContainer {
+    min-height: 20rem;
+    max-height: none;
+    flex: 1;
+  }
+
+  .messages {
+    padding: 1rem;
+  }
+
+  .bubble {
+    max-width: 85%;
+    font-size: 15px;
+  }
+
+  .avatar {
+    width: 2rem;
+    height: 2rem;
+    font-size: 12px;
+  }
+
+  .inputArea {
+    padding: 0.75rem 1rem;
+  }
+
+  .sendButton {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .suggestions {
+    gap: 0.5rem;
+    padding: 1rem 0;
+  }
+
+  .suggestion {
+    padding: 0.5rem 1rem;
+    font-size: 13px;
+  }
+}
+
 /* Typing indicator */
 .typing {
   display: flex;

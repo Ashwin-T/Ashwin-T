@@ -4,6 +4,8 @@
   border-radius: 20px;
   padding: 24px 28px;
   width: 320px;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .header {
