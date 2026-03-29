@@ -1,7 +1,7 @@
 import styles from './components.module.css'
 
 interface ListProps {
-  items: string[]
+  items: React.ReactNode[]
 }
 
 export default function List({ items }: ListProps) {

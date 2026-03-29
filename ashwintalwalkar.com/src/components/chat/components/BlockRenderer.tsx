@@ -43,7 +43,7 @@ export default function BlockRenderer({ blocks }: BlockRendererProps) {
           case 'text':
             return <TextBlock key={idx}>{parseInline(block.content)}</TextBlock>
           case 'list':
-            return <List key={idx} items={block.items} />
+            return <List key={idx} items={block.items.map(item => <>{parseInline(item)}</>)} />
           case 'card':
             return (
               <Card

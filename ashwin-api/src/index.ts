@@ -60,6 +60,9 @@ app.post('/chat', async (c) => {
     messages: { role: 'ai' | 'user'; content: string }[]
   }>()
 
+  // Use the latest user message to query relevant knowledge
+  const latestUserMsg = [...body.messages].reverse().find((m) => m.role === 'user')?.content ?? ''
+
   // Map frontend roles to Claude API roles
   const claudeMessages: Anthropic.MessageParam[] = body.messages.map((m) => ({
     role: m.role === 'ai' ? 'assistant' : 'user',
@@ -67,30 +70,56 @@ app.post('/chat', async (c) => {
   }))
 
   const client = new Anthropic()
+  const systemPrompt = buildSystemPrompt(latestUserMsg)
 
-  const response = await client.messages.create({
-    model: 'claude-sonnet-4-6',
-    max_tokens: 1024,
-    system: buildSystemPrompt(),
-    messages: claudeMessages,
-  })
+  let rawText = await callClaude(client, systemPrompt, claudeMessages)
 
-  let rawText =
-    response.content[0].type === 'text' ? response.content[0].text : ''
-
-  // Strip markdown fences if Claude wraps the JSON
-  rawText = rawText.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim()
-
-  // Try to parse as JSON; fall back to wrapping raw text in a text block
+  // Try to parse, if invalid JSON retry once with the error
   let parsed: { blocks: unknown[]; suggestions?: string[] }
   try {
     parsed = JSON.parse(rawText)
-  } catch {
-    parsed = { blocks: [{ type: 'text', content: rawText }] }
+  } catch (err) {
+    console.warn(`[chat] Invalid JSON from Claude, retrying. Error: ${err}`)
+    console.warn(`[chat] Raw response: ${rawText.slice(0, 200)}`)
+
+    const retryMessages: Anthropic.MessageParam[] = [
+      ...claudeMessages,
+      { role: 'assistant', content: rawText },
+      { role: 'user', content: `Your response was not valid JSON. Parse error: ${err}. Please return ONLY a valid JSON object matching the schema.` },
+    ]
+
+    rawText = await callClaude(client, systemPrompt, retryMessages)
+
+    try {
+      parsed = JSON.parse(rawText)
+    } catch {
+      // Give up after retry, wrap raw text
+      parsed = { blocks: [{ type: 'text', content: rawText }] }
+    }
   }
 
   return c.json(parsed)
 })
+
+async function callClaude(
+  client: Anthropic,
+  systemPrompt: string,
+  messages: Anthropic.MessageParam[],
+): Promise<string> {
+  const response = await client.messages.create({
+    model: 'claude-sonnet-4-6',
+    max_tokens: 1024,
+    system: systemPrompt,
+    messages,
+  })
+
+  let rawText = response.content[0].type === 'text' ? response.content[0].text : ''
+
+  // Strip markdown fences if Claude wraps the JSON
+  rawText = rawText.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim()
+
+  return rawText
+}
 
 // ─── Ingest cron (runs on startup + every 24h) ─────────────────
 // NOTE: bad practice to run ingest in the same process — ideally a separate cron service

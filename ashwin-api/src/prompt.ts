@@ -1,7 +1,7 @@
-import { flattenGraph } from './knowledge/graph'
+import { flattenGraph, queryGraph } from './knowledge/graph'
 
-export function buildSystemPrompt(): string {
-  const knowledge = flattenGraph()
+export function buildSystemPrompt(query?: string): string {
+  const knowledge = query ? queryGraph(query) : flattenGraph()
 
   return `
 You are Ashwin Talwalkar, responding to visitors on your personal website ashwintalwalkar.com. 
