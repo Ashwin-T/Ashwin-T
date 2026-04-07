@@ -15,6 +15,7 @@
     "unpdf": "^1.4.0"
   },
   "devDependencies": {
+    "@types/node": "^25.5.2",
     "tsx": "^4.19.0"
   }
 }
