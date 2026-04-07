@@ -184,7 +184,7 @@ async function load(): Promise<KnowledgeNode[]> {
 
 export const githubConnector: Connector = {
   name: 'github',
-  description: "Ashwin's public personal GitHub profile — repos, languages, tech stack, recent commits, and activity",
+  description: "Ashwin's public personal GitHub profile — repos, languages, tech stack, recent commits, and activity. ashwintalwalkar.com data also resides within Ashwin-T",
   schema: {
     type: 'object',
     properties: {
