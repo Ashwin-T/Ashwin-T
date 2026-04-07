@@ -1,5 +1,6 @@
-<div align='center'>
-  <h1>Hey, I'm Ashwin! 🌟</h1>
-  <h3>@UW-Madison Computer Science 🖥️</h3>
-  <h4>Learn more about me and my projects on <a target="_blank" rel="noopener noreferrer" href="https://ashwintalwalkar.com">my personal portfolio website</a> 🚀</h4>
-</div>
+## Hey, I'm Ashwin
+
+Aspiring Full-stack engineer. Prev @UWMadison
+
+My portfolio talks back. Skip the resume, just ask it something.
+→ [ashwintalwalkar.com](https://ashwintalwalkar.com)
