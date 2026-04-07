@@ -8,7 +8,7 @@ import { logEvent } from '../../lib/firebase'
 const INITIAL_MESSAGES: Message[] = [
   {
     role: 'ai',
-    content: 'Forget reading section by section. Who cares about all that static. Lets chat instead!',
+    content: `An interactive introduction: Let's talk. Ask me anything or click on the suggestions below to get started!`,
   },
 ]
 // const CONST_SUGGESTIONS = []
