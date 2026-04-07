@@ -1,6 +1,6 @@
 # ashwin-api
 
-Backend for the AI chat on [ashwintalwalkar.com](https://ashwintalwalkar.com). Visitors ask questions about Ashwin and get structured, rich responses powered by Claude and a connector-based architecture that pulls from multiple data sources on demand.
+Backend for the AI chat on [ashwintalwalkar.com](https://ashwintalwalkar.com). Visitors ask questions about Ashwin and get structured, rich responses powered by Claude and a connector-based architecture that pulls from multiple data sources on demand. Agentic Pattern
 
 ## How it works
 

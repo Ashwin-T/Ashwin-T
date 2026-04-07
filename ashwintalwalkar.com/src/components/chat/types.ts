@@ -27,6 +27,7 @@ export type Block = TextBlockData | ListData | CardData | CodeSnippetData
 export interface AIResponse {
   blocks: Block[]
   suggestions?: string[]
+  steps?: string []
 }
 
 export interface Message {

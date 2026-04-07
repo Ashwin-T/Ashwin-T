@@ -94,6 +94,7 @@ async function runAgentLoop(
     messages,
   })
 
+  const steps: string[] = []
   let rounds = 0
   while (response.stop_reason === 'tool_use' && rounds < MAX_TOOL_ROUNDS) {
     rounds++
@@ -106,12 +107,14 @@ async function runAgentLoop(
       toolCalls.map(async (call) => {
         try {
           const result = await execute(call.name, call.input)
+          steps.push(call.name)
           return {
             type: 'tool_result' as const,
             tool_use_id: call.id,
             content: JSON.stringify(result),
           }
         } catch (e) {
+          steps.push(`${call.name}:error`)
           return {
             type: 'tool_result' as const,
             tool_use_id: call.id,
@@ -137,7 +140,7 @@ async function runAgentLoop(
     })
   }
 
-  return formatResponse(response)
+  return { ...formatResponse(response), steps }
 }
 
 function formatResponse(response: Anthropic.Message) {

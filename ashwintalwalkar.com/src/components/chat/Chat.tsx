@@ -45,7 +45,8 @@ export default function Chat() {
   const fetchResponse = async (updatedMessages: Message[]) => {
     setIsLoading(true)
     try {
-      const { blocks, suggestions: newSuggestions } = await sendMessage(updatedMessages)
+      const { blocks: blocks, suggestions: newSuggestions, steps: steps } = await sendMessage(updatedMessages)
+      console.log('Received steps from API:', steps)
       setMessages((prev) => [...prev, { role: 'ai', content: blocks }])
       if (newSuggestions?.length) {
         setSuggestions(newSuggestions)
