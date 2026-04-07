@@ -2,7 +2,7 @@
 
 My personal website, but not the boring kind. No walls of text, no scrolling through sections you don't care about. Instead — just ask me anything.
 
-The site is built around an AI-powered chat interface that lets visitors have a real conversation to learn about my work, interests, and what I'm up to. Think of it as a resume that talks back.
+The site is built around an AI-powered chat interface that lets visitors have a real conversation to learn about my work, interests, and what I'm up to. Think of it as a resume that talks back. And its live!!
 
 ## How it works
 
