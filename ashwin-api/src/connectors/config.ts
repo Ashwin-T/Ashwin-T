@@ -1,4 +1,4 @@
-// dotenv is loaded by the entrypoints (ingest.ts, index.ts)
+// dotenv is loaded by the entrypoint (index.ts)
 
 export const GOOGLE_DOC_URL = process.env.GOOGLE_DOC_URL || ''
 export const GITHUB_USERNAME = process.env.GITHUB_USERNAME || 'Ashwin-T'

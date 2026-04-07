@@ -1,4 +1,11 @@
-import type { KnowledgeNode } from '../types'
+import type { Connector, KnowledgeNode } from './types'
+import { get, set } from './cache'
+import { GITHUB_USERNAME } from './config'
+
+const CACHE_KEY = 'github'
+const TTL = 6 * 60 * 60_000 // 6 hours
+
+// ─── GitHub API types ───────────────────────────────────────────
 
 interface GitHubRepo {
   name: string
@@ -25,6 +32,8 @@ interface GitHubLanguages {
   [lang: string]: number
 }
 
+// ─── Helpers ────────────────────────────────────────────────────
+
 function formatDate(iso: string): string {
   return new Date(iso).toLocaleDateString('en-US', {
     month: 'short',
@@ -32,46 +41,31 @@ function formatDate(iso: string): string {
   })
 }
 
-/**
- * Fetch a repo's README content (plain text), truncated.
- */
 async function fetchReadme(owner: string, repo: string): Promise<string | null> {
   try {
     const res = await fetch(
       `https://api.github.com/repos/${owner}/${repo}/readme`,
-      {
-        headers: {
-          Accept: 'application/vnd.github.v3.raw',
-        },
-      }
+      { headers: { Accept: 'application/vnd.github.v3.raw' } },
     )
     if (!res.ok) return null
     const text = await res.text()
-    // Truncate to first ~500 chars to keep context manageable
     return text.slice(0, 500).trim()
   } catch {
     return null
   }
 }
 
-/**
- * Fetch recent commits for a repo.
- */
-async function fetchRecentCommits(
-  owner: string,
-  repo: string,
-  count = 5
-): Promise<string[]> {
+async function fetchRecentCommits(owner: string, repo: string, count = 5): Promise<string[]> {
   try {
     const res = await fetch(
       `https://api.github.com/repos/${owner}/${repo}/commits?per_page=${count}`,
-      { headers: { Accept: 'application/vnd.github.v3+json' } }
+      { headers: { Accept: 'application/vnd.github.v3+json' } },
     )
     if (!res.ok) return []
-    const commits: GitHubCommit[] = await res.json()
+    const commits = (await res.json()) as GitHubCommit[]
     return commits.map((c) => {
       const date = formatDate(c.commit.author.date)
-      const msg = c.commit.message.split('\n')[0] // first line only
+      const msg = c.commit.message.split('\n')[0]
       return `${date}: ${msg}`
     })
   } catch {
@@ -79,20 +73,14 @@ async function fetchRecentCommits(
   }
 }
 
-/**
- * Fetch language breakdown for a repo.
- */
-async function fetchLanguages(
-  owner: string,
-  repo: string
-): Promise<string[]> {
+async function fetchLanguages(owner: string, repo: string): Promise<string[]> {
   try {
     const res = await fetch(
       `https://api.github.com/repos/${owner}/${repo}/languages`,
-      { headers: { Accept: 'application/vnd.github.v3+json' } }
+      { headers: { Accept: 'application/vnd.github.v3+json' } },
     )
     if (!res.ok) return []
-    const langs: GitHubLanguages = await res.json()
+    const langs = (await res.json()) as GitHubLanguages
     const total = Object.values(langs).reduce((a, b) => a + b, 0)
     return Object.entries(langs)
       .sort(([, a], [, b]) => b - a)
@@ -102,33 +90,24 @@ async function fetchLanguages(
   }
 }
 
-/**
- * Fetch public repos from GitHub and build detailed knowledge nodes.
- * Creates one node per repo (with README, commits, languages) plus
- * an overview node.
- */
-export async function ingestGitHub(
-  username: string
-): Promise<KnowledgeNode[]> {
+// ─── Ingestion ──────────────────────────────────────────────────
+
+async function ingest(username: string): Promise<KnowledgeNode[]> {
   const res = await fetch(
     `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`,
-    { headers: { Accept: 'application/vnd.github.v3+json' } }
+    { headers: { Accept: 'application/vnd.github.v3+json' } },
   )
 
-  if (!res.ok) {
-    throw new Error(`GitHub API error: ${res.status}`)
-  }
+  if (!res.ok) throw new Error(`GitHub API error: ${res.status}`)
 
-  const repos: GitHubRepo[] = await res.json()
+  const repos = (await res.json()) as GitHubRepo[]
   const ownRepos = repos.filter((r) => !r.fork)
 
-  // Collect all languages across repos
   const allLanguages = new Set<string>()
   for (const repo of ownRepos) {
     if (repo.language) allLanguages.add(repo.language)
   }
 
-  // Recent activity — repos pushed to in the last 90 days
   const ninetyDaysAgo = Date.now() - 90 * 24 * 60 * 60 * 1000
   const recentlyActive = ownRepos
     .filter((r) => new Date(r.pushed_at).getTime() > ninetyDaysAgo)
@@ -137,12 +116,9 @@ export async function ingestGitHub(
 
   const activityFacts =
     recentlyActive.length > 0
-      ? [
-          `Currently active on: ${recentlyActive.map((r) => `${r.name} (${formatDate(r.pushed_at)})`).join(', ')}.`,
-        ]
+      ? [`Currently active on: ${recentlyActive.map((r) => `${r.name} (${formatDate(r.pushed_at)})`).join(', ')}.`]
       : []
 
-  // Overview node
   const nodes: KnowledgeNode[] = [
     {
       key: 'github_overview',
@@ -156,7 +132,6 @@ export async function ingestGitHub(
     },
   ]
 
-  // Per-repo deep dive — fetch README, commits, and languages for each
   const topRepos = [...ownRepos]
     .sort((a, b) => b.stargazers_count - a.stargazers_count)
     .slice(0, 10)
@@ -171,7 +146,6 @@ export async function ingestGitHub(
     ])
 
     const facts: string[] = []
-
     facts.push(`Repository: ${repo.name}`)
     facts.push(`URL: ${repo.html_url}`)
     if (repo.description) facts.push(`Description: ${repo.description}`)
@@ -180,21 +154,10 @@ export async function ingestGitHub(
     const lastActive = formatDate(repo.pushed_at)
     facts.push(`Created: ${created}, last active: ${lastActive}`)
 
-    if (repo.topics.length > 0) {
-      facts.push(`Topics: ${repo.topics.join(', ')}`)
-    }
-
-    if (languages.length > 0) {
-      facts.push(`Tech stack: ${languages.join(', ')}`)
-    }
-
-    if (readme) {
-      facts.push(`README excerpt: ${readme}`)
-    }
-
-    if (commits.length > 0) {
-      facts.push(`Recent commits: ${commits.join('; ')}`)
-    }
+    if (repo.topics.length > 0) facts.push(`Topics: ${repo.topics.join(', ')}`)
+    if (languages.length > 0) facts.push(`Tech stack: ${languages.join(', ')}`)
+    if (readme) facts.push(`README excerpt: ${readme}`)
+    if (commits.length > 0) facts.push(`Recent commits: ${commits.join('; ')}`)
 
     const key = `github_${repo.name.toLowerCase().replace(/[^a-z0-9]/g, '_')}`
     nodes.push({
@@ -206,4 +169,40 @@ export async function ingestGitHub(
   }
 
   return nodes
+}
+
+// ─── Connector ──────────────────────────────────────────────────
+
+async function load(): Promise<KnowledgeNode[]> {
+  const cached = get(CACHE_KEY)
+  if (cached) return cached as KnowledgeNode[]
+
+  const nodes = await ingest(GITHUB_USERNAME)
+  set(CACHE_KEY, nodes, TTL)
+  return nodes
+}
+
+export const githubConnector: Connector = {
+  name: 'github',
+  description: "Ashwin's public personal GitHub profile — repos, languages, tech stack, recent commits, and activity",
+  schema: {
+    type: 'object',
+    properties: {
+      filter: {
+        type: 'string',
+        description: 'optional repo name, language, or topic to filter by',
+      },
+    },
+  },
+  handler: async (input: any = {}) => {
+    const nodes = await load()
+    if (!input?.filter) return nodes
+
+    const f = input.filter.toLowerCase()
+    return nodes.filter(
+      (n) =>
+        n.key.toLowerCase().includes(f) ||
+        n.facts.some((fact) => fact.toLowerCase().includes(f)),
+    )
+  },
 }

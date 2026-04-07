@@ -1,13 +1,5 @@
 import Anthropic from '@anthropic-ai/sdk'
-import type { KnowledgeNode } from '../types'
-
-/**
- * Universal AI structurer — takes any raw text dump and has Claude Haiku
- * parse it into structured knowledge nodes.
- *
- * Every ingestor just needs to produce raw text + a source label.
- * This does the rest.
- */
+import type { KnowledgeNode } from './types'
 
 let _client: Anthropic
 function getClient() {
@@ -39,7 +31,7 @@ Rules:
 export async function structureWithAI(
   rawText: string,
   sourceLabel: string,
-  extraInstruction?: string
+  extraInstruction?: string,
 ): Promise<KnowledgeNode[]> {
   const system = extraInstruction
     ? `${STRUCTURE_PROMPT}\n\nAdditional instructions:\n${extraInstruction}`

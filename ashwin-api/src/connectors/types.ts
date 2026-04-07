@@ -7,7 +7,9 @@ export interface KnowledgeNode {
   connections?: string[]
 }
 
-export interface KnowledgeGraph {
-  nodes: KnowledgeNode[]
-  lastUpdated: string
+export interface Connector {
+  name: string
+  description: string
+  schema: object
+  handler: (input: any) => Promise<unknown>
 }

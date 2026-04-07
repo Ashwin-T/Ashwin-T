@@ -3,7 +3,8 @@ import { serve } from '@hono/node-server'
 import { Hono } from 'hono'
 import { cors } from 'hono/cors'
 import Anthropic from '@anthropic-ai/sdk'
-import { buildSystemPrompt } from './prompt'
+import { getAll, execute, warmCache } from './connectors/registry'
+import { SYSTEM_PROMPT } from './prompt'
 
 const app = new Hono()
 
@@ -60,81 +61,105 @@ app.post('/chat', async (c) => {
     messages: { role: 'ai' | 'user'; content: string }[]
   }>()
 
-  // Use the latest user message to query relevant knowledge
-  const latestUserMsg = [...body.messages].reverse().find((m) => m.role === 'user')?.content ?? ''
-
-  // Map frontend roles to Claude API roles
   const claudeMessages: Anthropic.MessageParam[] = body.messages.map((m) => ({
     role: m.role === 'ai' ? 'assistant' : 'user',
     content: m.content,
   }))
 
-  const client = new Anthropic()
-  const systemPrompt = buildSystemPrompt(latestUserMsg)
+  const tools: Anthropic.Tool[] = getAll().map((conn) => ({
+    name: conn.name,
+    description: conn.description,
+    input_schema: conn.schema as Anthropic.Tool.InputSchema,
+  }))
 
-  let rawText = await callClaude(client, systemPrompt, claudeMessages)
-
-  // Try to parse, if invalid JSON retry once with the error
-  let parsed: { blocks: unknown[]; suggestions?: string[] }
-  try {
-    parsed = JSON.parse(rawText)
-  } catch (err) {
-    console.warn(`[chat] Invalid JSON from Claude, retrying. Error: ${err}`)
-    console.warn(`[chat] Raw response: ${rawText.slice(0, 200)}`)
-
-    const retryMessages: Anthropic.MessageParam[] = [
-      ...claudeMessages,
-      { role: 'assistant', content: rawText },
-      { role: 'user', content: `Your response was not valid JSON. Parse error: ${err}. Please return ONLY a valid JSON object matching the schema.` },
-    ]
-
-    rawText = await callClaude(client, systemPrompt, retryMessages)
-
-    try {
-      parsed = JSON.parse(rawText)
-    } catch {
-      // Give up after retry, wrap raw text
-      parsed = { blocks: [{ type: 'text', content: rawText }] }
-    }
-  }
-
-  return c.json(parsed)
+  const result = await runAgentLoop(claudeMessages, tools)
+  return c.json(result)
 })
 
-async function callClaude(
-  client: Anthropic,
-  systemPrompt: string,
+// ─── Agentic loop ───────────────────────────────────────────────
+
+const MAX_TOOL_ROUNDS = 5
+
+async function runAgentLoop(
   messages: Anthropic.MessageParam[],
-): Promise<string> {
-  const response = await client.messages.create({
-    model: 'claude-sonnet-4-6',
+  tools: Anthropic.Tool[],
+) {
+  const client = new Anthropic()
+
+  let response = await client.messages.create({
+    model: 'claude-haiku-4-5-20251001',
     max_tokens: 1024,
-    system: systemPrompt,
+    system: SYSTEM_PROMPT,
+    ...(tools.length > 0 && { tools }),
     messages,
   })
 
-  let rawText = response.content[0].type === 'text' ? response.content[0].text : ''
+  let rounds = 0
+  while (response.stop_reason === 'tool_use' && rounds < MAX_TOOL_ROUNDS) {
+    rounds++
+
+    const toolCalls = response.content.filter(
+      (b): b is Anthropic.ToolUseBlock => b.type === 'tool_use',
+    )
+
+    const toolResults: Anthropic.ToolResultBlockParam[] = await Promise.all(
+      toolCalls.map(async (call) => {
+        try {
+          const result = await execute(call.name, call.input)
+          return {
+            type: 'tool_result' as const,
+            tool_use_id: call.id,
+            content: JSON.stringify(result),
+          }
+        } catch (e) {
+          return {
+            type: 'tool_result' as const,
+            tool_use_id: call.id,
+            content: `Error: ${e instanceof Error ? e.message : String(e)}`,
+            is_error: true as const,
+          }
+        }
+      }),
+    )
+
+    messages = [
+      ...messages,
+      { role: 'assistant', content: response.content },
+      { role: 'user', content: toolResults },
+    ]
+
+    response = await client.messages.create({
+      model: 'claude-haiku-4-5-20251001',
+      max_tokens: 1024,
+      system: SYSTEM_PROMPT,
+      ...(tools.length > 0 && { tools }),
+      messages,
+    })
+  }
+
+  return formatResponse(response)
+}
+
+function formatResponse(response: Anthropic.Message) {
+  const textBlock = response.content.find(
+    (b): b is Anthropic.TextBlock => b.type === 'text',
+  )
+
+  let rawText = textBlock?.text ?? ''
 
   // Strip markdown fences if Claude wraps the JSON
   rawText = rawText.replace(/^```(?:json)?\s*/i, '').replace(/\s*```\s*$/, '').trim()
 
-  return rawText
-}
-
-// ─── Ingest cron (runs on startup + every 24h) ─────────────────
-// NOTE: bad practice to run ingest in the same process — ideally a separate cron service
-async function runIngest() {
   try {
-    console.log('[ingest] Starting knowledge ingest...')
-    await import('./knowledge/ingest')
-    console.log('[ingest] Done.')
-  } catch (e) {
-    console.error('[ingest] Failed:', e)
+    return JSON.parse(rawText)
+  } catch {
+    return { blocks: [{ type: 'text', content: rawText }] }
   }
 }
 
-runIngest()
-setInterval(runIngest, 24 * 60 * 60_000)
+// ─── Warm cache on startup, refresh every 24h ───────────────────
+warmCache()
+setInterval(() => warmCache(), 24 * 60 * 60_000)
 
 // ─── Server ─────────────────────────────────────────────────────
 const port = Number(process.env.PORT) || 8787

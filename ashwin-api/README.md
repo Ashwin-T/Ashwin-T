@@ -1,35 +1,32 @@
 # ashwin-api
 
-Backend for the AI chat on [ashwintalwalkar.com](https://ashwintalwalkar.com). Visitors ask questions about Ashwin and get structured, rich responses powered by Claude Haiku and a knowledge graph built from multiple data sources.
+Backend for the AI chat on [ashwintalwalkar.com](https://ashwintalwalkar.com). Visitors ask questions about Ashwin and get structured, rich responses powered by Claude and a connector-based architecture that pulls from multiple data sources on demand.
 
 ## How it works
 
 ```
-Google Doc / Resume PDF / LinkedIn / GitHub
-        │           │          │         │
-        └───────────┴──────────┴─────────┘
-                        │
-                   npm run ingest
-                        │
-                  Claude Haiku (structurer)
-                        │
-                  JSON node files
-                   (knowledge graph)
-                        │
-                   Flattened into
-                   system prompt
-                        │
-              POST /chat ──► Claude Haiku ──► { blocks, suggestions }
+POST /chat
+    │
+    ▼
+Claude Haiku (agentic loop)
+    │
+    ├── calls github connector ──► GitHub API (cached 6h)
+    ├── calls linkedin connector ──► LinkedIn data (cached 24h)
+    ├── calls resume connector ──► Resume PDF (cached 24h)
+    └── calls google_doc connector ──► Google Doc (cached 12h)
+    │
+    ▼
+{ blocks, suggestions }
 ```
 
-**Ingestion:** Raw data from any source gets dumped into Claude Haiku, which parses it into structured knowledge nodes (JSON files). No brittle regex — the AI handles all the parsing.
+**Connectors:** Each data source is a self-contained connector that Claude can call via tool use. Connectors fetch, parse, and cache their data in memory with configurable TTLs. On server startup, all connectors warm their caches.
 
-**Serving:** When a user sends a message, the full knowledge graph is flattened into Claude's system prompt. Claude responds as Ashwin using only facts from the graph, returning structured JSON that the React frontend renders into UI components (text, lists, cards, code blocks).
+**Chat:** When a user sends a message, Claude decides which connectors to call based on the question, fetches only the relevant data, and responds as Ashwin with structured JSON that the React frontend renders into UI components (text, lists, cards, code blocks).
 
 ## Stack
 
 - **Hono** — lightweight web framework
-- **Claude Haiku** (`claude-haiku-4-5-20251001`) — powers both ingestion parsing and chat responses
+- **Claude Haiku** (`claude-haiku-4-5-20251001`) — powers chat responses with agentic tool use
 - **@anthropic-ai/sdk** — Claude API client
 - **unpdf** — PDF text extraction for resume ingestion
 
@@ -53,20 +50,21 @@ LINKEDIN_URL=https://linkedin.com/in/your-profile
 
 | Command | Description |
 |---------|-------------|
-| `npm run ingest` | Fetch all sources and rebuild knowledge graph |
 | `npm run dev` | Start server with hot reload (port 8787) |
 | `npm start` | Start server (port 8787) |
 
-## Ingestion sources
+## Connectors
 
-Run `npm run ingest` to pull from all configured sources. Each source produces JSON node files in `src/knowledge/nodes/` (gitignored).
+Each connector is a self-contained file that handles fetching, parsing, caching, and serving data. Connectors are registered at startup and exposed to Claude as tools.
 
-| Source | What it pulls | Config |
-|--------|--------------|--------|
-| **Google Doc** | Anything you write — edit from your phone, re-ingest anytime | `GOOGLE_DOC_URL` |
-| **GitHub** | Repos, READMEs, languages, commits, activity | `GITHUB_USERNAME` |
-| **Resume PDF** | Jobs, education, skills, projects — parsed from PDF | `RESUME_PDF_URL` |
-| **LinkedIn** | Jobs, education, awards, clubs, skills, volunteer work | `LINKEDIN_URL` or `LINKEDIN_EXPORT_DIR` |
+| Connector | What it pulls | Cache TTL | Config |
+|-----------|--------------|-----------|--------|
+| **github** | Repos, READMEs, languages, commits, activity | 6 hours | `GITHUB_USERNAME` |
+| **linkedin** | Jobs, education, awards, clubs, skills, volunteer work | 24 hours | `LINKEDIN_URL` or `LINKEDIN_EXPORT_DIR` |
+| **resume** | Jobs, education, skills, projects — parsed from PDF | 24 hours | `RESUME_PDF_URL` |
+| **google_doc** | Anything you write — hobbies, interests, personal notes | 12 hours | `GOOGLE_DOC_URL` |
+
+Only connectors with configured env vars are registered. Adding a new data source is just writing a new connector file and calling `register()`.
 
 ### Google Doc format
 
@@ -114,18 +112,16 @@ Health check — returns `We Are Healthy`.
 
 ```
 src/
-├── index.ts                        # Hono server, /chat endpoint, rate limiter
-├── prompt.ts                       # Builds system prompt from knowledge graph
-└── knowledge/
-    ├── types.ts                    # KnowledgeNode, Category types
-    ├── graph.ts                    # Loads + flattens JSON nodes
-    ├── config.ts                   # Env var config
-    ├── ingest.ts                   # CLI: runs all ingestions
-    ├── nodes/                      # Generated JSON (gitignored)
-    └── ingestions/
-        ├── structurer.ts           # Universal AI parser (Haiku)
-        ├── google-doc.ts           # Google Doc fetcher
-        ├── github.ts               # GitHub API scraper
-        ├── resume.ts               # PDF text extractor
-        └── linkedin.ts             # LinkedIn scraper + export parser
+├── index.ts                    # Hono server, /chat endpoint, agentic loop
+├── prompt.ts                   # Static system prompt
+└── connectors/
+    ├── types.ts                # Connector + KnowledgeNode types
+    ├── cache.ts                # In-memory TTL cache
+    ├── config.ts               # Env var config
+    ├── registry.ts             # Register, execute, warmCache
+    ├── structurer.ts           # Universal AI parser (Haiku)
+    ├── github.ts               # GitHub API connector
+    ├── linkedin.ts             # LinkedIn connector (profile + export)
+    ├── resume.ts               # Resume PDF connector
+    └── google-doc.ts           # Google Doc connector
 ```
