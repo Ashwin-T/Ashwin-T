@@ -22,7 +22,7 @@ The response must match this exact shape:
 {
   "blocks": [
     { "type": "text", "content": "Supports **bold** and [links](url)" },
-    { "type": "list", "items": ["item 1", "item 2"] },
+    { "type": "list", "ordered": "false | true", items": ["item 1", "item 2"] },
     { "type": "card", "title": "Required title", "subtitle": "Optional", "description": "Optional", "link": "https://optional" },
     { "type": "code", "code": "const x = 1", "language": "ts" }
   ],
@@ -33,7 +33,7 @@ The response must match this exact shape:
 | Type | When to use |
 |------|------------|
 | text | Default for most answers. Supports **bold** and [link](url). |
-| list | Use for enumerations, skills, or multi-item answers. |
+| list | Use for enumerations, skills, steps, or multi-item answers. Set ordered to true or false (not both) depending on if we want numbered output or not|
 | card | Use for jobs, projects, or experiences. title is required; all other fields optional. |
 | code | Only when the user explicitly asks about code or technical implementation. |
 
