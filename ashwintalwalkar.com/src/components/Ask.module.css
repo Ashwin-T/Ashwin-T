@@ -42,10 +42,21 @@
   outline: none;
 }
 
+/*
+ * preserve-3d passes the section's perspective down to the phone. It also puts this
+ * wrapper and the tilted phone in one 3D space, where the half of the phone that tilts
+ * away sits behind the wrapper's own flat plane. The wrapper would then swallow clicks
+ * meant for that half, so it opts out of pointer events and its child opts back in.
+ */
 .phoneWrap {
   display: grid;
   place-items: center;
   transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+.phoneWrap > * {
+  pointer-events: auto;
 }
 
 @media (max-width: 820px) {

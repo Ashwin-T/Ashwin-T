@@ -41,11 +41,24 @@ const A2uiSurface = lazy(() =>
 
 const WIDE_MIN_WIDTH = 820
 const RISE_PX = 120
-// Top padding of .msgs in Phone.module.css
-const LIST_PADDING_PX = 6
+
+// True while someone is typing in the phone on a touch screen, with the keyboard up.
+function isTypingOnTouch(el: HTMLElement) {
+  return (
+    window.matchMedia('(hover: none)').matches && document.activeElement === el.querySelector('input')
+  )
+}
 
 // Rises and straightens as it scrolls in: progress 0 is the resting pose, 1 is upright.
 function applyPose(progress: number, el: HTMLElement) {
+  // The on-screen keyboard resizes and scrolls the page as it opens and closes. Following
+  // that would make the phone lurch and tilt under the keyboard, so while typing on a
+  // touch screen it is held flat and still instead.
+  if (isTypingOnTouch(el)) {
+    el.style.transform = 'translateY(0px) rotateY(0deg) rotateX(0deg)'
+    return
+  }
+
   const wide = window.innerWidth > WIDE_MIN_WIDTH
   const rest = 1 - progress
   const rotateY = (wide ? -28 : -12) * rest + (wide ? -6 : 0) * progress
@@ -79,18 +92,15 @@ export default function Phone({
 
   useScrollProgress(phoneRef, applyPose)
 
-  // Keep the newest bubble in view: scroll to the bottom, but never past the
-  // top of a bubble too tall to fit. A2UI surfaces fill in after this render,
-  // so follow the bubble as it grows.
+  // Always scroll to the very bottom when the conversation changes. A2UI surfaces
+  // fill in after this render, so keep following the newest bubble as it grows.
   useEffect(() => {
     const list = listRef.current
     const newest = newestRef.current
     if (!list || !newest) return
 
     const settle = () => {
-      const bottom = list.scrollHeight - list.clientHeight
-      const bubbleTop = newest.offsetTop - list.offsetTop - LIST_PADDING_PX
-      list.scrollTop = Math.min(bottom, bubbleTop)
+      list.scrollTop = list.scrollHeight - list.clientHeight
     }
 
     const observer = new ResizeObserver(settle)
@@ -147,6 +157,7 @@ export default function Phone({
             onChange={(e) => setDraft(e.target.value)}
             placeholder={inputPlaceholder}
             autoComplete="off"
+            enterKeyHint="send"
             aria-label={inputLabel}
           />
           <button type="submit" disabled={busy} aria-label={sendLabel}>

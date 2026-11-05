@@ -31,42 +31,55 @@
 }
 
 /*
- * Brand colors. WorkRow.tsx sets --brand-light / --brand-dark (the fill per theme) and
- * --ink-light / --ink-dark (the text color that reads on each). The rules below pick the
- * pair for the active theme, mirroring the theme selectors in tokens.css.
- *
- * --name is the highlighted company name at rest. It borrows the other theme's fill:
- * the deeper color on the light page, the lighter one on the dark page.
+ * Brand colors. WorkRow.tsx sets, for each theme: --brand-* (the fill), --ink-* (the text
+ * color that reads on it) and --name-* (the highlighted company name at rest). The rules
+ * below pick the set for the active theme, mirroring the theme selectors in tokens.css.
  */
 .job {
   --brand: var(--brand-light, var(--blue));
   --ink: var(--ink-light, #fff);
-  --name: var(--brand-dark, var(--blue));
+  --name: var(--name-light, var(--blue));
 }
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) .job {
     --brand: var(--brand-dark, var(--blue));
     --ink: var(--ink-dark, #fff);
-    --name: var(--brand-light, var(--blue));
+    --name: var(--name-dark, var(--blue));
   }
 }
 
 :root[data-theme='dark'] .job {
   --brand: var(--brand-dark, var(--blue));
   --ink: var(--ink-dark, #fff);
-  --name: var(--brand-light, var(--blue));
+  --name: var(--name-dark, var(--blue));
 }
 
-.job:hover,
-.job:focus-visible {
+/* Touch screens: the row opens and closes by tap (WorkRow.tsx adds .tappable and .open). */
+.job.tappable {
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/*
+ * A row is open:
+ * - with a mouse, while hovered. Tappable rows ignore hover, because on a touch screen
+ *   a tap leaves hover stuck on.
+ * - on a touch screen, while it is the tapped-open row (.open).
+ * - while it has keyboard focus, or a link inside it does (so tabbing onto the link
+ *   does not close the row around it).
+ */
+.job:is(.open, :not(.tappable):hover),
+.job:focus-visible,
+.job:has(:focus-visible) {
   background: var(--brand);
   color: var(--ink);
   transform: translateX(6px);
 }
 
-.job:hover::after,
-.job:focus-visible::after {
+.job:is(.open, :not(.tappable):hover)::after,
+.job:focus-visible::after,
+.job:has(:focus-visible)::after {
   opacity: 0;
 }
 
@@ -130,11 +143,28 @@
   padding-top: 18px;
 }
 
+/* Blurb, plus the optional note on its own line below it. */
+.job .more .text {
+  display: grid;
+  gap: 10px;
+}
+
 .job .more p {
   margin: 0;
   max-width: 56ch;
   font-size: clamp(15px, 1.4vw, 18px);
   line-height: 1.5;
+}
+
+.job .more a {
+  text-underline-offset: 3px;
+  text-decoration-thickness: 1px;
+}
+
+.job .more a:hover,
+.job .more a:focus-visible {
+  text-decoration-thickness: 2px;
+  outline: none;
 }
 
 .job .more ul {
@@ -156,15 +186,18 @@
   border: 1px solid color-mix(in srgb, currentColor 40%, transparent);
 }
 
-.job:hover .more,
-.job:focus-visible .more {
+.job:is(.open, :not(.tappable):hover) .more,
+.job:focus-visible .more,
+.job:has(:focus-visible) .more {
   grid-template-rows: 1fr;
 }
 
-.job:hover .yr,
-.job:hover .role,
+.job:is(.open, :not(.tappable):hover) .yr,
+.job:is(.open, :not(.tappable):hover) .role,
 .job:focus-visible .yr,
-.job:focus-visible .role {
+.job:focus-visible .role,
+.job:has(:focus-visible) .yr,
+.job:has(:focus-visible) .role {
   color: color-mix(in srgb, var(--ink) 90%, transparent);
 }
 
@@ -173,8 +206,9 @@
   color: var(--name);
 }
 
-.job.hi:hover .co,
-.job.hi:focus-visible .co {
+.job.hi:is(.open, :not(.tappable):hover) .co,
+.job.hi:focus-visible .co,
+.job.hi:has(:focus-visible) .co {
   color: inherit;
 }
 
@@ -202,8 +236,9 @@
     max-width: none;
   }
 
-  .job:hover,
-  .job:focus-visible {
+  .job:is(.open, :not(.tappable):hover),
+  .job:focus-visible,
+  .job:has(:focus-visible) {
     transform: none;
   }
 }

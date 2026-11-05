@@ -1,11 +1,21 @@
 import { strings } from '../strings'
 
+/** A sentence with one linked phrase in it, rendered as: before + link + after. */
+export type LinkedText = {
+  before: string
+  link: { label: string; href: string }
+  after: string
+}
+
 export type WorkEntry = {
   id: string
   years: string
   company: string
   role: string
-  blurb: string
+  /** Plain text, or text with one linked phrase. */
+  blurb: string | LinkedText
+  /** Optional second line under the blurb. */
+  note?: string | LinkedText
   tags: string[]
   highlight?: boolean
   /**

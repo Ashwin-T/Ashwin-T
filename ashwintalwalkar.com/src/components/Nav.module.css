@@ -6,6 +6,20 @@
   justify-content: space-between;
   align-items: center;
   padding-block: 18px;
+}
+
+/*
+ * The frosted bar. The nav itself stays as wide as the page content so the logo and
+ * links keep their place; this layer behind them stretches to the full window width.
+ */
+.nav::before {
+  content: '';
+  position: absolute;
+  inset-block: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  z-index: -1;
   background: color-mix(in srgb, var(--bg) 78%, transparent);
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
@@ -25,6 +39,7 @@
 
 .links {
   display: flex;
+  align-items: center;
   gap: 22px;
   font-family: var(--font-mono);
   font-size: 12px;
@@ -39,6 +54,34 @@
 
 .links a:hover,
 .links a:focus-visible {
+  color: var(--blue);
+  outline: none;
+}
+
+/* Light / dark toggle. The padding widens the tap target without moving the icon. */
+.theme {
+  display: grid;
+  place-items: center;
+  padding: 8px;
+  margin: -8px;
+  border: 0;
+  background: none;
+  color: var(--mute);
+  cursor: pointer;
+}
+
+.theme svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.theme:hover,
+.theme:focus-visible {
   color: var(--blue);
   outline: none;
 }

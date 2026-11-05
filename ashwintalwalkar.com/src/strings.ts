@@ -9,15 +9,22 @@ import type { WorkEntry } from './data/work'
 
 // `color` is each place's own brand color (6-digit hex). The row fills with it on hover.
 // Give one hex for both themes, or { light, dark } for a fill per theme.
+// `blurb` is plain text, or { before, link, after } to link one phrase in it.
+// `note` is an optional second line under the blurb, in the same two forms.
 const workEntries: WorkEntry[] = [
   {
     id: 'toast',
     years: '2026 —',
     company: 'Toast',
-    color: { light: '#FBD9B6', dark: '#8F5F3D' }, // Toast POS button color ORANGE_1, light and dark mode
+    color: { light: '#D4340B', dark: '#D4340B' }, // toasttab.com accent red-orange; Toast POS dark-mode orange
     role: 'Software Engineer I',
-    blurb:
-      'Working on Toast IQ, the AI-powered conversational assistant and intelligence suite built into the Toast POS restaurant and retail platform!',
+    // Rendered as: before + link + after
+    blurb: {
+      before: 'Working on ',
+      link: { label: 'Toast IQ', href: 'https://pos.toasttab.com/products/toast-iq' },
+      after:
+        ', the AI-powered conversational assistant and intelligence suite built into the Toast POS restaurant and retail platform!',
+    },
     tags: ['Kotlin', 'Android'],
     highlight: true,
   },
@@ -35,7 +42,7 @@ const workEntries: WorkEntry[] = [
     id: 'plume',
     years: '2023 – 24',
     company: 'Plume',
-    color: { light: '#7C5CDF', dark: '#9377F3' }, // Plume Signature Violet, light and dark mode
+    color: { light: '#390477', dark: '#8622F8' }, // plume.com deep purple; its bright accent, which reads on dark
     role: 'SWE Intern · Palo Alto',
     blurb:
       'Data pipelines and Hidden Markov Models on AWS, Flink, Spark and Databricks. Pushed model accuracy up 5% with simulated annealing.',
@@ -48,7 +55,13 @@ const workEntries: WorkEntry[] = [
     color: '#C5050C', // Badger Red, from brand.wisc.edu
     role: 'B.S. Computer Science',
     blurb:
-      "Dean's List all four years. President of Data Science for Sustainable Development, leading dev teams building full-stack projects for nonprofits like Leap VA and UW's Office of Sustainability. Won CheeseHacks 2024 with RetroSpecs, smart glasses that help people with Alzheimer's recall their day.",
+      "Dean's List all four years. President of Data Science for Sustainable Development, leading dev teams building full-stack projects for nonprofits like Leap VA and UW's Office of Sustainability.",
+    // Rendered on its own line as: before + link + after
+    note: {
+      before: 'Won CheeseHacks 2024 with ',
+      link: { label: 'RetroSpecs', href: 'https://github.com/RetroSpecs-Suite' },
+      after: ", smart glasses that help people with Alzheimer's recall their day.",
+    },
     tags: ['Go Badgers'],
   },
 ]
@@ -61,6 +74,8 @@ export const strings = {
       { label: 'Work', href: '#work' },
       { label: 'Ask', href: '#ask' },
     ],
+    // Screen reader label and tooltip on the light/dark toggle
+    theme: { toLight: 'Switch to light mode', toDark: 'Switch to dark mode' },
   },
 
   hero: {
@@ -73,7 +88,7 @@ export const strings = {
       before: 'Software engineer at ',
       bold: 'Toast',
       after:
-        ', working on Toast IQ!. Former Badger. Now in the Bay',
+        ', working on Toast IQ! Former Wisconsin Badger. Now in the Bay',
     },
     primaryCta: { label: 'Chat with me →', href: '#ask' },
     secondaryCta: { label: "So Far", href: '#work' },
@@ -82,7 +97,9 @@ export const strings = {
   work: {
     // Rendered as: before + accent (blue)
     heading: { before: 'So ', accent: 'far.' },
-    hint: 'Hover a row',
+    hint: 'Hover on a row',
+    // Shown instead of `hint` on touch screens, where rows open by tap
+    hintTouch: 'Tap on a row',
     entries: workEntries,
   },
 
@@ -90,7 +107,7 @@ export const strings = {
     eyebrow: 'Curious?',
     // Rendered as: before + accent (blue)
     heading: { before: 'Just ', accent: 'ask.' },
-    lede: 'Dynamically powered by me (and Claude). Ask about any of my interets, work, side projects, or some of my favorite thinfs',
+    lede: 'Dynamically powered by me (and Claude). Ask about any of my interests, work, side projects, or some of my favorite things',
     // label is the chip text, question is what gets sent to the chat
     chips: [
       { label: 'Working on right now?', question: 'What are you working on right now?' },

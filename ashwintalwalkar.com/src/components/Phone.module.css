@@ -129,6 +129,18 @@
   border-color: #5b8cff;
 }
 
+/*
+ * Touch screens: iOS zooms the whole page in when a focused input's text is smaller
+ * than 16px, and leaves it zoomed. 16px text avoids that; the padding gives the
+ * extra height back.
+ */
+@media (hover: none) {
+  .compose input {
+    font-size: 16px;
+    padding-block: 9px;
+  }
+}
+
 .compose button {
   width: 42px;
   height: 42px;
