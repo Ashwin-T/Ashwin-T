@@ -1,0 +1,50 @@
+.nav {
+  position: sticky;
+  top: env(safe-area-inset-top, 0px);
+  z-index: 20;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 18px;
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 18px;
+  text-decoration: none;
+  letter-spacing: -0.02em;
+}
+
+.logo span {
+  color: var(--blue);
+}
+
+.links {
+  display: flex;
+  gap: 22px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.links a {
+  text-decoration: none;
+  color: var(--mute);
+}
+
+.links a:hover,
+.links a:focus-visible {
+  color: var(--blue);
+  outline: none;
+}
+
+@media (max-width: 820px) {
+  .links {
+    gap: 14px;
+  }
+}

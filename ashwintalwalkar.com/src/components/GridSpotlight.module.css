@@ -1,0 +1,24 @@
+.grid {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 64px 64px;
+  /* --gx / --gy are written by GridSpotlight.tsx; the fallbacks are the resting spot. */
+  mask-image: radial-gradient(
+    520px circle at var(--gx, 30%) var(--gy, 40%),
+    #000 0%,
+    rgba(0, 0, 0, 0.35) 45%,
+    transparent 100%
+  );
+  -webkit-mask-image: radial-gradient(
+    520px circle at var(--gx, 30%) var(--gy, 40%),
+    #000 0%,
+    rgba(0, 0, 0, 0.35) 45%,
+    transparent 100%
+  );
+  transition: none;
+}

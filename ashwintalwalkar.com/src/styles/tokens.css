@@ -1,0 +1,42 @@
+:root {
+  --bg: #f7f8fb;
+  --bg2: #ffffff;
+  --fg: #0f1222;
+  --mute: #6b7085;
+  --line: rgba(15, 18, 34, 0.09);
+  --blue: #2563ff;
+  --blue2: #7aa7ff;
+  --blue3: #1a46c9;
+  --glow: rgba(37, 99, 255, 0.22);
+  --font-display: 'Unbounded', ui-sans-serif, system-ui, sans-serif;
+  --font-body: 'DM Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'DM Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #0b0d16;
+    --bg2: #121524;
+    --fg: #f2f3f8;
+    --mute: #8d92a8;
+    --line: rgba(242, 243, 248, 0.1);
+    --blue: #4d7cff;
+    --blue2: #8fb0ff;
+    --blue3: #2b55d6;
+    --glow: rgba(77, 124, 255, 0.3);
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme='dark'] {
+  --bg: #0b0d16;
+  --bg2: #121524;
+  --fg: #f2f3f8;
+  --mute: #8d92a8;
+  --line: rgba(242, 243, 248, 0.1);
+  --blue: #4d7cff;
+  --blue2: #8fb0ff;
+  --blue3: #2b55d6;
+  --glow: rgba(77, 124, 255, 0.3);
+  color-scheme: dark;
+}

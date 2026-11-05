@@ -12,19 +12,21 @@ You land on the site, see a chat box, and get a simple prompt:
 
 Ask anything you'd like. Responses aren't just plain text—they come back as rich, structured content like cards, lists, code snippets, and inline links.
 
-When you ask a question, Claude decides which data sources to pull from (GitHub, LinkedIn, resume, personal notes), fetches only what's relevant via tool use, and responds as me with structured JSON that the frontend renders into UI components.
+When you ask a question, Claude decides which data sources to pull from (GitHub, LinkedIn, resume, personal notes), fetches only what's relevant via tool use, and responds as me with UI the frontend renders.
+
+The two halves talk over open agent protocols. The backend is an [A2A](https://a2a-protocol.org/) (Agent2Agent) agent: the site discovers it through its agent card and sends each question as an A2A message. The replies are [A2UI](https://a2ui.org/): the agent describes the UI as components from a small catalog (text, lists, cards, code blocks, suggestion chips), and the site renders them with its own React implementations. Tapping a suggestion sends an A2UI action back to the agent.
 
 ## Architecture
 
 ```
 Frontend (React)                          Backend (Hono)
 ┌─────────────────┐                      ┌──────────────────────────────┐
-│                 │   POST /chat         │                              │
+│                 │   A2A SendMessage    │                              │
 │  Chat UI        │ ──────────────────►  │  Claude Haiku (agentic loop) │
-│  (blocks,       │                      │       │                      │
-│   cards,        │  { blocks,           │       ├── github connector   │
-│   lists,        │    suggestions }     │       ├── linkedin connector │
-│   code)         │ ◄──────────────────  │       ├── resume connector   │
+│  (A2UI          │                      │       │                      │
+│   renderer +    │  A2A Message with    │       ├── github connector   │
+│   chat          │  A2UI surfaces       │       ├── linkedin connector │
+│   catalog)      │ ◄──────────────────  │       ├── resume connector   │
 │                 │                      │       └── google_doc connector│
 └─────────────────┘                      └──────────────────────────────┘
 ```
@@ -35,7 +37,8 @@ Each backend connector is a self-contained data source that fetches, parses, and
 
 - **React 19** + **TypeScript 5.9** + **Vite 8**
 - React Compiler enabled for optimized re-renders
-- Chat responses rendered as structured blocks (text, cards, lists, code)
+- Chat over A2A (`src/lib/a2a.ts`), replies rendered from A2UI with `@a2ui/react` and the site's own catalog (`src/components/ChatCatalog.tsx`)
+- The A2UI renderer loads in its own chunk after first paint
 - CSS Modules for scoped styling
 - Spam protection (10 messages per session)
 
@@ -65,19 +68,21 @@ src/
 |-----------|------------|-----------|
 | `github` | GitHub API — repos, languages, commits, activity | 6 hours |
 | `linkedin` | LinkedIn — jobs, education, awards, skills | 24 hours |
-| `resume` | Resume PDF — parsed and structured by AI | 24 hours |
+| `resume` | Resume PDF — text extracted from the PDF | 24 hours |
 | `google_doc` | Google Doc — personal notes, hobbies, interests | 12 hours |
 
 ```
 src/
-├── index.ts                # Hono server, /chat endpoint, agentic loop
+├── index.ts                # Hono server, rate limiter
+├── agent.ts                # Agentic loop
+├── a2a/                    # Agent card, JSON-RPC endpoint, executor, history
+├── a2ui/                   # Chat catalog: validation, surfaces, text fallback
 ├── prompt.ts               # Static system prompt
 └── connectors/
     ├── types.ts            # Connector + KnowledgeNode types
     ├── cache.ts            # In-memory TTL cache
     ├── config.ts           # Env var config
     ├── registry.ts         # Register, execute, warmCache
-    ├── structurer.ts       # Universal AI parser (Haiku)
     ├── github.ts           # GitHub API connector
     ├── linkedin.ts         # LinkedIn connector (profile + export)
     ├── resume.ts           # Resume PDF connector

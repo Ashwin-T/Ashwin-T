@@ -1,0 +1,27 @@
+.footer {
+  border-top: 1px solid var(--line);
+  padding-block: 32px 48px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 30px;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mute);
+}
+
+.r {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer a:hover {
+  color: var(--blue);
+}

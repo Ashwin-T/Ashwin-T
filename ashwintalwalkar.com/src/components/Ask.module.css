@@ -1,0 +1,55 @@
+.finale {
+  padding-block: 120px 120px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+  perspective: 1600px;
+}
+
+.copy h2 {
+  font-size: clamp(36px, 5.5vw, 70px);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+}
+
+.copy p {
+  color: var(--mute);
+  max-width: 40ch;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.chips button {
+  font: 500 13px var(--font-body);
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: var(--bg2);
+  color: var(--fg);
+  cursor: pointer;
+}
+
+.chips button:hover,
+.chips button:focus-visible {
+  border-color: var(--blue);
+  color: var(--blue);
+  outline: none;
+}
+
+.phoneWrap {
+  display: grid;
+  place-items: center;
+  transform-style: preserve-3d;
+}
+
+@media (max-width: 820px) {
+  .finale {
+    grid-template-columns: 1fr;
+  }
+}

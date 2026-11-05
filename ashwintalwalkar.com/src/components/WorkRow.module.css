@@ -1,0 +1,209 @@
+.job {
+  position: relative;
+  min-width: 0;
+  border-radius: 22px;
+  padding: 26px 28px;
+  cursor: default;
+  outline: none;
+  display: grid;
+  grid-template-columns: 96px 1fr;
+  column-gap: 28px;
+  align-items: center;
+  transition:
+    background 0.35s,
+    color 0.35s,
+    transform 0.35s;
+}
+
+/* Divider between rows, inset to line up with the row padding. */
+.job::after {
+  content: '';
+  position: absolute;
+  left: 28px;
+  right: 28px;
+  bottom: -3px;
+  height: 1px;
+  background: var(--line);
+}
+
+.job:last-child::after {
+  display: none;
+}
+
+/*
+ * Brand colors. WorkRow.tsx sets --brand-light / --brand-dark (the fill per theme) and
+ * --ink-light / --ink-dark (the text color that reads on each). The rules below pick the
+ * pair for the active theme, mirroring the theme selectors in tokens.css.
+ *
+ * --name is the highlighted company name at rest. It borrows the other theme's fill:
+ * the deeper color on the light page, the lighter one on the dark page.
+ */
+.job {
+  --brand: var(--brand-light, var(--blue));
+  --ink: var(--ink-light, #fff);
+  --name: var(--brand-dark, var(--blue));
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .job {
+    --brand: var(--brand-dark, var(--blue));
+    --ink: var(--ink-dark, #fff);
+    --name: var(--brand-light, var(--blue));
+  }
+}
+
+:root[data-theme='dark'] .job {
+  --brand: var(--brand-dark, var(--blue));
+  --ink: var(--ink-dark, #fff);
+  --name: var(--brand-light, var(--blue));
+}
+
+.job:hover,
+.job:focus-visible {
+  background: var(--brand);
+  color: var(--ink);
+  transform: translateX(6px);
+}
+
+.job:hover::after,
+.job:focus-visible::after {
+  opacity: 0;
+}
+
+.job .yr {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: 0.08em;
+  color: var(--mute);
+  align-self: start;
+  padding-top: 0.9em;
+  transition: color 0.35s;
+}
+
+.job .main {
+  min-width: 0;
+  display: grid;
+  gap: 4px;
+}
+
+.job .line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px 24px;
+}
+
+.job .co {
+  font-family: var(--font-display);
+  font-weight: 900;
+  letter-spacing: -0.05em;
+  font-size: clamp(34px, 6vw, 80px);
+  line-height: 1;
+  transition: color 0.35s;
+}
+
+.job .role {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--mute);
+  white-space: nowrap;
+  transition: color 0.35s;
+}
+
+/* Expanding panel: the grid row animates from 0fr to 1fr, the inner div clips. */
+.job .more {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.45s cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+.job .more > div {
+  overflow: hidden;
+}
+
+.job .more .in {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 20px 40px;
+  align-items: end;
+  padding-top: 18px;
+}
+
+.job .more p {
+  margin: 0;
+  max-width: 56ch;
+  font-size: clamp(15px, 1.4vw, 18px);
+  line-height: 1.5;
+}
+
+.job .more ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: flex-end;
+  max-width: 260px;
+}
+
+.job .more li {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, currentColor 40%, transparent);
+}
+
+.job:hover .more,
+.job:focus-visible .more {
+  grid-template-rows: 1fr;
+}
+
+.job:hover .yr,
+.job:hover .role,
+.job:focus-visible .yr,
+.job:focus-visible .role {
+  color: color-mix(in srgb, var(--ink) 90%, transparent);
+}
+
+/* Highlighted row: company name wears its brand color at rest. */
+.job.hi .co {
+  color: var(--name);
+}
+
+.job.hi:hover .co,
+.job.hi:focus-visible .co {
+  color: inherit;
+}
+
+@media (max-width: 820px) {
+  .job {
+    grid-template-columns: 1fr;
+    padding: 20px 18px;
+    row-gap: 6px;
+  }
+
+  .job .yr {
+    padding-top: 0;
+  }
+
+  .job .role {
+    white-space: normal;
+  }
+
+  .job .more .in {
+    grid-template-columns: 1fr;
+  }
+
+  .job .more ul {
+    justify-content: flex-start;
+    max-width: none;
+  }
+
+  .job:hover,
+  .job:focus-visible {
+    transform: none;
+  }
+}
