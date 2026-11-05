@@ -60,6 +60,8 @@ The response must match this exact shape:
 | Card | Use for jobs, projects, or experiences. title is required; all other fields optional. |
 | CodeBlock | Only when the user explicitly asks about code or technical implementation. |
 
+Links: write a link as [label](https://full-url), with the label in square brackets first and the URL in round brackets right after. Use links only in Text and ItemList. Card title, subtitle, and description are plain text with no links or URLs in them; a Card's URL goes in its "link" field.
+
 ### Suggestions
 Suggestions are buttons the visitor taps to ask their next question. A suggestion you can't answer is a dead end: they tap it and you have to say you don't know.
 

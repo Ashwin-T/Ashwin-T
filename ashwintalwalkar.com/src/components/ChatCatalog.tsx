@@ -16,31 +16,63 @@ export const CATALOG_ID = 'https://ashwintalwalkar.com/a2ui/chat/v1/catalog.json
 // The agent's text is untrusted: only ever link out to the web or to mail.
 const SAFE_HREF = /^(https?:|mailto:)/i
 
-// Renders **bold**, `code`, and [text](url). Everything else stays plain text.
-function renderInline(text: string): ReactNode[] {
+const INLINE = new RegExp(
+  [
+    String.raw`\*\*(.+?)\*\*`, // 1: **bold**
+    '`(.+?)`', // 2: `code`
+    String.raw`\[([^\]]+)\]\s?\((\S+?)\)`, // 3, 4: [text](url)
+    String.raw`\(([^()]+)\)\s?\[(\S+?)\]`, // 5, 6: (text)[url], the halves swapped by mistake
+    String.raw`((?:https?:\/\/|mailto:)[^\s<>()[\]]+)`, // 7: a bare url
+  ].join('|'),
+  'g',
+)
+
+// "https://www.github.com/ashwin-t/" reads better in a chat bubble as "github.com/ashwin-t"
+function prettyUrl(url: string): string {
+  return url.replace(/^(https?:\/\/(www\.)?|mailto:)/i, '').replace(/\/$/, '')
+}
+
+/**
+ * Renders **bold**, `code` and links, however the agent wrote the link:
+ * [text](url), (text)[url] or a bare url. The visitor never sees link syntax.
+ * With `links: false` a link shows as its text only, for use inside another link.
+ */
+function renderInline(text: string, { links = true } = {}): ReactNode[] {
   const nodes: ReactNode[] = []
-  const regex = /\*\*(.+?)\*\*|`(.+?)`|\[(.+?)\]\((.+?)\)/g
+  const regex = new RegExp(INLINE)
   let lastIndex = 0
   let match: RegExpExecArray | null
 
+  const link = (key: number, label: string, href: string) => {
+    const shown = /^(https?:|mailto:)/i.test(label) ? prettyUrl(label) : label
+    if (!links || !SAFE_HREF.test(href)) return shown
+    return (
+      <a key={key} href={href} target="_blank" rel="noopener noreferrer">
+        {shown}
+      </a>
+    )
+  }
+
   while ((match = regex.exec(text)) !== null) {
     if (match.index > lastIndex) nodes.push(text.slice(lastIndex, match.index))
+    lastIndex = match.index + match[0].length
 
     if (match[1]) {
-      nodes.push(<strong key={match.index}>{match[1]}</strong>)
+      // Bold can wrap a link: **[text](url)**
+      nodes.push(<strong key={match.index}>{renderInline(match[1], { links })}</strong>)
     } else if (match[2]) {
       nodes.push(<code key={match.index}>{match[2]}</code>)
-    } else if (SAFE_HREF.test(match[4])) {
-      nodes.push(
-        <a key={match.index} href={match[4]} target="_blank" rel="noopener noreferrer">
-          {match[3]}
-        </a>,
-      )
+    } else if (match[3]) {
+      nodes.push(link(match.index, match[3], match[4]))
+    } else if (match[5]) {
+      nodes.push(link(match.index, match[5], match[6]))
     } else {
-      nodes.push(match[3])
+      // Punctuation that ends the sentence is not part of the url
+      const url = match[7].replace(/[.,!?;:]+$/, '')
+      lastIndex = match.index + url.length
+      regex.lastIndex = lastIndex
+      nodes.push(link(match.index, url, url))
     }
-
-    lastIndex = match.index + match[0].length
   }
 
   if (lastIndex < text.length) nodes.push(text.slice(lastIndex))
@@ -120,15 +152,20 @@ const Card = createComponentImplementation(
     }),
   },
   ({ props }) => {
+    const linked = !!props.link && SAFE_HREF.test(props.link)
+    // A card that is itself a link can't hold links of its own
+    const inline = (text: string) => renderInline(text, { links: !linked })
     const body = (
       <>
-        <span className={styles.cardTitle}>{props.title}</span>
-        {props.subtitle && <span className={styles.cardSubtitle}>{props.subtitle}</span>}
-        {props.description && <span className={styles.cardDescription}>{props.description}</span>}
+        <span className={styles.cardTitle}>{inline(props.title ?? '')}</span>
+        {props.subtitle && <span className={styles.cardSubtitle}>{inline(props.subtitle)}</span>}
+        {props.description && (
+          <span className={styles.cardDescription}>{inline(props.description)}</span>
+        )}
       </>
     )
 
-    return props.link && SAFE_HREF.test(props.link) ? (
+    return linked ? (
       <a
         className={`${styles.card} ${styles.cardLink}`}
         href={props.link}
@@ -171,7 +208,7 @@ const SuggestionChip = createComponentImplementation(
   },
   ({ props }) => (
     <button type="button" className={styles.chip} onClick={() => props.action()}>
-      {props.label}
+      {renderInline(props.label ?? '', { links: false })}
     </button>
   ),
 )
