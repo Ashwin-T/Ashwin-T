@@ -1,8 +1,7 @@
 import { readFileSync, existsSync } from 'node:fs'
 import { join } from 'node:path'
-import type { Connector, KnowledgeNode } from './types'
-import { get, set } from './cache'
-import { structureWithAI } from './structurer'
+import type { Connector } from './types'
+import { cached } from './cache'
 import { LINKEDIN_URL, LINKEDIN_EXPORT_DIR } from './config'
 
 const CACHE_KEY = 'linkedin'
@@ -91,7 +90,7 @@ function extractInitialState(html: string): string[] {
 
 // ─── Ingestion: public profile ──────────────────────────────────
 
-async function ingestProfile(profileUrl: string): Promise<KnowledgeNode[]> {
+async function ingestProfile(profileUrl: string): Promise<string> {
   const res = await fetch(profileUrl, {
     headers: {
       'User-Agent':
@@ -139,23 +138,18 @@ async function ingestProfile(profileUrl: string): Promise<KnowledgeNode[]> {
 
   const rawText = parts.join('\n')
   console.log(`  Extracted ${rawText.length} chars from LinkedIn profile`)
-
-  return structureWithAI(
-    rawText,
-    'linkedin',
-    `Extract EVERYTHING about this person from the LinkedIn data: jobs (with titles, companies, dates, descriptions), education (school, degree, dates, activities), skills, certifications, volunteer work, awards, publications, languages, interests, recommendations, and any other details. Be thorough — capture every piece of information available.`,
-  )
+  return rawText
 }
 
 // ─── Ingestion: data export ─────────────────────────────────────
 
-async function ingestExport(exportDir: string): Promise<KnowledgeNode[]> {
+async function ingestExport(exportDir: string): Promise<string> {
   const csvFiles = [
     'Profile.csv', 'Positions.csv', 'Education.csv', 'Skills.csv',
     'Certifications.csv', 'Languages.csv', 'Honors.csv',
     'Organizations.csv', 'Projects.csv', 'Publications.csv',
     'Recommendations Given.csv', 'Recommendations Received.csv',
-    'Registration.csv', 'Connections.csv', 'Endorsement Received Info.csv',
+    'Registration.csv', 'Endorsement Received Info.csv',
   ]
 
   const parts: string[] = []
@@ -171,44 +165,20 @@ async function ingestExport(exportDir: string): Promise<KnowledgeNode[]> {
 
   const rawText = parts.join('\n\n')
   console.log(`  Read ${parts.length} CSV files (${rawText.length} chars)`)
-
-  return structureWithAI(
-    rawText,
-    'linkedin',
-    `Extract EVERYTHING from this LinkedIn data export: every job (title, company, dates, description), education (school, degree, field, dates, activities), all skills, certifications, volunteer roles, awards/honors, publications, projects, languages, organizations, and recommendations. Be exhaustive.`,
-  )
+  return rawText
 }
 
 // ─── Connector ──────────────────────────────────────────────────
-
-async function load(): Promise<KnowledgeNode[]> {
-  const cached = get(CACHE_KEY)
-  if (cached) return cached as KnowledgeNode[]
-
-  const nodes = LINKEDIN_EXPORT_DIR
-    ? await ingestExport(LINKEDIN_EXPORT_DIR)
-    : await ingestProfile(LINKEDIN_URL)
-
-  set(CACHE_KEY, nodes, TTL)
-  return nodes
-}
 
 export const linkedinConnector: Connector = {
   name: 'linkedin',
   description: "Ashwin's work history, education, skills, awards, volunteer roles, and clubs from LinkedIn",
   schema: {
     type: 'object',
-    properties: {
-      section: {
-        type: 'string',
-        enum: ['work', 'personal', 'technical', 'background', 'meta', 'all'],
-        description: 'filter by category, or "all" for everything',
-      },
-    },
+    properties: {},
   },
-  handler: async (input: any = {}) => {
-    const nodes = await load()
-    const section = input?.section ?? 'all'
-    return section === 'all' ? nodes : nodes.filter((n) => n.category === section)
-  },
+  handler: () =>
+    cached(CACHE_KEY, TTL, () =>
+      LINKEDIN_EXPORT_DIR ? ingestExport(LINKEDIN_EXPORT_DIR) : ingestProfile(LINKEDIN_URL),
+    ),
 }

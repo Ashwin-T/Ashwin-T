@@ -1,6 +1,5 @@
-import type { Connector, KnowledgeNode } from './types'
-import { get, set } from './cache'
-import { structureWithAI } from './structurer'
+import type { Connector } from './types'
+import { cached } from './cache'
 import { GOOGLE_DOC_URL } from './config'
 
 const CACHE_KEY = 'google-doc'
@@ -12,7 +11,7 @@ function toExportUrl(shareUrl: string): string {
   return `https://docs.google.com/document/d/${match[1]}/export?format=txt`
 }
 
-async function ingest(shareUrl: string): Promise<KnowledgeNode[]> {
+async function fetchDoc(shareUrl: string): Promise<string> {
   const exportUrl = toExportUrl(shareUrl)
   const res = await fetch(exportUrl)
 
@@ -20,18 +19,12 @@ async function ingest(shareUrl: string): Promise<KnowledgeNode[]> {
     throw new Error(`Failed to fetch Google Doc (${res.status}). Is the doc set to "Anyone with the link"?`)
   }
 
-  const text = await res.text()
+  const text = (await res.text()).trim()
   console.log(`  Fetched ${text.length} chars from Google Doc`)
-  return structureWithAI(text, 'gdoc')
-}
 
-async function load(): Promise<KnowledgeNode[]> {
-  const cached = get(CACHE_KEY)
-  if (cached) return cached as KnowledgeNode[]
-
-  const nodes = await ingest(GOOGLE_DOC_URL)
-  set(CACHE_KEY, nodes, TTL)
-  return nodes
+  // Throwing keeps an empty doc out of the cache, so the next call retries
+  if (!text) throw new Error('Google Doc came back empty')
+  return text
 }
 
 export const googleDocConnector: Connector = {
@@ -41,5 +34,5 @@ export const googleDocConnector: Connector = {
     type: 'object',
     properties: {},
   },
-  handler: async () => load(),
+  handler: () => cached(CACHE_KEY, TTL, () => fetchDoc(GOOGLE_DOC_URL)),
 }

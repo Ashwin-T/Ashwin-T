@@ -1,5 +1,5 @@
 import type { Connector, KnowledgeNode } from './types'
-import { get, set } from './cache'
+import { cached } from './cache'
 import { GITHUB_USERNAME } from './config'
 
 const CACHE_KEY = 'github'
@@ -173,15 +173,6 @@ async function ingest(username: string): Promise<KnowledgeNode[]> {
 
 // ─── Connector ──────────────────────────────────────────────────
 
-async function load(): Promise<KnowledgeNode[]> {
-  const cached = get(CACHE_KEY)
-  if (cached) return cached as KnowledgeNode[]
-
-  const nodes = await ingest(GITHUB_USERNAME)
-  set(CACHE_KEY, nodes, TTL)
-  return nodes
-}
-
 export const githubConnector: Connector = {
   name: 'github',
   description: "Ashwin's public personal GitHub profile — repos, languages, tech stack, recent commits, and activity. ashwintalwalkar.com data also resides within Ashwin-T",
@@ -195,7 +186,7 @@ export const githubConnector: Connector = {
     },
   },
   handler: async (input: any = {}) => {
-    const nodes = await load()
+    const nodes = await cached(CACHE_KEY, TTL, () => ingest(GITHUB_USERNAME))
     if (!input?.filter) return nodes
 
     const f = input.filter.toLowerCase()

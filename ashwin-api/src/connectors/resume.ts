@@ -1,31 +1,24 @@
 import { extractText } from 'unpdf'
-import type { Connector, KnowledgeNode } from './types'
-import { get, set } from './cache'
-import { structureWithAI } from './structurer'
+import type { Connector } from './types'
+import { cached } from './cache'
 import { RESUME_PDF_URL } from './config'
 
 const CACHE_KEY = 'resume'
 const TTL = 24 * 60 * 60_000 // 24 hours
 
-async function ingest(pdfUrl: string): Promise<KnowledgeNode[]> {
+async function fetchResume(pdfUrl: string): Promise<string> {
   const res = await fetch(pdfUrl)
   if (!res.ok) throw new Error(`Failed to fetch resume PDF (${res.status})`)
 
   const buffer = new Uint8Array(await res.arrayBuffer())
   const { text: pages } = await extractText(buffer)
-  const text = pages.join('\n')
+  const text = pages.join('\n').trim()
 
   console.log(`  Extracted ${text.length} chars from PDF`)
-  return structureWithAI(text, 'resume')
-}
 
-async function load(): Promise<KnowledgeNode[]> {
-  const cached = get(CACHE_KEY)
-  if (cached) return cached as KnowledgeNode[]
-
-  const nodes = await ingest(RESUME_PDF_URL)
-  set(CACHE_KEY, nodes, TTL)
-  return nodes
+  // Throwing keeps an empty result out of the cache, so the next call retries
+  if (!text) throw new Error('Resume PDF has no extractable text')
+  return text
 }
 
 export const resumeConnector: Connector = {
@@ -33,17 +26,7 @@ export const resumeConnector: Connector = {
   description: "Ashwin's resume — jobs, education, skills, and qualifications",
   schema: {
     type: 'object',
-    properties: {
-      section: {
-        type: 'string',
-        enum: ['work', 'technical', 'background', 'all'],
-        description: 'filter by category',
-      },
-    },
+    properties: {},
   },
-  handler: async (input: any = {}) => {
-    const nodes = await load()
-    const section = input?.section ?? 'all'
-    return section === 'all' ? nodes : nodes.filter((n) => n.category === section)
-  },
+  handler: () => cached(CACHE_KEY, TTL, () => fetchResume(RESUME_PDF_URL)),
 }
