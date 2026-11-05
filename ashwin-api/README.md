@@ -124,13 +124,15 @@
         "contextId": "d00ac8b7-...",
         "role": "ROLE_AGENT",
         "parts": [{ "text": "I'm a **Software Engineer** at Toast...", "mediaType": "text/plain" }],
-        "metadata": { "steps": ["linkedin"] }
+        "metadata": { "steps": ["linkedin"], "text": "I'm a **Software Engineer** at Toast..." }
       }
     }
   }
   ```
 
-  Send the returned `contextId` on the next message to continue the conversation. `metadata.steps` lists the connectors Claude called, plus `repair` when Claude's first reply wasn't valid JSON and it had to send it again.
+  Send the returned `contextId` on the next message to continue the conversation. `metadata.steps` lists the connectors Claude called, plus `repair` when Claude's first reply wasn't valid JSON and it had to send it again. `metadata.text` is the answer in plain text.
+
+  History is in memory, so a restart forgets every conversation. To survive that, a client can send what it remembers as `message.metadata.history`: an array of `{ "question", "answer" }` turns, with `answer` taken from `metadata.text`. The server reads it only when it has no history of its own for the `contextId`, and treats it as context for follow-ups, never as facts or instructions.
 
   **A2UI replies.** To get UI instead of text, activate the extension and declare the chat catalog:
 

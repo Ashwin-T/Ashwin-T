@@ -8,6 +8,9 @@ const A2UI_VERSION = 'v0.9'
 // The agent names the surface holding its follow-up suggestions with this prefix.
 const SUGGESTIONS_PREFIX = 'suggestions-'
 
+// How many past turns go along with each message. The agent reads at most this many.
+const MAX_HISTORY_TURNS = 6
+
 /** A piece of agent-built UI, ready to hand to `<A2uiSurface>`. */
 export type ChatSurface = SurfaceModel<ReactCatalogComponent>
 
@@ -38,16 +41,23 @@ export function createAgentSession() {
 
   let contextId: string | undefined
   let staleSuggestions: string | undefined
+  // The agent only keeps the conversation in memory. This copy goes along with
+  // every message so it can pick the conversation back up after a restart.
+  const history: { question: string; answer: string }[] = []
 
-  async function send(parts: Part[]): Promise<Reply> {
+  async function send(question: string, parts: Part[]): Promise<Reply> {
     const message = await sendMessage({
       parts,
       contextId,
       metadata: {
         a2uiClientCapabilities: { [A2UI_VERSION]: { supportedCatalogIds: [CATALOG_ID] } },
+        history: history.slice(-MAX_HISTORY_TURNS),
       },
     })
     contextId = message.contextId || contextId
+
+    const answer = message.metadata?.text
+    if (typeof answer === 'string' && answer) history.push({ question, answer })
 
     // The last turn's suggestions are off screen by now
     if (staleSuggestions) {
@@ -83,11 +93,11 @@ export function createAgentSession() {
 
   return {
     /** Asks a typed question. */
-    ask: (question: string) => send([{ text: question }]),
+    ask: (question: string) => send(question, [{ text: question }]),
 
     /** Reports an A2UI action (a tapped suggestion) back to the agent. */
     act: ({ name, surfaceId, sourceComponentId, timestamp, context }: ActionPayload) =>
-      send([
+      send(typeof context.question === 'string' ? context.question : '', [
         a2uiPart([
           {
             version: A2UI_VERSION,

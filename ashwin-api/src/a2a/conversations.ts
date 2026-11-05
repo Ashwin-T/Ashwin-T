@@ -1,7 +1,7 @@
 import type Anthropic from '@anthropic-ai/sdk'
 
-// Conversation history per A2A contextId. In memory only — a restart starts
-// every conversation fresh, which the agent handles like a first message.
+// Conversation history per A2A contextId. In memory only — after a restart the
+// executor picks a conversation back up from the transcript the client sends.
 
 const TTL = 60 * 60_000 // 1 hour since the last message
 const MAX_MESSAGES = 20
