@@ -35,8 +35,7 @@ const workEntries: WorkEntry[] = [
     color: { light: '#00B5E2', dark: '#1B365D' }, // Luminys Blue and Reflex Blue, from the Luminys palette
     role: 'SWE Intern',
     blurb:
-      'CRM-to-database integration in Python and Postgres with batch and real-time processing, then an Android shipping app with barcode scanning and automated UPS tracking.',
-    tags: ['Python', 'PostgreSQL', 'Android'],
+      'Built a CRM-to-database integration in Python and Postgres with both batch and real-time processing. Followed it with an Android app that speeds up warehouse operations: staff scan order barcodes, the app maps each order to its warehouse location, and it generates shipping labels automatically, selecting the carrier by cost and provider. Used daily by warehouse team members.', tags: ['Python', 'PostgreSQL', 'Android'],
   },
   {
     id: 'plume',
