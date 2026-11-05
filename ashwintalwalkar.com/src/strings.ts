@@ -111,8 +111,8 @@ export const strings = {
     // label is the chip text, question is what gets sent to the chat
     chips: [
       { label: 'Working on right now?', question: 'What are you working on right now?' },
-      { label: 'Other interests?', question: 'What other interests do you have?' },
-      { label: "Cooler than your brother's?", question: "Is your website cooler than your brother's?" },
+      { label: 'Personal interests?', question: 'What are your personal interests?' },
+      { label: 'Fun fact?', question: "What's a fun fact about you?" },
     ],
   },
 
