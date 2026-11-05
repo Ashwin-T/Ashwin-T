@@ -172,7 +172,7 @@ async function ingestExport(exportDir: string): Promise<string> {
 
 export const linkedinConnector: Connector = {
   name: 'linkedin',
-  description: "Ashwin's work history, education, skills, awards, volunteer roles, and clubs from LinkedIn",
+  description: "Ashwin's LinkedIn — work history, education, skills, awards, volunteer roles, clubs, and his posts describing projects and hackathon wins",
   schema: {
     type: 'object',
     properties: {},
