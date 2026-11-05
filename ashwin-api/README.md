@@ -69,7 +69,7 @@
 
   | Connector | What it pulls | Cache TTL | Config |
   |-----------|--------------|-----------|--------|
-  | **github** | Repos, READMEs, languages, commits, activity | 6 hours | `GITHUB_USERNAME` |
+  | **github** | Repos, READMEs, languages, commits, activity | 6 hours | `GITHUB_USERNAME`, optional `GITHUB_TOKEN` |
   | **linkedin** | Jobs, education, awards, clubs, skills, volunteer work | 24 hours | `LINKEDIN_URL` or `LINKEDIN_EXPORT_DIR` |
   | **resume** | Jobs, education, skills, projects — text extracted from the PDF | 24 hours | `RESUME_PDF_URL` |
   | **google_doc** | Anything you write — hobbies, interests, personal notes | 12 hours | `GOOGLE_DOC_URL` |

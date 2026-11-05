@@ -1,6 +1,6 @@
 import type { Connector, KnowledgeNode } from './types'
 import { cached } from './cache'
-import { GITHUB_USERNAME } from './config'
+import { GITHUB_TOKEN, GITHUB_USERNAME } from './config'
 
 const CACHE_KEY = 'github'
 const TTL = 6 * 60 * 60_000 // 6 hours
@@ -34,6 +34,13 @@ interface GitHubLanguages {
 
 // ─── Helpers ────────────────────────────────────────────────────
 
+function headers(accept: string): Record<string, string> {
+  return {
+    Accept: accept,
+    ...(GITHUB_TOKEN && { Authorization: `Bearer ${GITHUB_TOKEN}` }),
+  }
+}
+
 function formatDate(iso: string): string {
   return new Date(iso).toLocaleDateString('en-US', {
     month: 'short',
@@ -45,7 +52,7 @@ async function fetchReadme(owner: string, repo: string): Promise<string | null> 
   try {
     const res = await fetch(
       `https://api.github.com/repos/${owner}/${repo}/readme`,
-      { headers: { Accept: 'application/vnd.github.v3.raw' } },
+      { headers: headers('application/vnd.github.v3.raw') },
     )
     if (!res.ok) return null
     const text = await res.text()
@@ -59,7 +66,7 @@ async function fetchRecentCommits(owner: string, repo: string, count = 5): Promi
   try {
     const res = await fetch(
       `https://api.github.com/repos/${owner}/${repo}/commits?per_page=${count}`,
-      { headers: { Accept: 'application/vnd.github.v3+json' } },
+      { headers: headers('application/vnd.github.v3+json') },
     )
     if (!res.ok) return []
     const commits = (await res.json()) as GitHubCommit[]
@@ -77,7 +84,7 @@ async function fetchLanguages(owner: string, repo: string): Promise<string[]> {
   try {
     const res = await fetch(
       `https://api.github.com/repos/${owner}/${repo}/languages`,
-      { headers: { Accept: 'application/vnd.github.v3+json' } },
+      { headers: headers('application/vnd.github.v3+json') },
     )
     if (!res.ok) return []
     const langs = (await res.json()) as GitHubLanguages
@@ -95,7 +102,7 @@ async function fetchLanguages(owner: string, repo: string): Promise<string[]> {
 async function ingest(username: string): Promise<KnowledgeNode[]> {
   const res = await fetch(
     `https://api.github.com/users/${username}/repos?per_page=100&sort=updated`,
-    { headers: { Accept: 'application/vnd.github.v3+json' } },
+    { headers: headers('application/vnd.github.v3+json') },
   )
 
   if (!res.ok) throw new Error(`GitHub API error: ${res.status}`)

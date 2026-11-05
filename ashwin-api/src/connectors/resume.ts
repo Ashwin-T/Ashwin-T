@@ -23,7 +23,7 @@ async function fetchResume(pdfUrl: string): Promise<string> {
 
 export const resumeConnector: Connector = {
   name: 'resume',
-  description: "Ashwin's resume — jobs, education, skills, and qualifications",
+  description: "Ashwin's resume — jobs with dates, education with GPA and honors, skills, and projects",
   schema: {
     type: 'object',
     properties: {},
